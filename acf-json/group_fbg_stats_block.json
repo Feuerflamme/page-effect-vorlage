@@ -1,0 +1,301 @@
+{
+  "key": "group_fbg_stats_block",
+  "title": "FBG Hero & Statistiken Block",
+  "fields": [
+    {
+      "key": "field_fbg_hero_tab",
+      "label": "Hero Bereich",
+      "name": "",
+      "aria-label": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0,
+      "selected": 0
+    },
+    {
+      "key": "field_fbg_headline_line1",
+      "label": "Überschrift Zeile 1",
+      "name": "headline_line1",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Erste Zeile der Hauptüberschrift",
+      "required": 1,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "Forstbetriebsgemeinschaft",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_fbg_headline_line2",
+      "label": "Überschrift Zeile 2",
+      "name": "headline_line2",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Zweite Zeile der Hauptüberschrift",
+      "required": 1,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "Gemünden und Umgebung e.V.",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_fbg_navigation_tab",
+      "label": "Navigation",
+      "name": "",
+      "aria-label": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0,
+      "selected": 0
+    },
+    {
+      "key": "field_fbg_button_news_text",
+      "label": "Button 1 Text",
+      "name": "button_news_text",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Text für den ersten Button (z.B. Aktuelles)",
+      "required": 1,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "Aktuelles",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_fbg_button_news_link",
+      "label": "Button 1 Link",
+      "name": "button_news_link",
+      "aria-label": "",
+      "type": "url",
+      "instructions": "Link für den ersten Button",
+      "required": 1,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "#aktuelles",
+      "placeholder": ""
+    },
+    {
+      "key": "field_fbg_button_member_text",
+      "label": "Button 2 Text",
+      "name": "button_member_text",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Text für den zweiten Button (z.B. Mitglied werden)",
+      "required": 1,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "Mitglied Werden",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_fbg_button_member_link",
+      "label": "Button 2 Link",
+      "name": "button_member_link",
+      "aria-label": "",
+      "type": "url",
+      "instructions": "Link für den zweiten Button",
+      "required": 1,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "#mitglied-werden",
+      "placeholder": ""
+    },
+    {
+      "key": "field_fbg_statistics_tab",
+      "label": "Statistiken",
+      "name": "",
+      "aria-label": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0,
+      "selected": 0
+    },
+    {
+      "key": "field_fbg_stats_image",
+      "label": "Bild",
+      "name": "stats_image",
+      "aria-label": "",
+      "type": "image",
+      "instructions": "Bild für den Statistik-Bereich",
+      "required": 1,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "array",
+      "library": "all",
+      "min_width": "",
+      "min_height": "",
+      "min_size": "",
+      "max_width": "",
+      "max_height": "",
+      "max_size": "",
+      "mime_types": "",
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_fbg_counter_hectares",
+      "label": "Hektar Anzahl",
+      "name": "counter_hectares",
+      "aria-label": "",
+      "type": "number",
+      "instructions": "Anzahl der Hektar (z.B. 3635)",
+      "required": 1,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 3635,
+      "min": 0,
+      "max": "",
+      "placeholder": "",
+      "step": 1,
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_fbg_counter_hectares_title",
+      "label": "Hektar Beschriftung",
+      "name": "counter_hectares_title",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Beschriftung für den Hektar-Counter",
+      "required": 1,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "Hektar Mischwald",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_fbg_counter_members",
+      "label": "Mitglieder Anzahl",
+      "name": "counter_members",
+      "aria-label": "",
+      "type": "number",
+      "instructions": "Anzahl der Mitglieder (z.B. 158)",
+      "required": 1,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 158,
+      "min": 0,
+      "max": "",
+      "placeholder": "",
+      "step": 1,
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_fbg_counter_members_title",
+      "label": "Mitglieder Beschriftung",
+      "name": "counter_members_title",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Beschriftung für den Mitglieder-Counter",
+      "required": 1,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "Mitglieder",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "acf/fbg-stats"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "Felder für den FBG Hero & Statistiken Block",
+  "show_in_rest": 0
+}

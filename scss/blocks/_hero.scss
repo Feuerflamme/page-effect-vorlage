@@ -1,0 +1,263 @@
+@use "../abstracts/" as *;
+
+.hero {
+  .container {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin-top: 0;
+
+    @media (min-width: $bp-large) {
+      display: grid;
+      grid-template-columns: repeat(14, 1fr);
+      border-radius: 8px;
+      margin-top: 30px;
+      flex-direction: row;
+      height: auto; //Bildhöhe Figma: 768px + Overflow Text Backgroudn 2*18px
+    }
+
+    // @media (min-width: $bp-xlarge) {
+    //   grid-template-columns: repeat(14, $grid-plus-gap);
+    // }
+    .col-text {
+      display: flex;
+      order: 2;
+
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      color: $color-white;
+      background-color: transparent; // Entferne Hintergrund vom Element selbst
+      position: relative;
+      z-index: 2;
+
+      @media (min-width: $bp-tablet) {
+        // max-width: 618px;
+        top: -30px;
+        max-width: 80%;
+      }
+
+      @media (min-width: $bp-large) {
+        // min-width: 680px;
+        // $max-col-text-width: $grid-plus-gap * 6;
+        // max-width: $max-col-text-width;
+        grid-column: 1/7;
+        width: 100%;
+        max-width: 100%;
+        order: 1;
+        translate: 0 -2.5%;
+        top: 0;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+      }
+      // Trapez-Hintergrund mit ::before Pseudo-Element
+      &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-image: $gradient-accent;
+        z-index: -1; // Hinter dem Text-Inhalt
+        @media (max-width: $bp-tablet) {
+          margin-bottom: 40px;
+        }
+
+        @media (min-width: $bp-tablet) {
+          box-shadow: 20px 0 30px 0 rgba(#000, 0.25);
+          border-top-left-radius: 8px;
+          border-bottom-left-radius: 8px;
+          clip-path: polygon(
+            0 0,
+            100% 0,
+            92% 100%,
+            0% 100%
+          ); // Trapez-Form mit $grid-column Versatz rechts oben und abgerundeter rechter unterer Ecke
+        }
+
+        @media (min-width: $bp-large) {
+          width: 110%;
+          height: 105%;
+
+          clip-path: polygon(
+            0 0,
+            100% 0,
+            92% 100%,
+
+            0% 100%
+          ); // Trapez-Form mit $grid-column Versatz rechts oben und abgerundeter rechter unterer Ecke
+        }
+      }
+
+      .text-wrapper {
+        padding: 35px 13px 50px 13px;
+        // Moderne Browser mit clamp()
+        // padding-top: clamp(32px, $grid-plus-gap, 80px);
+        // padding-right: clamp(16px, $half-grid-plus-gap, 40px);
+        // padding-bottom: clamp(32px, $grid-plus-gap, 80px);
+        // padding-left: clamp(32px, $grid-plus-gap, 80px);
+        @media (min-width: $bp-tablet) {
+          padding: 34px 69px 50px 34px;
+        }
+
+        @media (min-width: $bp-large) {
+          // max-width: 668px;
+          margin-top: 5%;
+          grid-column: 2/8;
+          padding-left: 0;
+        }
+
+        .headline,
+        .btn__text {
+          color: $color-white;
+        }
+
+        .headline-1 {
+          padding-bottom: 25px;
+
+          @media (min-width: $bp-large) {
+            padding-bottom: 34px;
+          }
+        }
+
+        .btn {
+          border-color: $color-white;
+        }
+      }
+    }
+
+    .col-image {
+      // Spezielle Regeln für sehr schmale Bildschirme
+      @media (max-width: $bp-mobile-380px) {
+        min-height: 200px; // Kleinere Mindesthöhe für sehr schmale Screens
+        height: 50vh; // Fallback: 50% der Viewport-Höhe
+        max-height: 300px; // Maximale Höhe begrenzen
+      }
+
+      @media (max-width: $bp-tablet) {
+        order: 1;
+        width: 100%;
+        max-width: 100%;
+        min-height: 251px; // Mindesthöhe für mobile Geräte
+      }
+
+      @media (min-width: $bp-tablet) {
+        grid-column: 7/15;
+      }
+
+      @media (min-width: $bp-desktop) {
+        width: 100%;
+        max-height: 768px;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        min-height: 100%;
+        object-fit: cover;
+        object-position: center;
+
+        // Sicherstellen dass Bild die volle Container-Höhe ausfüllt
+        @media (max-width: $bp-mobile-380px) {
+          min-height: 200px;
+          height: 100%;
+        }
+
+        @media (min-width: $bp-tablet) {
+          min-height: 540px; // Mindesthöhe für Tablets
+          // max-height: 60vh;
+        }
+
+        @media (min-width: $bp-desktop) and (max-width: $bp-large) {
+          max-height: 568px;
+        }
+
+        @media (min-width: $bp-large) {
+          order: 2;
+
+          border-top-right-radius: 8px;
+          border-bottom-right-radius: 8px;
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+          border-left: 1px solid $color-white;
+        }
+      }
+    }
+  }
+
+  &.slider-true {
+    position: relative; // Wichtig für absolute Positionierung der Pagination
+    overflow: visible; // Erlaube Pagination außerhalb zu zeigen
+    .container {
+      @media (max-width: $bp-tablet) {
+        background-image: $gradient-accent;
+      }
+      .col-text {
+        @media (max-width: $bp-tablet) {
+          background-image: $gradient-accent;
+
+          margin-top: 30px;
+        }
+      }
+
+      .col-image {
+        // Slider passt sich der Höhe des Textbereichs an (nur Desktop)
+        @media (min-width: $bp-large) {
+          display: flex;
+          flex-direction: column;
+          min-height: 100%;
+        }
+
+        .custom-slider {
+          // Desktop: flexible Höhe die sich an den Textbereich anpasst
+          @media (min-width: $bp-large) {
+            height: 100%;
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+          }
+
+          .slider-track {
+            @media (min-width: $bp-large) {
+              height: 100%;
+              min-height: 100%;
+            }
+          }
+
+          .slide {
+            @media (min-width: $bp-large) {
+              height: 100%;
+              min-height: 100%;
+            }
+          }
+        }
+
+        .custom-pagination {
+          bottom: -40px; // Hero pagination below the container
+
+          @media (max-width: $bp-tablet) {
+            .pagination-bullet {
+              border-color: $color-white;
+              background-color: transparent;
+
+              &:hover,
+              &.active {
+                background-color: $color-white;
+              }
+            }
+          }
+        }
+
+        .slide {
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; // Full coverage for hero images
+          }
+        }
+      }
+    }
+  }
+}

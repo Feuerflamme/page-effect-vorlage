@@ -1,0 +1,344 @@
+{
+  "key": "group_690b378ad18ed",
+  "title": "Globale Einstellungen fields",
+  "fields": [
+    {
+      "key": "field_690b44c498e37",
+      "label": "Akzent-Farbe",
+      "name": "akzent-farbe",
+      "aria-label": "",
+      "type": "color_picker",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "#007fa3",
+      "enable_opacity": 0,
+      "return_format": "string",
+      "allow_in_bindings": 0,
+      "show_custom_palette": 0,
+      "show_color_wheel": 1,
+      "custom_palette_source": "",
+      "palette_colors": ""
+    },
+    {
+      "key": "field_691e37a47107f",
+      "label": "Akzentfarbe abdunkeln  (Prozent)",
+      "name": "darken",
+      "aria-label": "",
+      "type": "range",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 0,
+      "min": "",
+      "max": 10,
+      "allow_in_bindings": 0,
+      "step": "0.5",
+      "prepend": "",
+      "append": "/ 10"
+    },
+    {
+      "key": "field_690b378b5cb16",
+      "label": "Logo",
+      "name": "th_logo",
+      "aria-label": "",
+      "type": "image",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "array",
+      "library": "all",
+      "min_width": "",
+      "min_height": "",
+      "min_size": "",
+      "max_width": "",
+      "max_height": "",
+      "max_size": "",
+      "mime_types": "",
+      "allow_in_bindings": 0,
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_690b37b15cb17",
+      "label": "Logo des deutschen Onkologie Netzwerks",
+      "name": "logo_don",
+      "aria-label": "",
+      "type": "image",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "array",
+      "library": "all",
+      "min_width": "",
+      "min_height": "",
+      "min_size": "",
+      "max_width": "",
+      "max_height": "",
+      "max_size": "",
+      "mime_types": "",
+      "allow_in_bindings": 0,
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_690b37f25cb19",
+      "label": "Email-Adresse",
+      "name": "email",
+      "aria-label": "",
+      "type": "email",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "allow_in_bindings": 0,
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_690b37e05cb18",
+      "label": "Telefonnummer (Eingabe ohne Ländervorwahl und ohne führende \"0\" - erfolgt automatisch)",
+      "name": "phone",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "allow_in_bindings": 0,
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_690b382f5cb1a",
+      "label": "Telefax",
+      "name": "telefax",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "allow_in_bindings": 0,
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_690b386c5cb1b",
+      "label": "Adresse",
+      "name": "adresse",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "Mustermann-Straße 12, 123456 Musterstadt",
+      "maxlength": "",
+      "allow_in_bindings": 0,
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_690b38a85cb1c",
+      "label": "Copyright-Hinweis (Eingabe ohne ©-Zeichen - erfolgt automatisch)",
+      "name": "copyright",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "allow_in_bindings": 0,
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_690b38d55cb1d",
+      "label": "Impressum",
+      "name": "impressum",
+      "aria-label": "",
+      "type": "page_link",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "post_type": ["page"],
+      "post_status": "",
+      "taxonomy": "",
+      "allow_archives": 1,
+      "multiple": 0,
+      "allow_null": 0,
+      "allow_in_bindings": 0
+    },
+    {
+      "key": "field_690b39a75cb21",
+      "label": "Social Media",
+      "name": "some",
+      "aria-label": "",
+      "type": "repeater",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "table",
+      "pagination": 0,
+      "min": 0,
+      "max": 0,
+      "collapsed": "",
+      "button_label": "Add Row",
+      "rows_per_page": 20,
+      "sub_fields": [
+        {
+          "key": "field_690b3a3bf7953",
+          "label": "Profil Link",
+          "name": "profil_link",
+          "aria-label": "",
+          "type": "url",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "allow_in_bindings": 0,
+          "placeholder": "",
+          "parent_repeater": "field_690b39a75cb21"
+        },
+        {
+          "key": "field_690b3a56f7954",
+          "label": "Plattform auswählen",
+          "name": "plattform_auswahlen",
+          "aria-label": "",
+          "type": "select",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "choices": {
+            "facebook": "Facebook",
+            "instagram": "Instagram",
+            "linkedin": "LinkedIN"
+          },
+          "default_value": false,
+          "return_format": "value",
+          "multiple": 0,
+          "allow_null": 0,
+          "allow_in_bindings": 0,
+          "ui": 0,
+          "ajax": 0,
+          "placeholder": "",
+          "create_options": 0,
+          "save_options": 0,
+          "parent_repeater": "field_690b39a75cb21"
+        }
+      ]
+    },
+    {
+      "key": "field_692f3d3c8f823",
+      "label": "Datum der Datenschutzerklärung",
+      "name": "last_update",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "allow_in_bindings": 0,
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "options_page",
+        "operator": "==",
+        "value": "globale-einstellungen"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 0,
+  "display_title": "",
+  "modified": 1764713160
+}

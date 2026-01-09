@@ -1,0 +1,87 @@
+{
+  "name": "Forstgemeinschaft-theme",
+  "version": "1.0.0",
+  "description": "Modern WordPress theme with advanced build tools",
+  "main": "build/index.js",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "scripts": {
+    "dev": "wp-scripts start --mode=development",
+    "dev:hot": "wp-scripts start --hot",
+    "dev:fast": "wp-scripts start --mode=development",
+    "dev:watch": "wp-scripts build --mode=development --watch",
+    "build": "wp-scripts build --mode=production",
+    "build:dev": "wp-scripts build --mode=development",
+    "build:all": "npm run clean && npm run lint:js && npm run build && npm run version:bump && npm run zip:production",
+    "build:fast": "npm run clean && npm run build:dev",
+    "build:production": "npm run build:all",
+    "build:analyze": "npm run build -- --webpack-bundle-analyzer",
+    "build:watch": "wp-scripts build --mode=development --watch",
+    "version:bump": "node scripts/bump-version.js",
+    "zip:production": "node scripts/create-production-zip.js",
+    "lint": "npm run lint:js && npm run lint:css",
+    "lint:js": "wp-scripts lint-js src/",
+    "lint:css": "wp-scripts lint-style scss/",
+    "lint:php": "composer run lint",
+    "format": "npm run format:js && npm run format:css",
+    "format:js": "wp-scripts format src/",
+    "format:css": "wp-scripts lint-style scss/ --fix",
+    "test": "wp-scripts test-unit-js",
+    "test:watch": "npm run test -- --watch",
+    "clean": "rimraf build/ node_modules/.cache/",
+    "type-check": "tsc --noEmit",
+    "precommit": "lint-staged",
+    "prepare": "husky"
+  },
+  "keywords": [
+    "wordpress",
+    "theme",
+    "modern",
+    "webpack",
+    "scss",
+    "javascript"
+  ],
+  "author": "Your Name <your.email@example.com>",
+  "license": "GPL-2.0-or-later",
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ],
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "wp-scripts format",
+      "wp-scripts lint-js --fix"
+    ],
+    "*.{css,scss}": [
+      "wp-scripts lint-style --fix"
+    ],
+    "*.php": [
+      "composer run format"
+    ]
+  },
+  "devDependencies": {
+    "@types/wordpress__blocks": "^12.5.0",
+    "@types/wordpress__components": "^23.8.0",
+    "@types/wordpress__editor": "^13.6.0",
+    "@types/wordpress__media-utils": "^5.8.0",
+    "@wordpress/icons": "^10.8.0",
+    "@wordpress/scripts": "^19.2.4",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.10",
+    "postcss-scss": "^4.0.9",
+    "rimraf": "^6.1.2",
+    "typescript": "^5.6.3",
+    "webpack-bundle-analyzer": "^4.10.2"
+  },
+  "dependencies": {
+    "@fontsource/lato": "^5.2.7"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  }
+}

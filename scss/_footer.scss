@@ -1,0 +1,109 @@
+@use "abstracts/" as *;
+.footer {
+  .container.top {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+    row-gap: $grid-gap;
+    padding: 39px $grid-gap 31px $grid-gap;
+
+    border-top: 1px solid $color-primary;
+
+    @media (min-width: $bp-tablet) {
+      column-gap: $grid-plus-gap;
+    }
+
+    @media (min-width: $bp-large) {
+      padding: 54px $grid-plus-gap 54px $grid-plus-gap;
+      flex-direction: row;
+      align-items: center;
+    }
+    .logo {
+      width: 232px;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+    .address-wrapper {
+      font-size: 0.9375rem; // 15px ÷ 16 = 0.9375rem
+      line-height: 1.625rem; // 26px ÷ 16 = 1.625rem
+
+      @media (min-width: $bp-large) {
+        font-size: 1.375rem; // 22px ÷ 16 = 1.375rem
+        line-height: 2.5rem; // 40px ÷ 16 = 2.5rem
+      }
+      a {
+        text-decoration: none;
+        display: block;
+      }
+    }
+
+    .col-right {
+      .some-wrapper {
+        @media (max-width: $bp-large) {
+          padding-bottom: 40px;
+        }
+      }
+
+      .some {
+        color: transparent;
+
+        .icon {
+          color: var(--acf-primary, #{$color-accent});
+          font-size: 2.5rem; // 40px ÷ 16 = 2.5rem
+          transition: color 0.3s ease;
+
+          @media (min-width: $bp-large) {
+            font-size: 3.125rem; // 50px ÷ 16 = 3.125rem
+          }
+        }
+
+        &:hover,
+        &:focus {
+          .icon {
+            color: $color-accent-dark;
+          }
+        }
+      }
+      .copyright {
+        font-size: 0.9375rem; // 15px ÷ 16 = 0.9375rem
+        line-height: 1.375rem; // 22px ÷ 16 = 1.375rem
+
+        @media (min-width: $bp-large) {
+          font-size: 1.125rem; // 18px ÷ 16 = 1.125rem
+          line-height: 2.5rem; // 40px ÷ 16 = 2.5rem
+          padding-top: 20px;
+        }
+      }
+    }
+  }
+  .container.bottom-bar {
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
+    background-color: $color-primary;
+
+    .wrapper {
+      padding: 0 $grid-gap;
+      display: flex;
+      flex-direction: row;
+      gap: 40px;
+      @media (min-width: $bp-large) {
+        padding: 0 $grid-plus-gap;
+      }
+    }
+
+    a {
+      font-weight: 18px;
+      line-height: 2.5rem; // 40px ÷ 16 = 2.5rem
+      color: $color-white;
+      text-decoration: none;
+    }
+  }
+}

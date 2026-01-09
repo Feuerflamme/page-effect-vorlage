@@ -1,0 +1,55 @@
+// Font Family
+$font-lato:
+  "Lato",
+  -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  Roboto,
+  sans-serif;
+
+// Border radius
+$border-radius: 8px;
+
+// Breakpoints (Mobile First)
+$bp-mobile-380px: 380px; // Small phones
+$bp-mobile: 480px; // Large phones
+$bp-tablet: 768px; // Tablets & small laptops
+$bp-desktop: 1024px; // Desktop
+$bp-large: 1450px; // Large screens
+$bp-xlarge: 1920px; // Extra large screens
+
+// Colors
+$color-primary: #545454;
+$color-accent: #6faabc; // Fallback color
+$color-accent-dark: var(--acf-primary-dark, #{darken($color-accent, 30%)});
+$color-accent-darken: var(--acf-primary-dark, #{darken($color-accent, 10%)});
+$color-blue-light: #007fa3;
+$color-background: #f6f6f6;
+$color-white: #ffffff;
+
+// Vorstellung Block specific colors
+$color-vorstellung-primary: #55677f; // Blue
+$color-vorstellung-secondary: #228b22; // Green
+$color-vorstellung-accent: #ffba5a; // Orange
+$color-vorstellung-text-light: #ffffff;
+$color-vorstellung-text-dark: #333333;
+$color-vorstellung-overlay: rgba(7, 6, 6, 0.33);
+
+$gradient-accent: linear-gradient(
+  90deg,
+  var(--acf-primary, #{$color-accent}) 0%,
+  $color-accent-dark 100%
+);
+
+// Grid Layout - Zoom-friendly with fixed pixels
+// Es gibt 14 Spalten im Grid
+// Zwischen den Spalten ist ein Abstand von 30px
+// Insgesamt gibt es 13 Abstände (Gaps)
+$grid-column: 109px; // Feste Pixelgröße - skaliert mit Browser-Zoom
+$grid-gap: 30px; // Feste Pixelgröße - skaliert mit Browser-Zoom
+$grid-plus-gap: 139px;
+$half-grid-column: 55px; // $grid-column / 2 = 109px / 2
+$half-grid-plus-gap: 69px; // $grid-plus-gap / 2 = 139px / 2
+//vertical spacing
+// $spacing-small: 22px;
+// $spacing-medium: 51px;

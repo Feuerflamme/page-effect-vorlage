@@ -1,0 +1,154 @@
+@use "../abstracts/" as *;
+
+// hide global popup space after footer
+.module.global-popup {
+  height: 0;
+}
+
+// Global Popup - Initially hidden, shows after 8 seconds
+.popup-active {
+  .popup-content.global-popup {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+      opacity 0.6s ease,
+      visibility 0.6s ease;
+
+    // Animation: Show after 8 seconds
+    animation: showGlobalPopup 0.6s ease forwards;
+    animation-delay: 1s;
+  }
+
+  @keyframes showGlobalPopup {
+    0% {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: scale(1);
+    }
+  }
+}
+
+// all Popups
+
+.popup-active {
+  overflow: hidden;
+  // Additional styles for body when popup is active
+
+  .container {
+    .text-wrapper {
+      &.popup-active {
+        .popup-content {
+          display: block;
+          width: 100vw;
+          height: 100vh;
+          position: fixed;
+          top: 0;
+          left: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: var(--acf-primary, #{$color-accent});
+          z-index: 999;
+
+          &.global-popup {
+            background-color: rgba(
+              from var(--acf-primary, #{$color-accent}) r g b / 0.5
+            );
+          }
+          .nav-close {
+            align-self: flex-end;
+          }
+          .popup-wrapper {
+            display: flex;
+            flex-direction: column;
+            background-color: $color-white;
+            border-radius: 8px;
+            max-width: 1400px;
+            max-height: calc(
+              100vh - 100px
+            ); // Begrenzt die Gesamthöhe des Popups
+            width: 100%;
+
+            margin: 53px 13px;
+
+            padding: 25px 22px 50px 22px;
+
+            @media (min-width: $bp-desktop) {
+              margin: 50px;
+              max-height: calc(100vh - 100px);
+            }
+
+            .pop-text-wrapper {
+              flex: 1; // Nimmt den verfügbaren Platz im Flex-Container ein
+              overflow-y: auto;
+              overflow-x: hidden;
+              min-height: 0; // Ermöglicht Flex-Shrinking für Scroll-Verhalten
+              -webkit-overflow-scrolling: touch; // Smooth scrolling auf iOS
+              scrollbar-width: thin; // Firefox: dünne Scrollbar
+
+              // Webkit-Browser (Chrome, Safari) - Custom Scrollbar
+              &::-webkit-scrollbar {
+                width: 6px;
+              }
+
+              &::-webkit-scrollbar-track {
+                background: transparent;
+              }
+
+              &::-webkit-scrollbar-thumb {
+                background: rgba(0, 0, 0, 0.2);
+                border-radius: 3px;
+
+                &:hover {
+                  background: rgba(0, 0, 0, 0.4);
+                }
+              }
+
+              @media (min-width: $bp-desktop) {
+                padding: 59px 130px 140px 130px;
+              }
+
+              .headline-4 {
+                color: var(--acf-primary, #{$color-accent});
+                font-size: 1.5rem; // 24px ÷ 16 = 1.5rem
+                line-height: 2rem; // 32px ÷ 16 = 2rem
+                margin-bottom: 20px;
+                font-weight: 400;
+                @media (min-width: $bp-desktop) {
+                  font-size: 3rem; // 48px ÷ 16 = 3rem
+                  line-height: 4rem; // 64px ÷ 16 = 4rem
+                  margin-bottom: 50px;
+                }
+              }
+
+              .headline-5 {
+                color: $color-primary;
+                font-size: 0.9375rem; // 15px ÷ 16 = 0.9375rem
+                line-height: 1.625rem; // 26px ÷ 16 = 1.625rem
+                margin-bottom: 5px;
+                font-weight: 700;
+                @media (min-width: $bp-desktop) {
+                  font-size: 1.75rem; // 28px ÷ 16 = 1.75rem
+                  line-height: 2.5rem; // 40px ÷ 16 = 2.5rem
+                  margin-bottom: 8px;
+                }
+              }
+
+              .cv-block {
+                padding-bottom: 2em;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

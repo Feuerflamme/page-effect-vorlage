@@ -1,0 +1,150 @@
+@use "../abstracts/" as *;
+
+.block-image {
+  // Wrapper soll nur so breit sein wie das Bild
+  overflow: visible;
+  max-height: auto;
+
+  //used below
+  $max-height: calc(800px - 35px);
+
+  img {
+    display: block; // Bild als Block-Element
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    border-radius: $border-radius;
+    object-fit: cover;
+    max-height: $max-height;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+  }
+
+  &.has-background .container {
+    background-color: $color-white;
+    background-image: none;
+
+    .wrapper {
+      position: relative;
+      overflow: visible;
+      // width: fit-content;
+      // display: inline-block;
+      width: 100%;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 35px;
+        left: -139px;
+        width: calc(100% - $grid-plus-gap);
+        max-height: $max-height;
+        height: 100%;
+        z-index: 0;
+        border-radius: $border-radius;
+
+        @media (max-width: $bp-large) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &.hintergrundfarbe-color_accent .container {
+    .wrapper {
+      @media (min-width: $bp-large) {
+        &::before {
+          // background-color: var(--acf-primary, #{$color-accent});
+          background-image: $gradient-accent;
+        }
+      }
+    }
+  }
+
+  &.hintergrundfarbe-color_primary .container {
+    .wrapper {
+      @media (min-width: $bp-large) {
+        &::before {
+          background-color: $color-primary;
+        }
+      }
+    }
+  }
+
+  &.hintergrundfarbe-color_light_grey .container {
+    .wrapper {
+      @media (min-width: $bp-large) {
+        &::before {
+          background-color: $color-background;
+        }
+      }
+    }
+  }
+
+  &.slider-true .container {
+    // padding-right: $grid-plus-gap;
+    // max-height: 600px;
+
+    .wrapper {
+      // width: 1642px;
+      width: 100%;
+      max-width: 100%;
+
+      @media (max-width: $bp-xlarge) {
+        // width: 1200px;
+        height: 800px;
+      }
+
+      @media (max-width: $bp-desktop) {
+        width: 834px;
+        height: 628px;
+      }
+
+      @media (max-width: $bp-tablet) {
+        width: 768px;
+        height: 375px;
+      }
+      @media (max-width: $bp-mobile) {
+        width: 100vw;
+        height: 300px;
+      }
+    }
+
+    .slider-track {
+      overflow-y: visible;
+      border-radius: $border-radius;
+      .slide img {
+        // width: 1642px;
+        width: 100%;
+        height: 800px;
+        object-fit: cover;
+        max-width: 100vw;
+        border-radius: $border-radius;
+
+        @media (max-width: $bp-xlarge) {
+          // width: 1200px;
+          height: 800px;
+        }
+
+        @media (max-width: $bp-desktop) {
+          width: 834px;
+          height: 628px;
+        }
+
+        @media (max-width: $bp-tablet) {
+          width: 768px;
+          height: 375px;
+        }
+        @media (max-width: $bp-mobile) {
+          width: 100vw;
+          height: 300px;
+        }
+      }
+    }
+
+    .slider-nav {
+      z-index: 9;
+      bottom: 10px;
+    }
+  }
+}

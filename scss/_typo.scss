@@ -1,0 +1,210 @@
+@use "abstracts/" as *;
+
+// Root font-size für rem-Berechnungen (Browser-Standard: 16px)
+:root {
+  font-size: 16px; // 1rem = 16px für konsistente Umrechnung
+}
+
+body {
+  font-family: $font-lato;
+  letter-spacing: 2%;
+  color: $color-primary;
+  font-display: swap; /* Zeigt Fallback sofort, tauscht dann */
+}
+
+.bold,
+strong {
+  font-weight: 700;
+}
+
+.light {
+  font-weight: 300;
+}
+
+ol,
+ol li {
+  list-style-type: decimal;
+}
+
+// Fix Fontello
+body .icon::before {
+  width: auto;
+}
+.headline-1,
+h1 {
+  // Responsive Typography mit clamp() - konvertiert zu rem
+  font-size: clamp(
+    2.0625rem,
+    4vw + 1rem,
+    4.25rem
+  ); // 33px-68px ÷ 16 = 2.0625rem-4.25rem
+  line-height: clamp(
+    2.5rem,
+    4.5vw + 1.2rem,
+    4.875rem
+  ); // 40px-78px ÷ 16 = 2.5rem-4.875rem
+  font-weight: 300;
+  word-break: break-word; // Für sehr lange Headlines
+}
+
+.headline-2,
+h2 {
+  font-size: 1.75rem; // 28px ÷ 16 = 1.75rem
+  line-height: 2.25rem; // 36px ÷ 16 = 2.25rem
+  font-weight: 300;
+  color: var(--acf-primary, #{$color-accent});
+  padding-bottom: 0.75em;
+  @media (min-width: $bp-tablet) {
+    font-size: 2.125rem; // 34px ÷ 16 = 2.125rem
+    line-height: 2.625rem; // 42px ÷ 16 = 2.625rem
+  }
+
+  @media (min-width: $bp-large) {
+    font-size: 3.375rem; // 54px ÷ 16 = 3.375rem
+    line-height: 4rem; // 64px ÷ 16 = 4rem
+    padding-bottom: 2.125rem; // 34px ÷ 16 = 2.125rem
+  }
+}
+
+.headline-3,
+h3 {
+  font-size: 1.5rem; // 24px ÷ 16 = 1.5rem
+  line-height: 2rem; // 32px ÷ 16 = 2rem
+  font-weight: 700;
+
+  @media (min-width: $bp-tablet) {
+    font-size: 1.75rem; // 28px ÷ 16 = 1.75rem
+    line-height: 2.25rem; // 36px ÷ 16 = 2.25rem
+  }
+
+  @media (min-width: $bp-large) {
+    font-size: 2.25rem; // 36px ÷ 16 = 2.25rem
+    line-height: 2.875rem; // 46px ÷ 16 = 2.875rem
+  }
+}
+
+.headline-4,
+h4 {
+  font-size: 1.0625rem; // 17px ÷ 16 = 1.0625rem
+  line-height: 1.5rem; // 24px ÷ 16 = 1.5rem
+  font-weight: 700;
+  @media (min-width: $bp-tablet) {
+    font-size: 1.1875rem; // 19px ÷ 16 = 1.1875rem
+    line-height: 1.625rem; // 26px ÷ 16 = 1.625rem
+  }
+
+  @media (min-width: $bp-large) {
+    font-size: 1.5rem; // 24px ÷ 16 = 1.5rem
+    line-height: 2.375rem; // 38px ÷ 16 = 2.375rem
+  }
+}
+
+.headline-5,
+h5 {
+  font-size: 0.9375rem; // 15px ÷ 16 = 0.9375rem
+  line-height: 1.625rem; // 26px ÷ 16 = 1.625rem
+  font-weight: 700;
+
+  @media (min-width: $bp-tablet) {
+    font-size: 1.0625rem; // 17px ÷ 16 = 1.0625rem
+    line-height: 1.75rem; // 28px ÷ 16 = 1.75rem
+  }
+
+  @media (min-width: $bp-large) {
+    font-size: 1.25rem; // 20px ÷ 16 = 1.25rem
+    line-height: 1.625rem; // 26px ÷ 16 = 1.625rem
+  }
+}
+
+.subheadline {
+  font-size: 1.0625rem; // 17px ÷ 16 = 1.0625rem
+  line-height: 1.5rem; // 24px ÷ 16 = 1.5rem
+  font-weight: 700;
+  padding-bottom: 0.75em;
+
+  @media (min-width: $bp-tablet) {
+    font-size: 1.1875rem; // 19px ÷ 16 = 1.1875rem
+    line-height: 1.625rem; // 26px ÷ 16 = 1.625rem
+  }
+
+  @media (min-width: $bp-large) {
+    font-size: 1.5rem; // 24px ÷ 16 = 1.5rem
+    line-height: 2.375rem; // 38px ÷ 16 = 2.375rem
+  }
+}
+
+p,
+.paragraph {
+  font-size: 0.9375rem; // 15px ÷ 16 = 0.9375rem
+  line-height: 1.625rem; // 26px ÷ 16 = 1.625rem
+  @media (min-width: $bp-tablet) {
+    font-size: 1.0625rem; // 17px ÷ 16 = 1.0625rem
+    line-height: 1.75rem; // 28px ÷ 16 = 1.75rem
+  }
+
+  @media (min-width: $bp-large) {
+    font-size: 1.25rem; // 20px ÷ 16 = 1.25rem
+    line-height: 2.25rem; // 36px ÷ 16 = 2.25rem
+  }
+}
+
+.text-wrapper p + p {
+  margin-top: 1.4em;
+}
+
+.textblock,
+.text-wrapper {
+  ul,
+  ol {
+    padding: 0.5em 0 2em 0;
+
+    li {
+      font-size: 0.9375rem; // 15px ÷ 16 = 0.9375rem
+      line-height: 1.625rem; // 26px ÷ 16 = 1.625rem
+
+      @media (min-width: $bp-tablet) {
+        font-size: 1.0625rem; // 17px ÷ 16 = 1.0625rem
+        line-height: 1.75rem; // 28px ÷ 16 = 1.75rem
+      }
+
+      @media (min-width: $bp-large) {
+        font-size: 1.25rem; // 20px ÷ 16 = 1.25rem
+        line-height: 2.25rem; // 36px ÷ 16 = 2.25rem
+      }
+    }
+  }
+
+  ol {
+    padding-left: 1em;
+    li {
+      padding-left: 0.5em;
+    }
+  }
+
+  ul {
+    list-style: none;
+    li {
+      position: relative;
+      padding-left: 1.5em;
+
+      // Custom bullet with perfect alignment
+      &::before {
+        content: "•";
+        font-weight: bold;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+    }
+  }
+
+  a {
+    color: var(--acf-primary, #{$color-accent});
+    text-decoration: none;
+    font-weight: 700;
+  }
+}
+
+.error404 .main p {
+  font-size: 1.625rem; // 26px ÷ 16 = 1.625rem
+}

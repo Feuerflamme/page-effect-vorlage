@@ -1,0 +1,25 @@
+{
+  "name": "page-effect-vorlage/theme",
+  "description": "Modern WordPress theme with PHP standards",
+  "type": "wordpress-theme",
+  "require": {
+    "php": ">=8.0"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^3.7",
+    "wp-coding-standards/wpcs": "^3.0",
+    "phpcompatibility/php-compatibility": "^9.3"
+  },
+  "scripts": {
+    "lint": "phpcs --standard=WordPress .",
+    "format": "phpcbf --standard=WordPress .",
+    "post-install-cmd": [
+      "phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs"
+    ]
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
+  }
+}

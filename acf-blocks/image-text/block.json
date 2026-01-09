@@ -1,0 +1,17 @@
+{
+  "name": "acf/image-text",
+  "title": "Image & Text",
+  "description": "Image & Text in a row",
+  "category": "",
+  "icon": "align-left",
+  "keywords": ["text", "image"],
+  "acf": {
+    "mode": "edit",
+    "renderTemplate": "renderTemplate.php"
+  },
+  "supports": {
+    "align": [""],
+    "customClassName": false,
+    "anchor": true
+  }
+}

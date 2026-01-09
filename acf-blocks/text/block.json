@@ -1,0 +1,17 @@
+{
+  "name": "acf/text",
+  "title": "Text",
+  "description": "Textblock ohne Bilder mit Background-Color Option",
+  "category": "",
+  "icon": "align-left",
+  "keywords": ["text"],
+  "acf": {
+    "mode": "edit",
+    "renderTemplate": "renderTemplate.php"
+  },
+  "supports": {
+    "align": [""],
+    "customClassName": false,
+    "anchor": true
+  }
+}

@@ -1,0 +1,41 @@
+@use "abstracts/" as *;
+
+button {
+  background: none;
+  border: inherit;
+  padding: inherit;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.btn {
+  text-decoration: none;
+  font-weight: 700;
+  display: block;
+  padding: 0.55em 2.2em;
+  width: fit-content;
+  margin-bottom: 29px;
+  margin-top: 40px;
+  cursor: pointer;
+  border-radius: $border-radius;
+  border: 1px solid var(--acf-primary, #{$color-accent});
+  color: var(--acf-primary, #{$color-accent});
+  min-width: 252px;
+  font-size: 0.875rem; // 14px ÷ 16 = 0.875rem
+  line-height: 1.5rem; // 24px ÷ 16 = 1.5rem
+  height: 45px;
+  text-align: center;
+
+  @media (min-width: $bp-large) {
+    font-size: 1.5rem; // 24px ÷ 16 = 1.5rem
+    line-height: 2.5rem; // 40px ÷ 16 = 2.5rem
+    height: 70px;
+    min-width: 388px;
+  }
+  &:hover {
+    opacity: unset;
+    background-color: var(--acf-primary-dark, #{darken($color-accent, 10%)});
+    color: $color-white;
+  }
+}

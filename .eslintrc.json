@@ -1,0 +1,45 @@
+{
+  "extends": ["eslint:recommended"],
+  "env": {
+    "browser": true,
+    "es2020": true,
+    "node": true,
+    "jquery": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "globals": {
+    "wp": "readonly",
+    "wpApiSettings": "readonly",
+    "jQuery": "readonly",
+    "$": "readonly"
+  },
+  "rules": {
+    "no-console": "warn",
+    "no-unused-vars": "warn",
+    "no-undef": "error",
+    "no-redeclare": "error",
+    "prefer-const": "warn",
+    "no-var": "warn"
+  },
+  "overrides": [
+    {
+      "files": ["acf-blocks/**/*.js"],
+      "globals": {
+        "acf": "readonly"
+      }
+    },
+    {
+      "files": ["scripts/**/*.js"],
+      "env": {
+        "node": true,
+        "browser": false
+      }
+    }
+  ]
+}

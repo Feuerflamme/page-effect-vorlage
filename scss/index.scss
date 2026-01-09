@@ -1,0 +1,23 @@
+// Import abstracts (variables, mixins, functions)
+@use "abstracts/" as abstracts;
+
+// Base styles
+@use "base";
+@use "typo";
+
+// Components
+@use "buttons";
+@use "menu";
+@use "components/popup";
+@use "components/custom-slider";
+@use "components/legal";
+
+// Layout
+@use "header";
+@use "footer";
+
+// Blocks
+@use "blocks/" as blocks;
+
+// 3rd party package
+// @use "../node_modules/simple-lightbox/dist/simpleLightbox.css";

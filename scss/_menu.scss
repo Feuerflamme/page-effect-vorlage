@@ -1,0 +1,205 @@
+@use "abstracts/" as *;
+
+.nav-open .main {
+  filter: blur(8px);
+}
+
+.header .navigation {
+  // Immer display: flex, aber versteckt
+  display: flex;
+  position: fixed;
+  justify-content: flex-end;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  min-height: 100vh;
+  overflow-y: auto;
+  top: 0;
+  z-index: 9999;
+  background-color: rgba(255, 255, 255, 0.4);
+
+  // Versteckt durch Transform + Opacity (animierbar!)
+  transform: translateX(100%);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    transform 0.6s ease,
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+
+  &.active {
+    // Sichtbar durch animierbare Properties
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+    .nav-wrapper {
+      min-width: 320px;
+      width: 90%;
+      min-height: 100vh;
+      height: max-content;
+      padding: 30px;
+
+      background-color: $color-white;
+      box-shadow: -20px 20px 50px 0 rgba(#000, 0.1);
+      @media (min-width: $bp-tablet) {
+        width: 55%;
+      }
+      @media (min-width: $bp-large) {
+        max-width: 727px;
+        padding: 58px 100px;
+      }
+      .nav-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        border-bottom: 1px solid $color-primary;
+        padding-bottom: 50px;
+
+        .nav-title {
+          font-size: 1.5rem; // 24px ÷ 16 = 1.5rem
+        }
+      }
+
+      .nav-menu {
+        display: flex;
+        flex-direction: column;
+
+        .menu-item {
+          padding: 22px 0;
+          border-bottom: 1px solid $color-primary;
+          display: flex;
+
+          a {
+            display: flex;
+            justify-content: stretch;
+            color: $color-primary;
+            font-size: 1.5rem; // 24px ÷ 16 = 1.5rem
+            font-weight: 700;
+            line-height: 2.375rem; // 38px ÷ 16 = 2.375rem
+            text-decoration: none;
+            &:hover,
+            &:focus {
+              color: $color-accent-dark;
+            }
+          }
+          &.current-menu-item:not(.menu-item-type-custom) {
+            a {
+              color: var(--acf-primary, #{$color-accent});
+            }
+            .sub-menu a {
+              color: $color-primary;
+            }
+          }
+
+          &.menu-item-has-children {
+            justify-content: space-between;
+            flex-wrap: wrap;
+
+            .submenu-toggle {
+              color: var(--acf-primary, #{$color-accent});
+              margin-right: 20px;
+
+              background: none;
+              border: none;
+              cursor: pointer;
+              align-self: center;
+              font-size: 0.875rem; // 14px ÷ 16 = 0.875rem
+              line-height: 1;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              min-width: 18px;
+              min-height: 24px;
+              padding: 0;
+
+              .icon-down {
+                transition: transform 0.3s ease;
+              }
+
+              &:hover,
+              &:focus {
+                color: $color-accent-dark;
+              }
+            }
+          }
+
+          .sub-menu {
+            display: block;
+            width: 100%;
+            margin-top: 0;
+            max-height: 0;
+            overflow: hidden;
+            padding-top: 0;
+            transition:
+              max-height 0.3s ease,
+              padding-top 0.3s ease;
+
+            &.active {
+              max-height: 500px; // Generous max-height for smooth animation
+              padding-top: 22px;
+            }
+            .menu-item {
+              border: none;
+              padding-top: 0;
+
+              &:last-child {
+                padding-bottom: 15px;
+              }
+
+              a {
+                font-weight: 400;
+                font-size: 1.125rem; // 18px ÷ 16 = 1.125rem
+                line-height: 1.5rem; // 24px ÷ 16 = 1.5rem
+                &:hover,
+                &:focus {
+                  color: $color-accent-dark;
+                }
+
+                &::before {
+                  content: "\25B6";
+                  margin-right: 10px;
+                  color: var(--acf-primary, #{$color-accent});
+                  font-size: 0.5625rem; // 9px ÷ 16 = 0.5625rem
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .contact-wrapper {
+        flex-direction: column;
+        display: flex;
+        gap: 25px;
+        padding: 50px 0 50px 0;
+        @media (min-width: $bp-large) {
+          gap: 25px;
+        }
+
+        i {
+          font-size: 1.125rem; // 18px ÷ 16 = 1.125rem
+          width: 35px;
+          height: 35px;
+          ::before {
+            font-size: 1.125rem; // 18px ÷ 16 = 1.125rem
+            margin: 0;
+            width: 35px;
+            height: 35px;
+          }
+        }
+      }
+
+      .some-wrapper {
+        flex-direction: row;
+        display: flex;
+        padding-bottom: 50px;
+
+        .some {
+          color: var(--acf-primary, #{$color-accent});
+          font-size: 3.125rem; // 50px ÷ 16 = 3.125rem
+        }
+      }
+    }
+  }
+}

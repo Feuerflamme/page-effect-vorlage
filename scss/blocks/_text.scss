@@ -1,0 +1,46 @@
+@use "../abstracts/" as *;
+
+.block-text {
+  .container {
+    @media (min-width: $bp-large) {
+      $margin: 2 * $grid-plus-gap;
+      margin-left: $margin;
+      margin-right: $margin;
+
+      padding-left: $grid-plus-gap;
+      padding-right: $grid-plus-gap;
+    }
+    .text-wrapper {
+      @media (min-width: $bp-large) {
+        $max-text-width: $grid-plus-gap * 7;
+        max-width: $max-text-width;
+        margin-left: 0;
+        margin-right: auto;
+      }
+
+      &.is-quote {
+        width: 100%;
+        $max-text-width: $grid-plus-gap * 7 + $grid-column;
+        max-width: $max-text-width;
+        .author {
+          font-weight: 700;
+          font-size: 1.5rem; // 24px ÷ 16 = 1.5rem
+          line-height: 2.375rem; // 38px ÷ 16 = 2.375rem
+          font-style: normal;
+          padding-bottom: 10px;
+          display: block;
+        }
+
+        .quote-content {
+          font-style: italic;
+
+          p {
+            font-size: 2.125rem; // 34px ÷ 16 = 2.125rem
+            line-height: 2.875rem; // 46px ÷ 16 = 2.875rem
+            font-weight: 300;
+          }
+        }
+      }
+    }
+  }
+}

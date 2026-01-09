@@ -1,0 +1,66 @@
+@use "../abstracts/" as *;
+
+.image-text {
+  .container {
+    align-items: center;
+    display: flex;
+    gap: 32px;
+
+    @media (min-width: $bp-tablet) {
+      gap: 40px;
+    }
+
+    @media (min-width: $bp-large) {
+      gap: $grid-plus-gap;
+    }
+  }
+
+  .col-image {
+    width: 100%;
+    max-width: max-content;
+    picture,
+    img,
+    source {
+      border-radius: 8px;
+      max-height: 821px;
+      object-fit: contain;
+    }
+  }
+
+  &.slider-true {
+    .container {
+      .col-image {
+        .custom-slider {
+          max-width: 100%;
+
+          .custom-pagination {
+            bottom: -40px; // Image-text pagination below the container
+          }
+
+          .slide {
+            img {
+              // max-height: 500px;
+              object-fit: cover;
+              height: 100%;
+
+              @media (min-width: $bp-desktop) {
+                // max-height: 600px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .col-text {
+    @media (min-width: $bp-tablet) {
+      // padding-left: 34px;
+      // padding-right: 34px;
+    }
+    @media (min-width: $bp-large) {
+      $col-text-width: $grid-plus-gap * 4 + $grid-column;
+      width: $col-text-width;
+    }
+  }
+}
