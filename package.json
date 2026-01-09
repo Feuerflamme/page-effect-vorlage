@@ -69,7 +69,7 @@
     "@types/wordpress__editor": "^13.6.0",
     "@types/wordpress__media-utils": "^5.8.0",
     "@wordpress/icons": "^10.8.0",
-    "@wordpress/scripts": "^19.2.4",
+    "@wordpress/scripts": "^31.2.0",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.10",
     "postcss-scss": "^4.0.9",
