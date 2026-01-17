@@ -52,12 +52,12 @@ $buttons = get_field('itb::buttons');
                 <?php if (have_rows('itb::buttons')): ?>
                 <?php while (have_rows('itb::buttons')):
                         the_row(); ?>
-                <div class="btn">
-
-                    <?php $itb_button = get_sub_field('itb:button'); ?>
+                <div class="btn <?php the_sub_field('itb::color'); ?>">
+                    <?php $itb_button = get_sub_field('itb::button'); ?>
                     <?php if ($itb_button): ?>
-                    <a href="<?php echo esc_url($itb_button['url']); ?>"
-                        target="<?php echo esc_attr($itb_button['target']); ?>"><?php echo esc_html($itb_button['title']); ?></a>
+                    <a class="headline-5" href=" <?php echo esc_url($itb_button['url']); ?>"
+                        target="<?php echo esc_attr($itb_button['target']); ?>">
+                        <?php echo esc_html($itb_button['title']); ?></a>
                     <?php endif; ?>
                 </div>
                 <?php endwhile; ?>

@@ -74,7 +74,7 @@
                 {
                     "key": "field_696b547b1e140",
                     "label": "Button",
-                    "name": "itb:button",
+                    "name": "itb::button",
                     "aria-label": "",
                     "type": "link",
                     "instructions": "",
@@ -87,6 +87,36 @@
                     },
                     "return_format": "array",
                     "allow_in_bindings": 0,
+                    "parent_repeater": "field_696b54541e13f"
+                },
+                {
+                    "key": "field_696b6595393e4",
+                    "label": "Color",
+                    "name": "itb::color",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "orange": "orange",
+                        "blue": "blue"
+                    },
+                    "default_value": false,
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "allow_in_bindings": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "create_options": 0,
+                    "save_options": 0,
                     "parent_repeater": "field_696b54541e13f"
                 }
             ]
@@ -111,5 +141,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1768644737
+    "modified": 1768646814
 }
