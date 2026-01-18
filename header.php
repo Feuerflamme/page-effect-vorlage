@@ -70,7 +70,7 @@
                     +49 (0) <?php // echo esc_html($phone); ?>
                 </a>
             </div> -->
-            <div class="burger-navigation-helper" aria-hidden="true"></div>
+            <!-- <div class="burger-navigation-helper" aria-hidden="true"></div> -->
 
             <button type="button" class="btn burger-navigation" aria-label="Menu öffnen" aria-expanded="false">
                 <div class="wrapper">
