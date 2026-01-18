@@ -53,7 +53,7 @@ if (!empty($block['align'])) {
             <div class="image-data__value 
             <?php the_sub_field('id::color'); ?>">0</div>
             <?php if ($text): ?>
-            <div class="image-data__text"><?php echo esc_html($text); ?></div>
+            <div class="image-data__text subheadline"><?php echo esc_html($text); ?></div>
             <?php endif; ?>
         </div>
         <?php endwhile; ?>
@@ -70,7 +70,7 @@ if (!empty($block['align'])) {
             <div class="image-data__value 
             <?php the_sub_field('id::color'); ?>">0</div>
             <?php if ($text): ?>
-            <div class="image-data__text"><?php echo esc_html($text); ?></div>
+            <div class="image-data__text subheadline"><?php echo esc_html($text); ?></div>
             <?php endif; ?>
         </div>
         <?php endwhile; ?>
