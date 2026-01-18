@@ -1,0 +1,17 @@
+{
+  "name": "acf/image-data",
+  "title": "Image & Data",
+  "description": "Image & Data",
+  "category": "",
+  "icon": "align-left",
+  "keywords": ["text"],
+  "acf": {
+    "mode": "edit",
+    "renderTemplate": "renderTemplate.php"
+  },
+  "supports": {
+    "align": [""],
+    "customClassName": false,
+    "anchor": true
+  }
+}

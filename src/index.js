@@ -13,6 +13,7 @@ import ScrollHandler from "./js/scroll-handler.js";
 import PopupHandler from "./pop-up.js";
 import { AccordionHandler } from "./js/akkordion.js";
 import "./js/fbg-stats-counter.js";
+import "./js/image-data-counter.js";
 
 /**
  * Main application initialization

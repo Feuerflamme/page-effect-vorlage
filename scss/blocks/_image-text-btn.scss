@@ -75,7 +75,7 @@
   }
 
   .btn {
-    width: 33.333vw;
+    width: calc(100% / 3);
     height: 83px;
     display: inline-flex;
     align-items: center;

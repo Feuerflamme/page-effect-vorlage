@@ -26,6 +26,7 @@ new ACFblock("text");
 new ACFblock("hero");
 new ACFblock("image");
 new ACFblock("image-text-btn");
+new ACFblock("image-data");
 
 /**
  * Add custom styles to WYSIWYG editor for better visual editing
