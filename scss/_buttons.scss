@@ -19,23 +19,31 @@ button {
   margin-top: 40px;
   cursor: pointer;
   border-radius: $border-radius;
-  border: 1px solid var(--acf-primary, #{$color-accent});
-  color: var(--acf-primary, #{$color-accent});
+  border: 1px solid $color-vorstellung-primary;
+  color: $color-white;
+  background-color: $color-vorstellung-primary;
   min-width: 252px;
   font-size: 0.875rem; // 14px ÷ 16 = 0.875rem
   line-height: 1.5rem; // 24px ÷ 16 = 1.5rem
   height: 45px;
   text-align: center;
-
+  transition: transform 0.2s ease;
+  transform-origin: center;
+  .btn__text {
+    color: $color-white;
+  }
   @media (min-width: $bp-large) {
     font-size: 1.5rem; // 24px ÷ 16 = 1.5rem
     line-height: 2.5rem; // 40px ÷ 16 = 2.5rem
     height: 70px;
     min-width: 388px;
   }
+  // &:hover {
+  //   opacity: unset;
+  //   background-color: var(--acf-primary-dark, #{darken($color-accent, 10%)});
+  //   color: $color-white;
+  // }
   &:hover {
-    opacity: unset;
-    background-color: var(--acf-primary-dark, #{darken($color-accent, 10%)});
-    color: $color-white;
+    transform: scale(1.02);
   }
 }

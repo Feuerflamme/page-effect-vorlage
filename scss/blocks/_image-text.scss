@@ -63,4 +63,35 @@
       width: $col-text-width;
     }
   }
+
+  .text-wrapper {
+    .headline-3 {
+      position: relative;
+      color: $color-vorstellung-text-dark;
+      font-weight: 500;
+
+      &::after {
+        content: "";
+        display: block;
+        width: 80px;
+        height: 4px;
+        background-color: $color-vorstellung-secondary;
+        margin: 24px auto 0 0;
+      }
+    }
+    .textblock {
+      p {
+        @media (min-width: $bp-large) {
+          font-size: 1.0625rem; // 17px ÷ 16 = 1.0625rem
+          line-height: 1.75rem; // 28px ÷ 16 = 1.75rem
+        }
+      }
+      li {
+        @media (min-width: $bp-large) {
+          font-size: 1.0625rem; // 17px ÷ 16 = 1.0625rem
+          line-height: 1.75rem; // 28px ÷ 16 = 1.75rem
+        }
+      }
+    }
+  }
 }
