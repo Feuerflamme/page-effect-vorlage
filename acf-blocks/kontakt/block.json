@@ -1,0 +1,10 @@
+{
+  "name": "acf/kontakt",
+  "title": "Block Kontakt",
+  "description": "Block Kontakt",
+  "category": "",
+  "icon": "align-left",
+  "keywords": ["text", "image"],
+  "acf": { "mode": "edit", "renderTemplate": "renderTemplate.php" },
+  "supports": { "align": [""], "customClassName": false, "anchor": true }
+}

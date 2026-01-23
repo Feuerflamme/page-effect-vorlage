@@ -38,11 +38,6 @@ button {
     height: 70px;
     min-width: 388px;
   }
-  // &:hover {
-  //   opacity: unset;
-  //   background-color: var(--acf-primary-dark, #{darken($color-accent, 10%)});
-  //   color: $color-white;
-  // }
   &:hover {
     transform: scale(1.02);
   }
