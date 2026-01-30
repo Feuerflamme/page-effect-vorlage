@@ -1,0 +1,67 @@
+@use "../abstracts/" as *;
+
+.kacheln-leistungen {
+  display: block;
+
+  &__headline {
+    margin-bottom: 40px;
+    color: $color-primary;
+    font-weight: 400;
+  }
+
+  &__grid {
+    display: grid;
+    gap: 40px;
+    grid-template-columns: 1fr;
+
+    @media (min-width: $bp-desktop) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+.kachel-item {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.kachel {
+  position: relative;
+  padding: 14px;
+  border: 0; // keine Linie unten/rechts
+  border-top: 4px solid $color-vorstellung-secondary;
+  border-left: 4px solid $color-vorstellung-secondary;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  width: 450px;
+  height: 175px;
+
+  &__title {
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 6px;
+  }
+
+  &__text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: $color-primary;
+    margin-bottom: 12px;
+  }
+
+  &__link {
+    padding-left: 14px;
+    display: inline-block;
+    color: $color-vorstellung-secondary;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    text-decoration: none;
+  }
+}

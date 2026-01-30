@@ -1,0 +1,10 @@
+{
+  "name": "acf/kacheln-leistungen",
+  "title": "Leistungen Kacheln",
+  "description": "Leistungen Kacheln",
+  "category": "",
+  "icon": "align-left",
+  "keywords": ["text", "image"],
+  "acf": { "mode": "edit", "renderTemplate": "renderTemplate.php" },
+  "supports": { "align": [""], "customClassName": false, "anchor": true }
+}

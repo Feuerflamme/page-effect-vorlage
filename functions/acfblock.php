@@ -28,6 +28,7 @@ new ACFblock("image");
 new ACFblock("image-text-btn");
 new ACFblock("image-data");
 new acfblock("kontakt");
+new acfblock("kacheln-leistungen");
 
 /**
  * Add custom styles to WYSIWYG editor for better visual editing
