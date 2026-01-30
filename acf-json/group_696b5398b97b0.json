@@ -50,6 +50,27 @@
             "preview_size": "medium"
         },
         {
+            "key": "field_697cbe9fe2341",
+            "label": "Gradient",
+            "name": "itb::gradient",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_696b54541e13f",
             "label": "buttons",
             "name": "itb::buttons",
@@ -141,5 +162,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1768646814
+    "modified": 1769782986
 }

@@ -25,10 +25,18 @@ if (!empty($block['align'])) {
     $classes .= ' align' . $block['align'];
 }
 
+if (get_field('itb::gradient') == 1) {
+    $classes .= ' has-gradient';
+}
+
 // Get ACF fields
 $image = get_field('itb::image');
 $headline = get_field('itb::headline');
 $buttons = get_field('itb::buttons');
+
+if (empty($buttons)) {
+    $classes .= ' no-buttons';
+}
 
 ?>
 <section id="<?php echo esc_attr($id); ?>" class="module <?php echo esc_attr($classes); ?>">
