@@ -53,6 +53,43 @@
     }
   }
 
+  &.no-image {
+    .container {
+      justify-content: center;
+    }
+
+    .col-image {
+      display: none;
+    }
+
+    .col-text {
+      width: 100%;
+      max-width: $bp-desktop;
+      margin: 0 auto;
+    }
+
+    .text-wrapper {
+      .headline-3::after {
+        margin: 24px 0 0; // links (flex-start)
+      }
+    }
+  }
+
+  &.is-large-image {
+    .col-image {
+      picture,
+      img,
+      source {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 3 / 4; // Breite : Höhe
+        object-fit: cover;
+        object-position: center;
+        display: block;
+      }
+    }
+  }
+
   .col-text {
     @media (min-width: $bp-tablet) {
       // padding-left: 34px;

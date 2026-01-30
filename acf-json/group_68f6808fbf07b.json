@@ -145,6 +145,34 @@
             "preview_size": "medium"
         },
         {
+            "key": "field_697cd1bd3cce7",
+            "label": "Groß darstellen",
+            "name": "gros_darstellen",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_68fb472d3e13c",
+                        "operator": "!=empty"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_68fb47683e13d",
             "label": "Slider Bilder",
             "name": "slider_bilder",
@@ -285,5 +313,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1769184187
+    "modified": 1769787911
 }

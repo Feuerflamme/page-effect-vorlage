@@ -29,7 +29,7 @@ if (!empty($block['align'])) {
 $has_background = get_field('hintergrund');
 $bild_position = get_field('bild_position');
 $abstand_halb = get_field('abstand_halb');
-
+$gross_darstellen = get_field('gros_darstellen');
 
 if ($has_background):
   $classes .= ' has-background';
@@ -45,21 +45,33 @@ if ($abstand_halb):
   $classes .= ' abstand-halb';
 endif;
 
+if ($gross_darstellen) {
+  $classes .= ' is-large-image';
+}
+
 $slider = get_field('slider');
 if ($slider):
   $classes .= ' slider-true';
 else:
   $classes .= ' slider-false';
 endif;
+
+// NEU: Bild prüfen (Single oder Slider)
+$image = get_field('einzelnes_bild');
+$slider_images = get_field('slider_bilder');
+
+$has_image = false;
+if ($slider) {
+  $has_image = !empty($slider_images);
+} else {
+  $has_image = !empty($image);
+}
+
+if (!$has_image) {
+  $classes .= ' no-image';
+}
 ?>
 
-<style type="text/css">
-<?php echo '#'. $id;
-
-?> {
-    /* Add styles that use ACF values here */
-}
-</style>
 
 
 
