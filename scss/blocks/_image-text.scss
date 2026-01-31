@@ -80,37 +80,36 @@
     }
     .col-image {
       max-width: unset;
+      overflow: hidden;
       picture,
       img,
       source {
         width: 100%;
-        height: auto;
-        aspect-ratio: 3 / 4; // Breite : Höhe
-        object-fit: cover;
+        height: 100%; // <-- volle Höhe
+        object-fit: cover; // <-- seitlich gleichmäßig zuschneiden
         object-position: center;
         display: block;
       }
     }
   }
-  &.is-large-image.has-parallax {
+  &.has-parallax {
     .col-image {
       position: relative;
       overflow: hidden;
-      aspect-ratio: 3 / 4; // gleiche Ratio wie vorher auf dem Bild
     }
 
     .col-image picture {
       display: block;
       width: 100%;
-      height: 100%;
+      height: auto;
     }
 
     .col-image img {
-      position: absolute;
-      top: -100px;
-      left: 0;
+      position: relative; // war: absolute
+      top: auto; // war: -100px
+      left: auto;
       width: 100%;
-      height: calc(100% + 200px);
+      height: auto; // war: calc(100% + 200px)
       object-fit: cover;
       will-change: transform;
       transition: transform 0.1s linear;
