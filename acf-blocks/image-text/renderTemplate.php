@@ -49,6 +49,10 @@ if ($gross_darstellen) {
   $classes .= ' is-large-image';
 }
 
+if ($gross_darstellen && get_field('parallax')) {
+  $classes .= ' has-parallax';
+}
+
 $slider = get_field('slider');
 if ($slider):
   $classes .= ' slider-true';

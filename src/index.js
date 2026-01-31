@@ -14,6 +14,7 @@ import PopupHandler from "./pop-up.js";
 import { AccordionHandler } from "./js/akkordion.js";
 import "./js/fbg-stats-counter.js";
 import "./js/image-data-counter.js";
+import ParallaxImageText from "./js/parallax.js";
 
 /**
  * Main application initialization
@@ -48,6 +49,7 @@ class App {
     this.initializeScrollHandler();
     this.initializePopupHandler();
     this.initializeAccordionHandler();
+    this.initializeParallax();
 
     console.log("Theme initialized");
   }
@@ -86,6 +88,16 @@ class App {
    */
   initializeAccordionHandler() {
     this.accordionHandler = new AccordionHandler();
+  }
+
+  /**
+   * Initialize parallax for image-text blocks
+   */
+  initializeParallax() {
+    this.parallaxImageText = new ParallaxImageText({
+      speed: 1.2,
+      maxOffset: 100,
+    });
   }
 
   /**

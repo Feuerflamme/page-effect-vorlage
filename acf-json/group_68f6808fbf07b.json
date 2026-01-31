@@ -173,6 +173,35 @@
             "ui_off_text": ""
         },
         {
+            "key": "field_697e106b471ff",
+            "label": "Parallax",
+            "name": "parallax",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_697cd1bd3cce7",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_68fb47683e13d",
             "label": "Slider Bilder",
             "name": "slider_bilder",
@@ -313,5 +342,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1769787911
+    "modified": 1769869478
 }
