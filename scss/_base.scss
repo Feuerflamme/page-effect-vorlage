@@ -133,6 +133,18 @@ input {
   }
 }
 
+.abstand-off .container {
+  margin: 0px auto;
+
+  // @media (min-width: $bp-tablet) {
+  //   margin: 30px auto;
+  // }
+
+  // @media (min-width: $bp-large) {
+  //   margin: 55px auto;
+  // }
+}
+
 .has-background .container {
   background-color: $color-background;
   padding-top: 50px;

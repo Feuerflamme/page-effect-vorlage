@@ -43,6 +43,56 @@
             "prefix_name": 0
         },
         {
+            "key": "field_697f53d88c309",
+            "label": "Kein Modul Abstand",
+            "name": "kein_modul_abstand",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_697f5b09b4097",
+            "label": "Bild vergrößern",
+            "name": "bild_vergrosern",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_697f53d88c309",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_68fb46593e13a",
             "label": "Hintergrund",
             "name": "hintergrund",
@@ -146,8 +196,8 @@
         },
         {
             "key": "field_697cd1bd3cce7",
-            "label": "Groß darstellen",
-            "name": "gros_darstellen",
+            "label": "Bild oberhalb",
+            "name": "bild_oben",
             "aria-label": "",
             "type": "true_false",
             "instructions": "",
@@ -342,5 +392,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1769869478
+    "modified": 1769954120
 }

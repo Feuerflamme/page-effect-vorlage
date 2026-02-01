@@ -29,7 +29,9 @@ if (!empty($block['align'])) {
 $has_background = get_field('hintergrund');
 $bild_position = get_field('bild_position');
 $abstand_halb = get_field('abstand_halb');
-$gross_darstellen = get_field('gros_darstellen');
+$image_top = get_field('bild_oben');
+$abstand_off = get_field('kein_modul_abstand');
+$bild_big = get_field( 'bild_vergrosern' );
 
 if ($has_background):
   $classes .= ' has-background';
@@ -41,15 +43,22 @@ if ($bild_position):
 endif;
 
 
-if ($abstand_halb):
+if ($abstand_halb && !$abstand_off):
   $classes .= ' abstand-halb';
 endif;
 
-if ($gross_darstellen) {
-  $classes .= ' is-large-image';
+if ($abstand_off):
+  $classes .= ' abstand-off';
+endif;
+
+if ($image_top) {
+  $classes .= ' image-top';
+}
+if ($bild_big) {
+  $classes .= ' image-big';
 }
 
-if ($gross_darstellen && get_field('parallax')) {
+if ($image_top && get_field('parallax')) {
   $classes .= ' has-parallax';
 }
 
