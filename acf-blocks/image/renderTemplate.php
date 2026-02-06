@@ -1,4 +1,3 @@
-
 <?php
 /**
  * Block template file: renderTemplate.php

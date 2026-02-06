@@ -1,6 +1,6 @@
-  <?php
-  // Funktion zum Umwandeln von Sternen in <strong> Tags
-  function convert_stars_to_strong($text)
+<?php
+// Funktion zum Umwandeln von Sternen in <strong> Tags
+function convert_stars_to_strong($text)
   {
     if (empty($text)) {
       return $text;
