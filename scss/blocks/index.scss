@@ -1,9 +1,8 @@
-// Forward all Block styles
-@forward "hero";
-@forward "image-text";
-@forward "text";
-@forward "image";
-@forward "image-text-btn";
-@forward "image-data";
-@forward "kontakt";
-@forward "kacheln-leistungen";
+// Forward all ACF Block styles from their respective directories
+@forward "../../acf-blocks/hero/style";
+@forward "../../acf-blocks/image-text/style";
+@forward "../../acf-blocks/text/style";
+@forward "../../acf-blocks/image/style";
+@forward "../../acf-blocks/image-data/style";
+@forward "../../acf-blocks/kontakt/style";
+@forward "../../acf-blocks/kacheln-leistungen/style";

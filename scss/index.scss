@@ -2,21 +2,18 @@
 @use "abstracts/" as abstracts;
 
 // Base styles
-@use "base";
-@use "typo";
+@use "base/" as base;
 
 // Components
-@use "buttons";
-@use "menu";
-@use "components/popup";
-@use "components/custom-slider";
-@use "components/legal";
+@use "components/" as components;
 
-// Layout
-@use "header";
-@use "footer";
+// Layouts
+@use "layouts/" as layouts;
 
-// Blocks
+// Templates/Pages
+@use "templates/" as templates;
+
+// Blocks (ACF-Blocks)
 @use "blocks/" as blocks;
 
 // 3rd party package

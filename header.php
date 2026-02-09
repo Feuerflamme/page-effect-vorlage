@@ -31,28 +31,17 @@
                     <a class="logo-main" href="<?php echo esc_url(home_url('/')); ?>"
                         aria-label="Zur Startseite von <?php echo esc_attr(get_bloginfo('name')); ?>"
                         title="Zurück zur Startseite">
-                        <?php $th_logo = get_field('th_logo', 'option'); ?>
-                        <?php if ($th_logo) : ?>
+                        <?php $logo = get_field('logo', 'option'); ?>
+                        <?php if ($logo) : ?>
                         <!-- Logo Image -->
-                        <img src="<?php echo esc_url($th_logo['url']); ?>"
-                            alt="<?php echo !empty($th_logo['alt']) ? esc_attr($th_logo['alt']) : esc_attr(get_bloginfo('name') . ' Logo'); ?>"
+                        <img src="<?php echo esc_url($logo['url']); ?>"
+                            alt="<?php echo !empty($logo['alt']) ? esc_attr($logo['alt']) : esc_attr(get_bloginfo('name') . ' Logo'); ?>"
                             width="200" height="60" loading="lazy" decoding="async" />
                         <?php else : ?>
                         <span class="sr-only">Logo nicht verfügbar</span>
                         <?php endif; ?>
                     </a>
-                    <a class="logo-network" href="https://don.de/" aria-label="Zum deutschen Onkologie Netzwerk"
-                        title="Zum deutschen Onkologie Netzwerk">
-                        <?php $logo_don = get_field('logo_don', 'option'); ?>
-                        <?php if ($logo_don) : ?>
-                        <!-- Network Logo -->
-                        <img src="<?php echo esc_url($logo_don['url']); ?>"
-                            alt="<?php echo !empty($logo_don['alt']) ? esc_attr($logo_don['alt']) :  ' Logo des deutschen Onkologie Netzwerks'; ?>"
-                            width="200" height="60" loading="lazy" decoding="async" />
-                        <?php else : ?>
-                        <span class="sr-only">Logo nicht verfügbar</span>
-                        <?php endif; ?>
-                    </a>
+                  
                 </div>
                 <?php theme_display_menu('primary'); ?>
             </div>

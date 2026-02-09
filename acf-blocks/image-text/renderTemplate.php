@@ -166,7 +166,7 @@ if (!$has_image) {
             <?php $button = get_field('button'); ?>
             <div class="text-wrapper">
                 <?php if ($headline): ?>
-                <h2 class="headline-3 headline">
+                <h2 class="headline-2 headline">
                     <?= $headline ?>
                 </h2>
                 <?php endif; ?>

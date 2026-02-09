@@ -1,6 +1,6 @@
 {
     "key": "group_696b5398b97b0",
-    "title": "Image & Text & Button",
+    "title": "Hero",
     "fields": [
         {
             "key": "field_696b53981e13d",
@@ -148,7 +148,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/image-text-btn"
+                "value": "acf\/hero"
             }
         ]
     ],
@@ -162,5 +162,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1769782986
+    "modified": 1770643571
 }

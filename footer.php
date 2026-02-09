@@ -7,8 +7,43 @@
 ?>
 
 
-</main><!-- .site-main -->
+<?php // Static Kontakt-Sektion before Footer Starts ?>
+<section class="module kontakt">
 
+    <div class="kontakt__background" aria-hidden="true">
+        <img src="/wp-content/uploads/2026/02/2024_10_23_StMELF_FORSTSCHULE_TECHNIKER_1439-scaled.jpg"
+            srcset="/wp-content/uploads/2026/02/2024_10_23_StMELF_FORSTSCHULE_TECHNIKER_1439-scaled.jpg" sizes="100vw" alt=""
+            loading="lazy" decoding="async" />
+    </div>
+
+    <div class="kontakt__blur" aria-hidden="true"></div>
+
+    <div class="kontakt__overlay container">
+        <div class="kontakt__content text-wrapper">
+            <h2 class="headline headline-2">
+                Sie haben Fragen oder möchten uns etwas mitteilen?
+            </h2>
+
+            <div class="headline headline-3">
+
+Nehmen Sie gerne Kontakt auf
+            </div>
+<?php $mail = get_field( 'email', 'option' ); ?>
+            <?php if ($mail): ?>
+            <div class="button-wrapper" role="group" aria-label="Actions">
+                <a class="btn btn--primary" href="mailto:<?php echo esc_url($mail); ?>">
+                    
+                   
+                    <span class="btn__text">Email: <?php echo esc_html($mail); ?></span>
+                </a>
+                <span id="<?php echo esc_html($kontakt_button['title']); ?>" class="sr-only">(Description for screen
+                    readers)</span>
+            </div>
+            <?php endif; ?>
+        </div>
+    </div>
+</section>
+</main><!-- .site-main -->
 <footer class="footer">
     <div class="container top">
         <div class="logo">
@@ -40,26 +75,20 @@
         </address>
         <div class="col-right">
             <div class="some-wrapper">
-
                 <?php if ( have_rows( 'some', 'option' ) ) : ?>
-                <?php while ( have_rows( 'some', 'option' ) ) : the_row(); ?>
-                <?php $link = get_sub_field( 'profil_link' ); ?>
-                <?php $plattform = get_sub_field( 'plattform_auswahlen' ); ?>
-                <?php if ( $link && $plattform ) : ?>
-
-                <a class="some <?php echo esc_html($plattform); ?>" aria-hidden="true"
-                    href="<?php echo esc_url($link); ?>">
-                    <i class="icon icon-<?php echo esc_html($plattform); ?>" aria-hidden="true"></i>
-                </a>
+                    <?php while ( have_rows( 'some', 'option' ) ) : the_row(); ?>
+                        <?php $link = get_sub_field( 'profil_link' ); ?>
+                        <?php $plattform = get_sub_field( 'plattform_auswahlen' ); ?>
+                        <?php if ( $link && $plattform ) : ?>
+                            <a class="some <?php echo esc_html($plattform); ?>" aria-hidden="true"
+                                href="<?php echo esc_url($link); ?>">
+                                <i class="icon icon-<?php echo esc_html($plattform); ?>" aria-hidden="true"></i>
+                            </a>
+                        <?php endif; ?>
+                    <?php endwhile; ?>
                 <?php endif; ?>
-
-                <?php endwhile; ?>
             </div>
-
             <p class="copyright">© <?php the_field('copyright', 'option'); ?></p>
-            <?php else : ?>
-            <?php // No rows found ?>
-            <?php endif; ?>
         </div>
     </div>
     <div class="container bottom-bar">

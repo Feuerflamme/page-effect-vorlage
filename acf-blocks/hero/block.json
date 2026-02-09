@@ -1,17 +1,10 @@
 {
   "name": "acf/hero",
-  "title": "Hero",
-  "description": "Hero-Bereich mit Text und Bild, optionalem Slider bei mehreren Bildern",
+  "title": "hero",
+  "description": "hero block with text and bg-image",
   "category": "",
   "icon": "align-left",
-  "keywords": ["text"],
-  "acf": {
-    "mode": "edit",
-    "renderTemplate": "renderTemplate.php"
-  },
-  "supports": {
-    "align": [""],
-    "customClassName": false,
-    "anchor": true
-  }
+  "keywords": ["text", "image"],
+  "acf": { "mode": "edit", "renderTemplate": "renderTemplate.php" },
+  "supports": { "align": [""], "customClassName": false, "anchor": true }
 }

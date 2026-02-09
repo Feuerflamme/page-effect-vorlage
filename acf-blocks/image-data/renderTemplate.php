@@ -35,7 +35,8 @@ if (!empty($block['align'])) {
 </style>
 
 <section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($classes); ?>">
-    <?php $id_image = get_field('id::image'); ?>
+<div class="container">  
+<?php $id_image = get_field('id::image'); ?>
 
     <div class="image-data__col image-data__col--image">
         <?php if ($id_image): ?>
@@ -76,4 +77,5 @@ if (!empty($block['align'])) {
         <?php endwhile; ?>
         <?php endif; ?>
     </div>
+    </div>  
 </section>

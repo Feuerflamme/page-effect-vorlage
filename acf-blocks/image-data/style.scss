@@ -1,13 +1,18 @@
-@use "../abstracts/" as *;
+@use "../../scss/abstracts/" as *;
 
 .image-data {
-  display: grid;
-  grid-template-columns: repeat(3, calc(100% / 3));
-  width: 100%;
   margin-left: auto;
   margin-right: 0;
-  min-height: 360px;
-  overflow: hidden;
+  .container {
+    max-width: $bp-4k;
+    display: grid;
+    grid-template-columns: repeat(3, calc(100% / 3));
+    width: 100%;
+    min-height: 360px;
+    overflow: hidden;
+    padding: 0;
+    margin-top: 0;
+  }
 
   &__col {
     min-width: 0;
@@ -40,7 +45,8 @@
 
   &__value {
     font-weight: 700;
-    font-size: clamp(2rem, 4vw, 3.5rem);
+    // font-size: clamp(2rem, 4vw, 3.5rem);
+    font-size: 62px;
     line-height: 1.1;
   }
   &__value.green {
@@ -53,6 +59,6 @@
   &__text {
     color: $color-vorstellung-text-dark;
 
-    font-size: 1.0625rem;
+    font-size: 1.5625rem;
   }
 }

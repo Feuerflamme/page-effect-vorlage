@@ -35,24 +35,24 @@ if ( ! empty( $block['align'] ) ) {
 </style>
 
 <?php
-$background_image = get_field('kontakt::backgroundimage');
 $headline = get_field('kontakt::headline');
 $subheadline = get_field('kontakt::subheadline');
 $kontakt_button = get_field('kontakt::button');
 ?>
 
 <section id="<?php echo esc_attr($id); ?>" class="module <?php echo esc_attr($classes); ?>">
-    <?php if ($background_image): ?>
-    <div class="kontakt__background" aria-hidden="true">
-        <img src="<?= esc_url(wp_get_attachment_image_url($background_image['ID'], 'full')) ?>"
-            srcset="<?= esc_attr(wp_get_attachment_image_srcset($background_image['ID'])) ?>" sizes="100vw" alt=""
-            loading="lazy" decoding="async" />
-    </div>
-    <?php endif; ?>
+ 
 
     <div class="kontakt__blur" aria-hidden="true"></div>
 
+
     <div class="kontakt__overlay container">
+      <div class="image">
+        <?php $bild = get_field( 'bild' ); ?>
+	<?php if ( $bild ) : ?>
+		<img src="<?php echo esc_url( $bild['url'] ); ?>" alt="<?php echo esc_attr( $bild['alt'] ); ?>" />
+	<?php endif; ?>
+      </div>
         <div class="kontakt__content text-wrapper">
             <?php if ($headline): ?>
             <h2 class="headline headline-2">

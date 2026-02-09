@@ -15,6 +15,8 @@ require_once(THEMEPATH . '/acf-blocks/acfblock-helper.php');
 require_once(FUNCTIONSPATH . 'acf-color-variables.php');
 //Global Popup Cookie Based
 require_once(FUNCTIONSPATH . 'popup-cookie-based.php');
+// Custom Post Types
+require_once(FUNCTIONSPATH . 'custom-post-types.php');
 
 /**
  * Register navigation menus
@@ -44,6 +46,14 @@ require_once(THEMEPATH . '/template-parts/nav.php');
 function allowedBlockTypes($original_allowedBlocks, $post)
 {
   global $allowedBlocks;
+
+  // Spezielle Block-Einschränkung für CPT "Aktuelles"
+  if ($post->post_type === 'aktuelles') {
+    return array(
+      'acf/text',
+      'acf/image-text'
+    );
+  }
 
   // if ($post->post_type === 'theme_reference') {
   //   array_push($allowedBlocks, "core/spacer", "core/paragraph", "core/heading", "core/columns");

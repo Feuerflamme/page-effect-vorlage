@@ -1,10 +1,11 @@
-@use "../abstracts/" as *;
+@use "../../scss/abstracts/" as *;
 
-.block-image-text-btn {
+.hero {
   position: relative;
   width: 100%;
   height: 750px;
   overflow: hidden;
+  max-width: $bp-4k;
 
   .background-image {
     position: absolute;
@@ -42,11 +43,12 @@
   &.no-buttons {
     .background-image {
       inset: 0 0 83px 0;
-      height: auto;
+      height: 100%;
     }
   }
 
-  .content-overlay {
+  .container {
+    max-width: $bp-4k;
     position: relative;
     z-index: 1;
     height: 100%;
@@ -55,6 +57,7 @@
     justify-content: center;
     text-align: center;
     padding: 0 13px;
+    margin: 0 auto;
 
     @media (min-width: $bp-tablet) {
       padding: 0 34px;
@@ -66,12 +69,13 @@
   }
 
   .text-wrapper {
-    max-width: $bp-desktop;
+    max-width: 1300px;
     .headline {
       color: $color-white;
-      font-weight: 600;
+      font-weight: 500;
+      line-height: 1.2;
       font-size: 5rem;
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.175);
+      text-shadow: 0em 0em 0.8em rgba(0, 17, 51, 0.55);
       white-space: normal;
       word-break: normal;
       overflow-wrap: normal;
@@ -115,7 +119,8 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-weight: 500;
+      font-weight: 600;
+      font-size: 1.4rem;
     }
   }
 
@@ -138,10 +143,12 @@
 
   .btn.orange {
     background-color: $color-vorstellung-accent;
+    // box-shadow: 0px 12px 100px -6px $color-vorstellung-accent;
   }
 
   .btn.blue {
     background-color: $color-vorstellung-primary;
+    // box-shadow: 0px 12px 100px -6px $color-vorstellung-primary;
   }
 }
 
@@ -166,13 +173,13 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .block-image-text-btn .text-wrapper .headline {
+  .hero .text-wrapper .headline {
     animation: none;
     opacity: 1;
     transform: none;
   }
 
-  .block-image-text-btn .buttons {
+  .hero .buttons {
     animation: none;
     transform: none;
   }

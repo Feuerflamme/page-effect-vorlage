@@ -17,6 +17,8 @@ $bp-tablet: 768px; // Tablets & small laptops
 $bp-desktop: 1024px; // Desktop
 $bp-large: 1450px; // Large screens
 $bp-xlarge: 1920px; // Extra large screens
+$bp-4k: 2560px; // 4K/Ultra-wide
+$bp-ultra: 3440px; // Ultra-wide Monitore
 
 // Colors
 $color-primary: #545454;
@@ -26,6 +28,7 @@ $color-accent-darken: var(--acf-primary-dark, #{darken($color-accent, 10%)});
 $color-blue-light: #007fa3;
 $color-background: #f6f6f6;
 $color-white: #ffffff;
+$transparent: rgba(0, 0, 0, 0);
 
 // Vorstellung Block specific colors
 $color-vorstellung-primary: #55677f; // Blue

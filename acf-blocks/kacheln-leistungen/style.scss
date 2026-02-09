@@ -1,4 +1,4 @@
-@use "../abstracts/" as *;
+@use "../../scss/abstracts/" as *;
 
 .kacheln-leistungen {
   display: block;
@@ -28,7 +28,7 @@
 
 .kachel {
   position: relative;
-  padding: 14px;
+  padding: 20px 20px 0 20px;
   border: 0; // keine Linie unten/rechts
   border-top: 4px solid $color-vorstellung-secondary;
   border-left: 4px solid $color-vorstellung-secondary;
@@ -37,7 +37,7 @@
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   width: 450px;
-  height: 175px;
+  // height: 175px;
 
   &__title {
     font-size: 1rem;
@@ -51,7 +51,7 @@
     font-size: 0.95rem;
     line-height: 1.6;
     color: $color-primary;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
   }
 
   &__link {
@@ -63,5 +63,6 @@
     text-transform: uppercase;
     font-size: 0.95rem;
     text-decoration: none;
+    line-height: 2;
   }
 }
