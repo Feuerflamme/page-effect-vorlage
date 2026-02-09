@@ -1,0 +1,29 @@
+@use "../../scss/abstracts/" as *;
+
+.kontakt.module {
+  .container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 32px;
+
+    @media (min-width: $bp-tablet) {
+      gap: 60px;
+    }
+
+    @media (min-width: $bp-large) {
+    }
+
+    .image {
+      max-width: 500px;
+    }
+
+    .text-wrapper {
+      align-items: flex-start;
+      justify-content: flex-start;
+      box-shadow: none;
+      padding: 0;
+    }
+  }
+}
+.ansprechpartner.module { color: blue; }

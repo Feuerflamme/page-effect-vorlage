@@ -1,7 +1,7 @@
 {
-  "name": "acf/kontakt",
-  "title": "Block Kontakt",
-  "description": "Block Kontakt",
+  "name": "acf/ansprechpartner",
+  "title": "Block Ansprechpartner",
+  "description": "Block Ansprechpartner mit Bild, Text und Button",
   "category": "",
   "icon": "align-left",
   "keywords": ["text", "image"],

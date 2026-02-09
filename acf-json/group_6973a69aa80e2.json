@@ -1,6 +1,6 @@
 {
     "key": "group_6973a69aa80e2",
-    "title": "Block: Kontakt",
+    "title": "Block: Ansprechpartner",
     "fields": [
         {
             "key": "field_6973a69b00a7b",
@@ -93,7 +93,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/kontakt"
+                "value": "acf\/ansprechpartner"
             }
         ]
     ],
@@ -107,5 +107,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1770655569
+    "modified": 1770659277
 }

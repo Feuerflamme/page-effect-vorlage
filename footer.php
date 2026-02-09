@@ -20,11 +20,11 @@
 
     <div class="kontakt__overlay container">
         <div class="kontakt__content text-wrapper">
-            <h2 class="headline headline-2">
+            <h2 class="headline headline-3">
                 Sie haben Fragen oder möchten uns etwas mitteilen?
             </h2>
 
-            <div class="headline headline-3">
+            <div class="headline headline-4 subheadline">
 
 Nehmen Sie gerne Kontakt auf
             </div>
@@ -50,11 +50,11 @@ Nehmen Sie gerne Kontakt auf
             <a href="<?php echo esc_url(home_url('/')); ?>"
                 aria-label="Zur Startseite von <?php echo esc_attr(get_bloginfo('name')); ?>"
                 title="Zurück zur Startseite">
-                <?php $th_logo = get_field('th_logo', 'option'); ?>
-                <?php if ($th_logo) : ?>
+                <?php $logo = get_field('logo', 'option'); ?>
+                <?php if ($logo) : ?>
                 <!-- Footer Logo -->
-                <img src="<?php echo esc_url($th_logo['url']); ?>"
-                    alt="<?php echo !empty($th_logo['alt']) ? esc_attr($th_logo['alt']) : esc_attr(get_bloginfo('name') . ' Logo'); ?>"
+                <img src="<?php echo esc_url($logo['url']); ?>"
+                    alt="<?php echo !empty($logo['alt']) ? esc_attr($logo['alt']) : esc_attr(get_bloginfo('name') . ' Logo'); ?>"
                     width="200" height="60" loading="lazy" decoding="async" />
                 <?php else : ?>
                 <span class="sr-only">Logo nicht verfügbar</span>
@@ -63,6 +63,7 @@ Nehmen Sie gerne Kontakt auf
 
         </div>
         <address class="address-wrapper">
+          <h4 class="headline headline-4">Forstbetriebsgemeinschaft Gemünden und Umgebung e.V.</h4>
             <div class="address"><?php the_field('adresse', 'option'); ?></div>
             <?php $phone = get_field('phone', 'option'); ?>
             <a class="phone" href="tel:+49<?php echo esc_attr($phone); ?>">
@@ -88,7 +89,7 @@ Nehmen Sie gerne Kontakt auf
                     <?php endwhile; ?>
                 <?php endif; ?>
             </div>
-            <p class="copyright">© <?php the_field('copyright', 'option'); ?></p>
+            
         </div>
     </div>
     <div class="container bottom-bar">
@@ -105,6 +106,7 @@ Nehmen Sie gerne Kontakt auf
             <?php else: ?>
             <a class="privacy legal" href="/datenschutz">Datenschutz</a>
             <?php endif; ?>
+            <p class="copyright">© <?php the_field('copyright', 'option'); ?></p>
         </div>
     </div>
 

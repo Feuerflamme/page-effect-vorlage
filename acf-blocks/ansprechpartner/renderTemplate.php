@@ -2,7 +2,7 @@
 /**
  * Block template file: renderTemplate.php
  *
- * Kontakt Block Template.
+ * Ansprechpartner Block Template.
  *
  * @param   array $block The block settings and attributes.
  * @param   string $content The block inner HTML (empty).
@@ -11,13 +11,13 @@
  */
 
 // Create id attribute allowing for custom "anchor" value.
-$id = 'kontakt-' . $block['id'];
+$id = 'ansprechpartner-' . $block['id'];
 if ( ! empty($block['anchor'] ) ) {
     $id = $block['anchor'];
 }
 
 // Create class attribute allowing for custom "className" and "align" values.
-$classes = 'kontakt';
+$classes = 'ansprechpartner';
 if ( ! empty( $block['className'] ) ) {
     $classes .= ' ' . $block['className'];
 }
@@ -35,45 +35,45 @@ if ( ! empty( $block['align'] ) ) {
 </style>
 
 <?php
-$headline = get_field('kontakt::headline');
-$subheadline = get_field('kontakt::subheadline');
-$kontakt_button = get_field('kontakt::button');
+$headline = get_field('ansprechpartner::headline');
+$subheadline = get_field('ansprechpartner::subheadline');
+$ansprechpartner_button = get_field('ansprechpartner::button');
 ?>
 
 <section id="<?php echo esc_attr($id); ?>" class="module <?php echo esc_attr($classes); ?>">
  
 
-    <div class="kontakt__blur" aria-hidden="true"></div>
+    <div class="ansprechpartner__blur" aria-hidden="true"></div>
 
 
-    <div class="kontakt__overlay container">
+    <div class="ansprechpartner__overlay container">
       <div class="image">
         <?php $bild = get_field( 'bild' ); ?>
 	<?php if ( $bild ) : ?>
 		<img src="<?php echo esc_url( $bild['url'] ); ?>" alt="<?php echo esc_attr( $bild['alt'] ); ?>" />
 	<?php endif; ?>
       </div>
-        <div class="kontakt__content text-wrapper">
+        <div class="ansprechpartner__content text-wrapper">
             <?php if ($headline): ?>
-            <h2 class="headline headline-2">
+            <h3 class="headline headline-3">
                 <?= wp_kses_post($headline) ?>
-            </h2>
+            </h3>
             <?php endif; ?>
 
             <?php if ($subheadline): ?>
-            <div class="headline headline-3">
+            <div class="headline headline-4 subheadline">
                 <?= wp_kses_post($subheadline) ?>
             </div>
             <?php endif; ?>
 
-            <?php if ($kontakt_button): ?>
+            <?php if ($ansprechpartner_button): ?>
             <div class="button-wrapper" role="group" aria-label="Actions">
-                <a class="btn btn--primary" href="<?php echo esc_url($kontakt_button['url']); ?>"
-                    target="<?php echo esc_attr($kontakt_button['target']); ?>"
-                    aria-describedby="<?php echo esc_html($kontakt_button['title']); ?>">
-                    <span class="btn__text"><?php echo esc_html($kontakt_button['title']); ?></span>
+                <a class="btn btn--primary" href="<?php echo esc_url($ansprechpartner_button['url']); ?>"
+                    target="<?php echo esc_attr($ansprechpartner_button['target']); ?>"
+                    aria-describedby="<?php echo esc_html($ansprechpartner_button['title']); ?>">
+                    <span class="btn__text"><?php echo esc_html($ansprechpartner_button['title']); ?></span>
                 </a>
-                <span id="<?php echo esc_html($kontakt_button['title']); ?>" class="sr-only">(Description for screen
+                <span id="<?php echo esc_html($ansprechpartner_button['title']); ?>" class="sr-only">(Description for screen
                     readers)</span>
             </div>
             <?php endif; ?>

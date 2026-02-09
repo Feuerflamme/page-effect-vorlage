@@ -26,7 +26,7 @@ new ACFblock("text");
 new ACFblock("hero");
 new ACFblock("image");
 new ACFblock("image-data");
-new acfblock("kontakt");
+new acfblock(name: "ansprechpartner");
 new acfblock("kacheln-leistungen");
 
 /**
