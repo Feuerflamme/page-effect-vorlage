@@ -4,8 +4,8 @@
     "fields": [
         {
             "key": "field_6973a69b00a7b",
-            "label": "Überschrift",
-            "name": "kontakt::headline",
+            "label": "Position",
+            "name": "headline",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -25,8 +25,29 @@
         },
         {
             "key": "field_6973a6da00a7c",
-            "label": "Unterüberschrift",
-            "name": "kontakt::subheadline",
+            "label": "Name",
+            "name": "subheadline",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_698b171e58ffe",
+            "label": "Beschreibung",
+            "name": "beschreibung",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -47,7 +68,7 @@
         {
             "key": "field_6973a72600a7d",
             "label": "Button",
-            "name": "kontakt::button",
+            "name": "button",
             "aria-label": "",
             "type": "link",
             "instructions": "",
@@ -63,7 +84,7 @@
         },
         {
             "key": "field_698a0f422a8c5",
-            "label": "bild",
+            "label": "Bild",
             "name": "bild",
             "aria-label": "",
             "type": "image",
@@ -107,5 +128,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1770659277
+    "modified": 1770723131
 }

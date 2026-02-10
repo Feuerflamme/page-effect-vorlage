@@ -43,8 +43,11 @@ if (empty($buttons)) {
     <?php if ($image): ?>
     <div class="background-image" aria-hidden="true">
         <img src="<?= esc_url(wp_get_attachment_image_url($image['ID'], 'full')) ?>"
-            srcset="<?= esc_attr(wp_get_attachment_image_srcset($image['ID'])) ?>" sizes="100vw" alt="" loading="lazy"
+            srcset="<?= esc_attr(wp_get_attachment_image_srcset($image['ID'])) ?>" sizes="400px" alt="" loading="lazy"
             decoding="async" />
+        <?php if ( !empty( $image['caption'] ) ) : ?>
+            <div class="image-caption"><?php echo wp_kses_post( $image['caption'] ); ?></div>
+        <?php endif; ?>
     </div>
     <?php endif; ?>
 

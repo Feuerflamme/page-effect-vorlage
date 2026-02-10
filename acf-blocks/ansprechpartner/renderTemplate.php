@@ -35,9 +35,10 @@ if ( ! empty( $block['align'] ) ) {
 </style>
 
 <?php
-$headline = get_field('ansprechpartner::headline');
-$subheadline = get_field('ansprechpartner::subheadline');
-$ansprechpartner_button = get_field('ansprechpartner::button');
+$headline = get_field('headline');
+$subheadline = get_field('subheadline');
+$ansprechpartner_button = get_field('button');
+$bild = get_field( 'bild' );
 ?>
 
 <section id="<?php echo esc_attr($id); ?>" class="module <?php echo esc_attr($classes); ?>">
@@ -48,9 +49,12 @@ $ansprechpartner_button = get_field('ansprechpartner::button');
 
     <div class="ansprechpartner__overlay container">
       <div class="image">
-        <?php $bild = get_field( 'bild' ); ?>
+        
 	<?php if ( $bild ) : ?>
 		<img src="<?php echo esc_url( $bild['url'] ); ?>" alt="<?php echo esc_attr( $bild['alt'] ); ?>" />
+		<?php if ( !empty( $bild['caption'] ) ) : ?>
+			<figcaption class="image-caption"><?php echo wp_kses_post( $bild['caption'] ); ?></figcaption>
+		<?php endif; ?>
 	<?php endif; ?>
       </div>
         <div class="ansprechpartner__content text-wrapper">

@@ -10,8 +10,6 @@ import "../scss/index.scss";
 import MobileNavigation from "./js/navigation.js";
 import CustomSlider from "./js/custom-slider.js";
 import ScrollHandler from "./js/scroll-handler.js";
-import PopupHandler from "./pop-up.js";
-import { AccordionHandler } from "./js/akkordion.js";
 import "./js/fbg-stats-counter.js";
 import "./js/image-data-counter.js";
 import ParallaxImageText from "./js/parallax.js";
@@ -23,8 +21,6 @@ class App {
   constructor() {
     this.mobileNav = null;
     this.scrollHandler = null;
-    this.popupHandler = null;
-    this.accordionHandler = null;
     this.init();
   }
 
@@ -47,8 +43,6 @@ class App {
     this.initializeNavigation();
     this.initializeSliders();
     this.initializeScrollHandler();
-    this.initializePopupHandler();
-    this.initializeAccordionHandler();
     this.initializeParallax();
 
     console.log("Theme initialized");
@@ -73,14 +67,6 @@ class App {
    */
   initializeScrollHandler() {
     this.scrollHandler = new ScrollHandler();
-  }
-
-  /**
-   * Initialize popup handler
-   */
-  initializePopupHandler() {
-    this.popupHandler = new PopupHandler();
-    // Close events werden automatisch in setup() initialisiert
   }
 
   /**
@@ -119,20 +105,6 @@ class App {
    */
   getScrollHandler() {
     return this.scrollHandler;
-  }
-
-  /**
-   * Public method to access popup handler
-   */
-  getPopupHandler() {
-    return this.popupHandler;
-  }
-
-  /**
-   * Public method to access accordion handler
-   */
-  getAccordionHandler() {
-    return this.accordionHandler;
   }
 }
 

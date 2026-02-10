@@ -13,8 +13,7 @@ require_once(FUNCTIONSPATH . 'acfblock.php');
 require_once(THEMEPATH . '/acf-blocks/acfblock-helper.php');
 // ACF Dynamic Color Variables - Ausgelagert in eigene Datei
 require_once(FUNCTIONSPATH . 'acf-color-variables.php');
-//Global Popup Cookie Based
-require_once(FUNCTIONSPATH . 'popup-cookie-based.php');
+
 // Custom Post Types
 require_once(FUNCTIONSPATH . 'custom-post-types.php');
 

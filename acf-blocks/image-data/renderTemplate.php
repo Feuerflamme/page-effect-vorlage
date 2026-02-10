@@ -40,7 +40,12 @@ if (!empty($block['align'])) {
 
     <div class="image-data__col image-data__col--image">
         <?php if ($id_image): ?>
-        <img src="<?php echo esc_url($id_image['url']); ?>" alt="<?php echo esc_attr($id_image['alt']); ?>" />
+        <figure>
+          <img src="<?php echo esc_url($id_image['url']); ?>" alt="<?php echo esc_attr($id_image['alt']); ?>" />
+          <?php if ( !empty( $id_image['caption'] ) ) : ?>
+            <figcaption class="image-caption"><?php echo wp_kses_post( $id_image['caption'] ); ?></figcaption>
+          <?php endif; ?>
+        </figure>
         <?php endif; ?>
     </div>
 

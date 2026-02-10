@@ -1,5 +1,5 @@
 @use "../abstracts/" as *;
-@use "../../scss/abstracts/" as *;
+// @use "../../scss/abstracts/" as *;
 
 .kontakt {
   position: relative;
@@ -44,32 +44,35 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-  }
-
-  &__content {
     background: rgba(255, 255, 255, 0.73);
     border-radius: 8px;
-    padding: 150px 50px 32px 50px;
-    width: 100%;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
+    padding: 50px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  }
+    max-width: 945px;
 
-  .headline {
-    color: $color-vorstellung-text-dark;
-    font-weight: 500;
-  }
+    .text-wrapper {
+      width: 100%;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
 
-  .button-wrapper {
-    display: flex;
-    justify-content: center;
+      gap: 16px;
 
-    .btn {
-      margin-top: 0;
+      .headline {
+        color: $color-vorstellung-text-dark;
+        font-weight: 500;
+      }
+
+      .button-wrapper {
+        display: flex;
+        justify-content: center;
+
+        .btn {
+          margin-top: 0;
+        }
+      }
     }
   }
 }

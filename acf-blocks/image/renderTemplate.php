@@ -70,17 +70,22 @@ endif;
       <?php
       $image = get_field('einzelnes_bild');
       if ( $image ): ?>
-        <!-- Responsive single image -->
-        <img
-          src="<?= wp_get_attachment_image_url( $image['ID'], 'medium' ) ?>"
-          srcset="<?= wp_get_attachment_image_srcset( $image['ID'] ) ?>"
-          sizes="100vw"
-          alt="<?= esc_attr( $image['alt'] ?: 'Image' ) ?>"
-          loading="lazy"
-            decoding="async"
-            width="<?= $image['width'] ?>"
-          height="<?= $image['height'] ?>"
-          onload="console.log('Image Block Single loaded:', this.currentSrc || this.src)" />
+        <figure>
+          <!-- Responsive single image -->
+          <img
+            src="<?= wp_get_attachment_image_url( $image['ID'], 'medium' ) ?>"
+            srcset="<?= wp_get_attachment_image_srcset( $image['ID'] ) ?>"
+            sizes="100vw"
+            alt="<?= esc_attr( $image['alt'] ?: 'Image' ) ?>"
+            loading="lazy"
+              decoding="async"
+              width="<?= $image['width'] ?>"
+            height="<?= $image['height'] ?>"
+            onload="console.log('Image Block Single loaded:', this.currentSrc || this.src)" />
+          <?php if ( !empty( $image['caption'] ) ) : ?>
+            <figcaption class="image-caption"><?php echo wp_kses_post( $image['caption'] ); ?></figcaption>
+          <?php endif; ?>
+        </figure>
       <?php endif; ?>
     <?php else : // Custom Slider ?> 
       <div class="custom-slider">
@@ -90,16 +95,21 @@ endif;
           <?php if ( $slider_bilder_images ): ?>
             <?php foreach ( $slider_bilder_images as $slider_bilder_image ): ?>
               <div class="slide">
-                  <!-- Responsive slider image -->
-                  <img
-                    src="<?= wp_get_attachment_image_url( $slider_bilder_image['ID'], 'medium' ) ?>"
-                    srcset="<?= wp_get_attachment_image_srcset( $slider_bilder_image['ID'] ) ?>"
-                    sizes="100vw"
-                    alt="<?= esc_attr( $slider_bilder_image['alt'] ?: 'Slider Image' ) ?>"
-                    loading="lazy"
-                    decoding="async"
-                    width="<?= $slider_bilder_image['width'] ?>"
-                    height="<?= $slider_bilder_image['height'] ?>" />
+                <figure>
+                    <!-- Responsive slider image -->
+                    <img
+                      src="<?= wp_get_attachment_image_url( $slider_bilder_image['ID'], 'medium' ) ?>"
+                      srcset="<?= wp_get_attachment_image_srcset( $slider_bilder_image['ID'] ) ?>"
+                      sizes="100vw"
+                      alt="<?= esc_attr( $slider_bilder_image['alt'] ?: 'Slider Image' ) ?>"
+                      loading="lazy"
+                      decoding="async"
+                      width="<?= $slider_bilder_image['width'] ?>"
+                      height="<?= $slider_bilder_image['height'] ?>" />
+                    <?php if ( !empty( $slider_bilder_image['caption'] ) ) : ?>
+                      <figcaption class="image-caption"><?php echo wp_kses_post( $slider_bilder_image['caption'] ); ?></figcaption>
+                    <?php endif; ?>
+                </figure>
                 </div>
             <?php endforeach; ?>
           <?php endif; ?>

@@ -1,25 +1,28 @@
 @use "../abstracts/" as *;
 .logged-in {
   #wpadminbar {
-    position: fixed;
+    display: fix;
   }
   .header {
-    .burger-navigation {
-      top: 46px;
-      @media (min-width: $bp-tablet) {
-        top: 32px;
-      }
+    top: 46px;
+    @media (min-width: $bp-tablet) {
+      top: 32px;
     }
+  }
 
-    .active {
-      margin-top: 46px;
-      @media (min-width: $bp-tablet) {
-        margin-top: 32px;
-      }
+  .active {
+    margin-top: 46px;
+    @media (min-width: $bp-tablet) {
+      margin-top: 32px;
     }
   }
 }
+
 .header {
+  position: fixed;
+  z-index: 9;
+  top: 0;
+  left: 0;
   width: 100%;
   margin: 0 auto;
 
