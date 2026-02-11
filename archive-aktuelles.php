@@ -59,15 +59,16 @@ get_header(); ?>
 
                         <div class="aktuelles-content">
                             <header class="entry-header">
-                                <h2 class="entry-title headline-2 headline">
-                                        <?php the_title(); ?>
-                                </h2>
                                 <div class="entry-meta">
-                                  <span>Datum der Mitteilung:</span>
+                                  <span>Mitteilung vom </span>
                                     <time class="entry-date" datetime="<?php echo get_the_date('c'); ?>">
                                         <?php echo get_the_date('j. F Y'); ?>
                                     </time>
                                 </div>
+                                <h2 class="entry-title headline-2 headline">
+                                        <?php the_title(); ?>
+                                </h2>
+                              
                             </header>
 
                             <div class="entry-content">

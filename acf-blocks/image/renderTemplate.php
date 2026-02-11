@@ -45,13 +45,7 @@ if ( $hintergrundfarbe_bg != 'none') :
   
 endif;
 
-$slider = get_field('slider');
-if ( $slider ) :
-    $classes .= ' slider-true';
 
-    else :
-    $classes .= ' slider-false';
-endif;
 
 ?>
 
@@ -66,7 +60,6 @@ endif;
   <div class="container">
           <div class="wrapper">
 
-    <?php if ( $slider == 0 ) : ?>
       <?php
       $image = get_field('einzelnes_bild');
       if ( $image ): ?>
@@ -87,36 +80,7 @@ endif;
           <?php endif; ?>
         </figure>
       <?php endif; ?>
-    <?php else : // Custom Slider ?> 
-      <div class="custom-slider">
-        <div class="slider-track">
 
-          <?php $slider_bilder_images = get_field( 'slider_bilder' ); ?>
-          <?php if ( $slider_bilder_images ): ?>
-            <?php foreach ( $slider_bilder_images as $slider_bilder_image ): ?>
-              <div class="slide">
-                <figure>
-                    <!-- Responsive slider image -->
-                    <img
-                      src="<?= wp_get_attachment_image_url( $slider_bilder_image['ID'], 'medium' ) ?>"
-                      srcset="<?= wp_get_attachment_image_srcset( $slider_bilder_image['ID'] ) ?>"
-                      sizes="100vw"
-                      alt="<?= esc_attr( $slider_bilder_image['alt'] ?: 'Slider Image' ) ?>"
-                      loading="lazy"
-                      decoding="async"
-                      width="<?= $slider_bilder_image['width'] ?>"
-                      height="<?= $slider_bilder_image['height'] ?>" />
-                    <?php if ( !empty( $slider_bilder_image['caption'] ) ) : ?>
-                      <figcaption class="image-caption"><?php echo wp_kses_post( $slider_bilder_image['caption'] ); ?></figcaption>
-                    <?php endif; ?>
-                </figure>
-                </div>
-            <?php endforeach; ?>
-          <?php endif; ?>
-        </div>
-
-      </div>
-    <?php endif; ?>
           </div>
   </div>
 </section>

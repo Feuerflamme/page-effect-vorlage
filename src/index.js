@@ -1,14 +1,15 @@
 // Import Lato font
+import "@fontsource/lato/100.css";
 import "@fontsource/lato/300.css"; // Light
 import "@fontsource/lato/400.css"; // Regular
 import "@fontsource/lato/700.css"; // Bold
+import "@fontsource/lato/900.css";
 
 // Import main styles
 import "../scss/index.scss";
 
 // Import components
 import MobileNavigation from "./js/navigation.js";
-import CustomSlider from "./js/custom-slider.js";
 import ScrollHandler from "./js/scroll-handler.js";
 import "./js/fbg-stats-counter.js";
 import "./js/image-data-counter.js";
@@ -41,7 +42,6 @@ class App {
    */
   setup() {
     this.initializeNavigation();
-    this.initializeSliders();
     this.initializeScrollHandler();
     this.initializeParallax();
 
@@ -56,24 +56,13 @@ class App {
   }
 
   /**
-   * Initialize custom sliders
-   */
-  initializeSliders() {
-    this.customSlider = new CustomSlider(".custom-slider");
-  }
+
 
   /**
    * Initialize scroll handler for burger navigation
    */
   initializeScrollHandler() {
     this.scrollHandler = new ScrollHandler();
-  }
-
-  /**
-   * Initialize accordion handler
-   */
-  initializeAccordionHandler() {
-    this.accordionHandler = new AccordionHandler();
   }
 
   /**
@@ -91,13 +80,6 @@ class App {
    */
   getNavigation() {
     return this.mobileNav;
-  }
-
-  /**
-   * Public method to access sliders
-   */
-  getSliders() {
-    return this.customSlider;
   }
 
   /**

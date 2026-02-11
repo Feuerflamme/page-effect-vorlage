@@ -27,32 +27,6 @@
     }
   }
 
-  &.slider-true {
-    .container {
-      .col-image {
-        .custom-slider {
-          max-width: 100%;
-
-          .custom-pagination {
-            bottom: -40px; // Image-text pagination below the container
-          }
-
-          .slide {
-            img {
-              // max-height: 500px;
-              object-fit: cover;
-              height: 100%;
-
-              @media (min-width: $bp-desktop) {
-                // max-height: 600px;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
   &.no-image {
     .container {
       justify-content: center;

@@ -36,15 +36,14 @@ section.hero.module {
     .image-caption {
       position: absolute;
       bottom: 0;
-      right: 0;
+      left: 0;
       background-color: rgba(0, 0, 0, 0.6);
       color: $color-white;
       padding: 4px 8px;
       font-size: 12px;
       border-radius: 4px;
       opacity: 0.8;
-      z-index: 999;
-      font-size: 0.75rem;
+      z-index: 1;
     }
   }
 

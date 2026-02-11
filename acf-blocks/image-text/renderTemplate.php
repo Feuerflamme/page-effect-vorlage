@@ -62,27 +62,9 @@ if ($image_top && get_field('parallax')) {
   $classes .= ' has-parallax';
 }
 
-$slider = get_field('slider');
-if ($slider):
-  $classes .= ' slider-true';
-else:
-  $classes .= ' slider-false';
-endif;
 
-// NEU: Bild prüfen (Single oder Slider)
-$image = get_field('einzelnes_bild');
-$slider_images = get_field('slider_bilder');
 
-$has_image = false;
-if ($slider) {
-  $has_image = !empty($slider_images);
-} else {
-  $has_image = !empty($image);
-}
 
-if (!$has_image) {
-  $classes .= ' no-image';
-}
 ?>
 
 
@@ -92,7 +74,6 @@ if (!$has_image) {
     <div class="container has-columns">
         <div class="column col-image">
             <?php
-      if (get_field('slider') == 0):
         # Run Single Image Code
         $image = get_field('einzelnes_bild');
         if ($image): ?>
@@ -109,32 +90,7 @@ if (!$has_image) {
             </figure>
             <?php endif; ?>
 
-            <?php else: ?>
-            <?php # Run custom slider code ?>
-            <div class="custom-slider">
-                <div class="slider-track">
-                    <?php $slider_bilder_images = get_field('slider_bilder'); ?>
-                    <?php if ($slider_bilder_images): ?>
-                    <?php foreach ($slider_bilder_images as $slider_bilder_image): ?>
-                    <div class="slide">
-                        <figure>
-                          <!-- Responsive slider image -->
-                          <img src="<?= wp_get_attachment_image_url($slider_bilder_image['ID'], 'medium') ?>"
-                              srcset="<?= wp_get_attachment_image_srcset($slider_bilder_image['ID']) ?>"
-                              sizes="(min-width: 768px) 50vw, 100vw"
-                              alt="<?= esc_attr($slider_bilder_image['alt'] ?: 'Slider Image') ?>" loading="lazy"
-                              decoding="async" width="<?= $slider_bilder_image['width'] ?>"
-                              height="<?= $slider_bilder_image['height'] ?>">
-                          <?php if ( !empty( $slider_bilder_image['caption'] ) ) : ?>
-                            <figcaption class="image-caption"><?php echo wp_kses_post( $slider_bilder_image['caption'] ); ?></figcaption>
-                          <?php endif; ?>
-                        </figure>
-                    </div>
-                    <?php endforeach; ?>
-                    <?php endif; ?>
-                </div>
-            </div>
-            <?php endif; ?>
+        
 
 
         </div>

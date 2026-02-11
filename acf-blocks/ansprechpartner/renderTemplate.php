@@ -26,19 +26,14 @@ if ( ! empty( $block['align'] ) ) {
 }
 ?>
 
-<style type="text/css">
-<?php echo '#'. $id;
-
-?> {
-    /* Add styles that use ACF values here */
-}
-</style>
 
 <?php
 $headline = get_field('headline');
 $subheadline = get_field('subheadline');
 $ansprechpartner_button = get_field('button');
 $bild = get_field( 'bild' );
+$beschreibung = get_field( 'beschreibung' );
+
 ?>
 
 <section id="<?php echo esc_attr($id); ?>" class="module <?php echo esc_attr($classes); ?>">
@@ -65,9 +60,14 @@ $bild = get_field( 'bild' );
             <?php endif; ?>
 
             <?php if ($subheadline): ?>
-            <div class="headline headline-4 subheadline">
+            <h4 class="headline headline-4 subheadline">
                 <?= wp_kses_post($subheadline) ?>
-            </div>
+            </h4>
+            <?php endif; ?>
+            <?php if ($beschreibung): ?>
+            <p class="beschreibung">
+                <?= wp_kses_post($beschreibung) ?>
+            </p>
             <?php endif; ?>
 
             <?php if ($ansprechpartner_button): ?>

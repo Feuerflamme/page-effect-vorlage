@@ -57,6 +57,8 @@
       text-decoration-color: #228b22;
       text-decoration-thickness: 4px;
       text-underline-offset: 12px;
+      line-height: 1.2;
+      padding-bottom: 0;
     }
 
     .module {
@@ -68,6 +70,7 @@
         padding-bottom: 0;
         background-color: $transparent;
         padding-top: 0;
+        align-items: flex-start;
 
         .headline-2 {
           font-size: 1.5rem;
