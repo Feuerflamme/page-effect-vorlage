@@ -13,6 +13,7 @@
     "clean": "rm -rf build node_modules",
     "clean:build": "rm -rf build",
     "lint": "wp-scripts lint-js src/",
+    "lint:js": "wp-scripts lint-js src/",
     "lint:fix": "wp-scripts lint-js src/ --fix",
     "release": "node scripts/production-release.js",
     "release:minor": "node scripts/production-release.js minor",
