@@ -33,7 +33,7 @@ function pe_theme_files()
   //front end - mit Versioning für Development
   $css_version = WP_DEBUG ? filemtime(get_template_directory() . '/build/index.css') : wp_get_theme()->get('Version');
   $js_version = WP_DEBUG ? filemtime(get_template_directory() . '/build/index.js') : wp_get_theme()->get('Version');
-  
+
   wp_enqueue_style('pe_theme_main_styles', get_theme_file_uri('/build/index.css'), array(), $css_version);
   // Javascript need to be loaded in footer: last variable need to be true
   wp_enqueue_script('pe_theme_js', get_template_directory_uri() . '/build/index.js', array(), $js_version, true);
@@ -95,13 +95,7 @@ function pe_theme_features()
 
   // create navigation menus
   register_nav_menus(array(
-    'primary' => __('Header(main)', 'PE_en'),
+    'primary' => __('Header(main)'),
   ));
 }
 add_action('after_setup_theme', 'pe_theme_features');
-
-
-
-
-
-

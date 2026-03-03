@@ -168,10 +168,14 @@
         @media (min-width: $bp-large) {
           padding: 0 $grid-plus-gap;
         }
+
+        .legal {
+          width: unset;
+        }
       }
 
       a {
-        font-weight: 18px;
+        font-size: 18px;
         line-height: 2.5rem; // 40px ÷ 16 = 2.5rem
         color: $color-white;
         text-decoration: none;

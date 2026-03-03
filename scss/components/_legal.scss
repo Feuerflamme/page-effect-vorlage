@@ -1,34 +1,41 @@
 @use "../abstracts/" as *;
 
 .legal {
-  .text-wrapper {
-    width: 100%;
-    max-width: 1250px;
+  width: 100%;
+  max-width: 1250px;
 
-    .headline-2,
-    .headline-3,
-    .headline-4,
-    h2,
-    h3,
-    h4,
-    h5 {
-      margin-top: 1em;
-      color: $color-primary;
-    }
+  .headline-2,
+  .headline-3,
+  .headline-4,
+  h2,
+  h3,
+  h4,
+  h5 {
+    margin-top: 1em;
+    color: $color-primary;
+  }
 
-    .headline-3,
-    h3 {
-      font-weight: 400;
-    }
+  .headline-3,
+  h3 {
+    font-weight: 400;
+  }
 
-    p {
-      margin: 1em;
-    }
+  p,
+  ul {
+    margin: 1em;
+  }
 
-    p + h3,
-    p + .headline,
-    p + h4 {
-      margin-top: 1.5em;
-    }
+  p + h3,
+  p + .headline,
+  p + h4 {
+    margin-top: 1.5em;
+  }
+
+  ul li {
+    list-style-type: disc !important;
+    margin-left: 2em;
+    padding-bottom: 0.5em;
+    font-size: 1.25em;
+    line-height: 1.5;
   }
 }
