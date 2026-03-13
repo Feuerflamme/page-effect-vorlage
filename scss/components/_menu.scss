@@ -10,14 +10,19 @@
   position: fixed;
   justify-content: flex-end;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 100%;
   min-height: 100vh;
   overflow-y: auto;
   top: 0;
   z-index: 9999;
   background-color: rgba(255, 255, 255, 0.4);
-
+  @media (max-width: ($bp-tablet - 1px)) {
+    max-width: 100%;
+    overflow-x: hidden;
+    right: 0;
+      
+    }
   // Versteckt durch Transform + Opacity (animierbar!)
   transform: translateX(100%);
   opacity: 0;
@@ -51,8 +56,9 @@
   }
 
   .nav-wrapper {
-    min-width: 320px;
+    min-width: 0;
     width: 90%;
+    max-width: 320px;
     min-height: 100vh;
     height: max-content;
     padding: 30px;
@@ -111,11 +117,15 @@
         }
 
         &.menu-item-has-children::after {
-          content: "\2304";
-          margin-left: 5px;
-          font-size: 2rem; // 12px ÷ 16 = 0.75rem
-          position: relative;
-          bottom: 5px;
+          content: none;
+
+          @media (min-width: $bp-large) {
+            content: "\2304";
+            margin-left: 5px;
+            font-size: 2rem; // 12px ÷ 16 = 0.75rem
+            position: relative;
+            bottom: 5px;
+          }
         }
 
         a {
@@ -162,6 +172,28 @@
           flex-wrap: wrap;
           align-items: center;
 
+          @media (max-width: ($bp-large - 1px)) {
+            a {
+              width: 100%;
+              padding-right: 18px;
+
+              &::after {
+                content: "";
+                margin-left: auto;
+                width: 7px;
+                height: 7px;
+                border-right: 2px solid $color-vorstellung-secondary;
+                border-bottom: 2px solid $color-vorstellung-secondary;
+                transform: rotate(45deg);
+                flex-shrink: 0;
+              }
+            }
+
+            &.submenu-open > a {
+              color: var(--acf-primary, #{$color-accent});
+            }
+          }
+
           @media (min-width: $bp-large) {
             position: relative;
             flex-wrap: nowrap;
@@ -183,7 +215,7 @@
             align-self: center;
             font-size: 0.875rem; // 14px ÷ 16 = 0.875rem
             line-height: 1;
-            display: flex;
+            display: none;
             align-items: center;
             justify-content: center;
             min-width: 18px;
@@ -237,6 +269,12 @@
             max-height: 500px; // Generous max-height for smooth animation
             padding-top: 22px;
 
+            @media (max-width: ($bp-large - 1px)) {
+              padding-top: 16px;
+              margin-top: 2px;
+              border-top: 1px solid rgba($color-primary, 0.2);
+            }
+
             @media (min-width: $bp-large) {
               opacity: 1;
               visibility: visible;
@@ -264,6 +302,12 @@
               font-weight: 400;
               font-size: 1.125rem; // 18px ÷ 16 = 1.125rem
               line-height: 1.5rem; // 24px ÷ 16 = 1.5rem
+
+              @media (max-width: ($bp-large - 1px)) {
+                &::after {
+                  content: none;
+                }
+              }
 
               @media (min-width: $bp-large) {
                 padding: 10px 20px;

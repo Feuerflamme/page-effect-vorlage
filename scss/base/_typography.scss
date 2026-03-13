@@ -7,9 +7,14 @@
 
 body {
   font-family: $font-lato;
-  letter-spacing: 2%;
+  // Use a length unit for consistent cross-browser rendering.
+  letter-spacing: 0.02em;
   color: $color-primary;
   font-display: swap; /* Zeigt Fallback sofort, tauscht dann */
+
+  @media (max-width: ($bp-tablet - 1px)) {
+    letter-spacing: normal;
+  }
 }
 
 .bold,

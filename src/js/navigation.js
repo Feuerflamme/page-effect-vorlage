@@ -81,13 +81,16 @@ class MobileNavigation {
     // Submenu toggle handlers
     this.setupSubmenuToggles();
 
+    // Mobile: open submenus by tapping the parent menu item
+    this.setupParentItemToggles();
+
     // Menu link click handlers (close menu when navigating)
     this.setupMenuLinkHandlers();
 
     // Handle window resize
     window.addEventListener("resize", () => {
-      // Close mobile nav on desktop breakpoint
-      if (window.innerWidth >= 768 && this.isOpen) {
+      // Close touch navigation once desktop layout becomes active
+      if (window.innerWidth >= 1450 && this.isOpen) {
         this.closeNavigation();
       }
     });
@@ -125,6 +128,57 @@ class MobileNavigation {
   }
 
   /**
+   * On touch navigation viewports (mobile + tablet), tapping a parent item opens its submenu.
+   * Parent links with children do not navigate directly so users can choose a submenu item.
+   */
+  setupParentItemToggles() {
+    const parentLinks = this.navigation.querySelectorAll(
+      ".menu-item-has-children > a"
+    );
+
+    parentLinks.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        if (!this.isTouchNavViewport()) {
+          return;
+        }
+
+        const menuItem = link.closest(".menu-item-has-children");
+        const submenu = menuItem ? menuItem.querySelector(".sub-menu") : null;
+
+        if (!menuItem || !submenu) {
+          return;
+        }
+
+        const isOpen = submenu.classList.contains("active");
+        const href = link.getAttribute("href");
+        const hasRealTarget = href && href !== "#" && href !== "javascript:void(0)";
+
+        if (!isOpen) {
+          e.preventDefault();
+          e.stopPropagation();
+          this.closeAllSubmenus();
+          submenu.classList.add("active");
+          menuItem.classList.add("submenu-open");
+          return;
+        }
+
+        if (!hasRealTarget) {
+          e.preventDefault();
+          e.stopPropagation();
+          this.closeAllSubmenus();
+        }
+      });
+    });
+  }
+
+  /**
+   * True for mobile/tablet off-canvas navigation.
+   */
+  isTouchNavViewport() {
+    return window.matchMedia("(max-width: 1449px)").matches;
+  }
+
+  /**
    * Setup menu link click handlers to close navigation
    */
   setupMenuLinkHandlers() {
@@ -132,6 +186,15 @@ class MobileNavigation {
 
     menuLinks.forEach((link) => {
       link.addEventListener("click", (e) => {
+        if (e.defaultPrevented) {
+          return;
+        }
+
+        const isParentTriggerLink = link.matches(".menu-item-has-children > a");
+        if (this.isTouchNavViewport() && isParentTriggerLink) {
+          return;
+        }
+
         // Don't close if it's just a hash link (no actual navigation)
         const href = link.getAttribute("href");
 
