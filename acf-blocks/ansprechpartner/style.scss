@@ -36,6 +36,43 @@
   border-bottom: 1px solid $color-primary;
   max-width: 1280px;
   margin: 0 auto;
+
+  @media (max-width: ($bp-tablet - 1px)) {
+    .container {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .image {
+      order: 1;
+      width: 100%;
+
+      img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+      }
+    }
+
+    .text-wrapper {
+      order: 2;
+      width: 100%;
+      text-align: left;
+
+      .headline-3::after {
+        margin-left: 0;
+        margin-right: auto;
+      }
+    }
+
+    &.no-image {
+      .text-wrapper {
+        text-align: left;
+      }
+    }
+  }
+
   .container {
     display: flex;
     flex-direction: row;
@@ -92,6 +129,39 @@
       .beschreibung {
         font-size: 0.95rem;
         line-height: 1.4;
+      }
+    }
+  }
+}
+
+@media (max-width: ($bp-tablet - 1px)) {
+  .ansprechpartner {
+    .container {
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .image {
+      order: 1;
+      width: 100%;
+
+      img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+      }
+    }
+
+    .text-wrapper {
+      order: 2;
+      width: 100%;
+      text-align: left;
+      align-items: flex-start;
+      justify-content: flex-start;
+
+      .headline-3::after {
+        margin: 4px auto 18px 0;
       }
     }
   }

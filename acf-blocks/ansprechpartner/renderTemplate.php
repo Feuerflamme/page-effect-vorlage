@@ -34,6 +34,12 @@ $ansprechpartner_button = get_field('button');
 $bild = get_field( 'bild' );
 $beschreibung = get_field( 'beschreibung' );
 
+if (empty($bild)) {
+    $classes .= ' no-image';
+} else {
+    $classes .= ' has-image';
+}
+
 ?>
 
 <section id="<?php echo esc_attr($id); ?>" class="module <?php echo esc_attr($classes); ?>">
