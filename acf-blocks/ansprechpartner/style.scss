@@ -111,15 +111,20 @@
         font-weight: 900;
         letter-spacing: 0.05em;
         line-height: 1.1;
+        text-decoration: underline;
+        text-decoration-color: $color-vorstellung-secondary;
+        text-decoration-thickness: 4px;
+        text-underline-offset: 6px;
+        margin-bottom: 18px;
 
-        &::after {
-          content: "";
-          display: block;
-          width: 80px;
-          height: 4px;
-          background-color: $color-vorstellung-secondary;
-          margin: 4px auto 18px 0;
-        }
+        // &::after {
+        //   content: "";
+        //   display: block;
+        //   width: 80px;
+        //   height: 4px;
+        //   background-color: $color-vorstellung-secondary;
+        //   margin: 4px auto 18px 0;
+        // }
       }
 
       .headline-4 {
