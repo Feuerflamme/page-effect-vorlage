@@ -1,0 +1,262 @@
+/* ============================================
+   TP SLIDER - Theme CSS
+   Anforderungen:
+   - 4:3 Seitenverhaeltnis (1080x810px)
+   - Max Width: 1080px
+   - Keine Auto-Slides
+   - Pfeile & Bullets: WordPress Grau-Blau (#6c7781)
+   - Pfeile mit Box-Shadow fuer Sichtbarkeit auf jedem Hintergrund
+   ============================================ */
+
+/* ============================================
+   CONTAINER - Basis Layout
+   ============================================ */
+
+.pe-slider {
+    width: 100%;
+    max-width: 1080px;
+    margin: 0 auto;
+    aspect-ratio: 4 / 3;
+    position: relative;
+    overflow: hidden;
+    background-color: #f5f5f5;
+    box-sizing: border-box;
+}
+
+/* Fallback fuer Browser ohne aspect-ratio */
+@supports not (aspect-ratio: 4 / 3) {
+    .pe-slider {
+        padding-bottom: 75%;
+        height: 0;
+    }
+
+    .pe-slider .swiper-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+/* ============================================
+   WRAPPER & SLIDES
+   ============================================ */
+
+.pe-slider .swiper-wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.pe-slider .swiper-slide {
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.pe-slider .tp-slide-item {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+/* ============================================
+   IMAGES - Konsistente Groessen
+   ============================================ */
+
+.pe-slider .tp-slider-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* ============================================
+   NAVIGATION PFEILE
+
+   BOX-SHADOW Strategie fuer Sichtbarkeit:
+   - Aeusserer dunkler Halo (Hellbild-Kontrast)
+   - Innerer heller Halo (Dunkelbilder-Kontrast)
+   - Funktioniert auf jedem Bildhintergrund
+   ============================================ */
+
+.pe-slider .swiper-button-prev,
+.pe-slider .swiper-button-next {
+    /* WordPress Standard Button-Farbe */
+    --swiper-navigation-color: #6c7781;
+    --swiper-navigation-size: 40px;
+
+    width: 40px;
+    height: 40px;
+
+    /* Dual-Halo: Hell + Dunkel fuer Kontrast auf jedem Bild */
+    box-shadow:
+        /* Aeusserer dunkler Schatten */
+        0 0 0 2px rgba(0, 0, 0, 0.3),
+        0 0 8px 3px rgba(0, 0, 0, 0.2),
+        /* Innerer heller Schatten */
+        0 0 0 2px rgba(255, 255, 255, 0.4),
+        inset 0 0 6px rgba(255, 255, 255, 0.3);
+
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 50%;
+    border: none;
+
+    /* Aussen platziert (Desktop) */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+
+    transition: all 0.3s ease;
+}
+
+.pe-slider .swiper-button-prev {
+    left: -60px;
+}
+
+.pe-slider .swiper-button-next {
+    right: -60px;
+}
+
+/* Hover-State */
+.pe-slider .swiper-button-prev:hover,
+.pe-slider .swiper-button-next:hover {
+    background-color: #fff;
+    box-shadow:
+        0 0 0 2px rgba(0, 0, 0, 0.4),
+        0 0 12px 4px rgba(0, 0, 0, 0.3),
+        0 0 0 2px rgba(255, 255, 255, 0.5),
+        inset 0 0 8px rgba(255, 255, 255, 0.4);
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Pfeile-Icons Styling */
+.pe-slider .swiper-button-prev::after,
+.pe-slider .swiper-button-next::after {
+    font-size: 20px;
+    color: #6c7781;
+}
+
+/* ============================================
+   RESPONSIVE: Mobile Anpassungen
+   ============================================ */
+
+@media (max-width: 768px) {
+    .pe-slider .swiper-button-prev,
+    .pe-slider .swiper-button-next {
+        /* Pfeile zurueck ins Bild auf Mobile */
+        left: auto;
+        right: auto;
+        width: 36px;
+        height: 36px;
+        z-index: 15;
+
+        box-shadow:
+            0 0 0 1px rgba(0, 0, 0, 0.25),
+            0 0 6px 2px rgba(0, 0, 0, 0.15),
+            0 0 0 1px rgba(255, 255, 255, 0.35),
+            inset 0 0 4px rgba(255, 255, 255, 0.25);
+    }
+
+    .pe-slider .swiper-button-prev {
+        left: 12px;
+    }
+
+    .pe-slider .swiper-button-next {
+        right: 12px;
+    }
+
+    .pe-slider .swiper-button-prev::after,
+    .pe-slider .swiper-button-next::after {
+        font-size: 18px;
+    }
+}
+
+/* ============================================
+   PAGINATION BULLETS
+   (Nur sichtbar wenn "Bullet-Navigation" aktiviert)
+   ============================================ */
+
+.pe-slider .swiper-pagination {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    z-index: 10;
+
+    padding: 8px 12px;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    border-radius: 20px;
+}
+
+.pe-slider .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #6c7781;
+    opacity: 0.4;
+    margin: 0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.pe-slider .swiper-pagination-bullet:hover {
+    opacity: 0.7;
+    transform: scale(1.2);
+}
+
+.pe-slider .swiper-pagination-bullet-active {
+    background-color: #6c7781;
+    opacity: 1;
+    transform: scale(1.15);
+    box-shadow: 0 0 8px rgba(108, 119, 129, 0.4);
+}
+
+@media (max-width: 768px) {
+    .pe-slider .swiper-pagination {
+        bottom: 12px;
+        gap: 6px;
+        padding: 6px 10px;
+    }
+
+    .pe-slider .swiper-pagination-bullet {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
+/* Keyboard Focus */
+.pe-slider .swiper-button-prev:focus-visible,
+.pe-slider .swiper-button-next:focus-visible {
+    outline: 2px solid #2271b1;
+    outline-offset: 2px;
+}
+
+/* Reduce Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    .pe-slider .swiper-button-prev,
+    .pe-slider .swiper-button-next,
+    .pe-slider .swiper-pagination-bullet {
+        transition: opacity 0.2s ease;
+    }
+}
