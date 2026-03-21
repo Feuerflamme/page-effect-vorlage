@@ -53,33 +53,24 @@ function allowedBlockTypes($original_allowedBlocks, $post)
   global $allowedBlocks;
 
   // Spezielle Block-Einschränkung für CPT "Aktuelles"
-  if ($post->post_type === 'aktuelles') {
+  if (isset($post->post_type) && $post->post_type === 'aktuelles') {
     return array(
       'acf/text',
       'acf/image-text'
     );
   }
 
-  // Alle verfügbaren erecht24 Blöcke automatisch hinzufügen
-  $finalAllowedBlocks = $allowedBlocks;
-  if (is_array($original_allowedBlocks)) {
-    foreach ($original_allowedBlocks as $block) {
-      if (strpos($block, 'erecht24') !== false) {
-        $finalAllowedBlocks[] = $block;
-      }
-    }
-  } else {
-    // Falls original_allowedBlocks null ist, alle registrierten erecht24 Blöcke hinzufügen
+  // Standard-WordPress-Blöcke und Theme-Blöcke gemeinsam erlauben.
+  if ($original_allowedBlocks === true || $original_allowedBlocks === null) {
     $registry = WP_Block_Type_Registry::get_instance();
-    $registered_blocks = $registry->get_all_registered();
-    foreach ($registered_blocks as $name => $block_type) {
-      if (strpos($name, 'erecht24') !== false) {
-        $finalAllowedBlocks[] = $name;
-      }
-    }
+    $original_allowedBlocks = array_keys($registry->get_all_registered());
   }
 
-  return $finalAllowedBlocks;
+  if (!is_array($original_allowedBlocks)) {
+    $original_allowedBlocks = [];
+  }
+
+  return array_values(array_unique(array_merge($original_allowedBlocks, $allowedBlocks)));
 }
 
 add_filter('allowed_block_types', 'allowedBlockTypes', 10, 2);

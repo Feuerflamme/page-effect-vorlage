@@ -1,4 +1,5 @@
 {
+  "apiVersion": 3,
   "name": "acf/hero",
   "title": "hero",
   "description": "hero block with text and bg-image",
