@@ -49,6 +49,10 @@
       // border-top: 1px solid rgba(34, 139, 34, 1);
     }
 
+    .entry-meta {
+      display: none;
+    }
+
     .entry-title.headline-2 {
       color: $color-vorstellung-text-dark;
       font-weight: 500;

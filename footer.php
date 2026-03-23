@@ -65,7 +65,10 @@
     </div>
     <address class="address-wrapper">
       <h4 class="headline headline-4">Forstbetriebsgemeinschaft Gemünden und Umgebung e.V.</h4>
-      <div class="address"><?php the_field('adresse', 'option'); ?></div>
+      <div class="address">
+        <span class="street"><?php the_field('street', 'option'); ?></span>,
+        <span class="city"><?php the_field('city', 'option'); ?></span>
+      </div>
       <?php $phone = get_field('phone', 'option'); ?>
       <a class="phone" href="tel:+49<?php echo esc_attr($phone); ?>">
         +49 (0) <?php echo esc_html($phone); ?>

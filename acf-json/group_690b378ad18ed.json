@@ -137,8 +137,8 @@
         },
         {
             "key": "field_690b386c5cb1b",
-            "label": "Adresse",
-            "name": "adresse",
+            "label": "Straße & Hausnummer",
+            "name": "street",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -149,7 +149,28 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "Mustermann-Straße 12, 123456 Musterstadt",
+            "default_value": "Mustermann-Straße 12",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_69c14c3f0b780",
+            "label": "PLZ & Ort",
+            "name": "city",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "97737 Gemünden",
             "maxlength": "",
             "allow_in_bindings": 0,
             "placeholder": "",
@@ -295,5 +316,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1770643918
+    "modified": 1774275711
 }
