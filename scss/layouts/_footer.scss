@@ -48,7 +48,12 @@
     border-radius: 8px;
     padding: 50px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    max-width: 945px;
+    max-width: 938px;
+
+    @media (max-width: $bp-938px) {
+      margin: 0;
+      border-radius: 0;
+    }
 
     .text-wrapper {
       width: 100%;
@@ -99,14 +104,11 @@
         flex-direction: row;
       }
 
-      @media (min-width: $bp-938px) {
-        justify-content: center;
-      }
-
       @media (min-width: $bp-large) {
         padding: 54px $grid-plus-gap 54px $grid-plus-gap;
         flex-direction: row;
         align-items: center;
+        justify-content: center;
       }
       .logo {
         width: 232px;
