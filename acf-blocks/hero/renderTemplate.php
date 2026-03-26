@@ -67,7 +67,7 @@ if (empty($buttons)) {
             <div class="btn <?php the_sub_field('itb::color'); ?>">
               <?php $itb_button = get_sub_field('itb::button'); ?>
               <?php if ($itb_button): ?>
-                <a class="headline-5" href=" <?php echo esc_url($itb_button['url']); ?>"
+                <a href=" <?php echo esc_url($itb_button['url']); ?>"
                   target="<?php echo esc_attr($itb_button['target']); ?>">
                   <?php echo esc_html($itb_button['title']); ?></a>
               <?php endif; ?>

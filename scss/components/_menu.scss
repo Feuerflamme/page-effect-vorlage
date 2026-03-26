@@ -72,10 +72,12 @@
     }
     @media (min-width: $bp-tablet) {
       width: 55%;
+      max-width: 55%;
     }
     @media (min-width: $bp-large) {
       min-width: auto;
-      width: auto;
+      width: 100%;
+      max-width: 100%;
       min-height: auto;
       height: auto;
       padding: 0;

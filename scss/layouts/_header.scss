@@ -6,10 +6,13 @@
 
   .header {
     top: 46px;
-    @media (min-width: $bp-tablet) {
+    @media (min-width: $bp-admin-nav) {
       top: 32px;
+    }
 
-      .btn.burger-navigation {
+    .btn.burger-navigation {
+      top: 46px;
+      @media (min-width: $bp-admin-nav) {
         top: 32px;
       }
     }
@@ -17,7 +20,7 @@
 
   .active {
     margin-top: 46px;
-    @media (min-width: $bp-tablet) {
+    @media (min-width: 782px) {
       margin-top: 32px;
     }
   }
@@ -29,6 +32,7 @@
   top: 0;
   left: 0;
   width: 100%;
+  max-width: 100vw;
   margin: 0 auto;
   // overflow-x: clip;
 
@@ -65,7 +69,7 @@
     width: 100%;
     margin-top: 0;
     margin-bottom: 0;
-    padding-right: 84px;
+    // padding-right: 84px;
     //
     //
     // gap: 40px;
@@ -79,7 +83,7 @@
 
     @media (min-width: $bp-large) {
       justify-content: space-between;
-      max-width: 1080px;
+      // max-width: 1080px;
     }
   }
 
@@ -159,9 +163,9 @@
     background-color: transparent;
 
     @media (max-width: ($bp-desktop)) {
-      position: absolute;
-      right: 13px;
-      top: 0;
+      // position: absolute;
+      // right: 13px;
+      // top: 0;
     }
 
     &:hover,
@@ -223,32 +227,32 @@
       }
     }
 
-    &.scrolled {
-      .wrapper {
-        background-color: var(--acf-primary, #{$color-accent});
-        &:hover,
-        &:focus-visible {
-          background-color: $color-accent-darken;
-        }
+    // &.scrolled {
+    //   .wrapper {
+    //     background-color: var(--acf-primary, #{$color-accent});
+    //     &:hover,
+    //     &:focus-visible {
+    //       background-color: $color-accent-darken;
+    //     }
 
-        .burger-bars {
-          background-color: $color-white;
-        }
+    //     .burger-bars {
+    //       background-color: $color-white;
+    //     }
 
-        @media (max-width: ($bp-desktop)) {
-          background-color: transparent;
+    //     @media (max-width: ($bp-desktop)) {
+    //       background-color: transparent;
 
-          .burger-bars {
-            background-color: $color-vorstellung-secondary;
-          }
+    //       .burger-bars {
+    //         background-color: $color-vorstellung-secondary;
+    //       }
 
-          &:hover,
-          &:focus-visible {
-            background-color: transparent;
-          }
-        }
-      }
-    }
+    //       &:hover,
+    //       &:focus-visible {
+    //         background-color: transparent;
+    //       }
+    //     }
+    //   }
+    // }
 
     @media (min-width: $bp-large) {
       display: none; // Button wird versteckt
