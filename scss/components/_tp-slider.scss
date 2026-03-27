@@ -5,7 +5,7 @@
    Anforderungen:
     - 4:3 Seitenverhaeltnis (960x720px)
     - Max Width: 960px
-   - Keine Auto-Slides
+    - Keine Auto-Slides
     - Pfeile & Bullets: feste Theme-Farben
     - Pfeile mit Box-Shadow fuer Sichtbarkeit auf jedem Hintergrund
    ============================================ */
@@ -32,7 +32,7 @@
         height: 0;
     }
 
-    .pe-slider .swiper-wrapper {
+    .pe-slider .tp-slider-track {
         position: absolute;
         top: 0;
         left: 0;
@@ -45,19 +45,14 @@
    WRAPPER & SLIDES
    ============================================ */
 
-.pe-slider .swiper-wrapper {
-    display: flex;
-    width: 100%;
+.pe-slider .tp-slider-track {
     height: 100%;
 }
 
-.pe-slider .swiper-slide {
+.pe-slider .tp-slider-slide {
     width: 100%;
     height: 100%;
     flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     overflow: hidden;
 }
 
@@ -78,7 +73,7 @@
 .pe-slider .tp-slider-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
     display: block;
 }
@@ -92,14 +87,15 @@
    - Funktioniert auf jedem Bildhintergrund
    ============================================ */
 
-.pe-slider .swiper-button-prev,
-.pe-slider .swiper-button-next {
-    /* Feste Theme-Farbe */
-    --swiper-navigation-color: #{$color-primary};
-    --swiper-navigation-size: 40px;
-
+.pe-slider .tp-slider-prev,
+.pe-slider .tp-slider-next {
     width: 40px;
     height: 40px;
+    font-size: 20px;
+    line-height: 40px;
+    text-align: center;
+    padding: 0;
+    color: $color-primary;
 
     /* Dual-Halo: Hell + Dunkel fuer Kontrast auf jedem Bild */
     box-shadow:
@@ -114,25 +110,20 @@
     border-radius: 50%;
     border: none;
 
-    /* Im Bild platziert, damit die Pfeile auch auf Desktop sichtbar bleiben */
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-
     transition: all 0.3s ease;
 }
 
-.pe-slider .swiper-button-prev {
+.pe-slider .tp-slider-prev {
     left: 16px;
 }
 
-.pe-slider .swiper-button-next {
+.pe-slider .tp-slider-next {
     right: 16px;
 }
 
 /* Hover-State */
-.pe-slider .swiper-button-prev:hover,
-.pe-slider .swiper-button-next:hover {
+.pe-slider .tp-slider-prev:hover,
+.pe-slider .tp-slider-next:hover {
     background-color: $color-white;
     box-shadow:
         0 0 0 2px rgba($color-primary, 0.35),
@@ -142,25 +133,17 @@
     transform: translateY(-50%) scale(1.1);
 }
 
-/* Pfeile-Icons Styling */
-.pe-slider .swiper-button-prev::after,
-.pe-slider .swiper-button-next::after {
-    font-size: 20px;
-    color: $color-primary;
-}
-
 /* ============================================
    RESPONSIVE: Mobile Anpassungen
    ============================================ */
 
 @media (max-width: 768px) {
-    .pe-slider .swiper-button-prev,
-    .pe-slider .swiper-button-next {
-        /* Pfeile zurueck ins Bild auf Mobile */
-        left: auto;
-        right: auto;
+    .pe-slider .tp-slider-prev,
+    .pe-slider .tp-slider-next {
         width: 36px;
         height: 36px;
+        font-size: 18px;
+        line-height: 36px;
         z-index: 15;
 
         box-shadow:
@@ -170,17 +153,12 @@
             inset 0 0 4px rgba($color-white, 0.25);
     }
 
-    .pe-slider .swiper-button-prev {
+    .pe-slider .tp-slider-prev {
         left: 12px;
     }
 
-    .pe-slider .swiper-button-next {
+    .pe-slider .tp-slider-next {
         right: 12px;
-    }
-
-    .pe-slider .swiper-button-prev::after,
-    .pe-slider .swiper-button-next::after {
-        font-size: 18px;
     }
 }
 
@@ -189,14 +167,17 @@
    (Nur sichtbar wenn "Bullet-Navigation" aktiviert)
    ============================================ */
 
-.pe-slider .swiper-pagination {
+.pe-slider .tp-slider-pagination {
     position: absolute;
     bottom: 16px;
     left: 50%;
     transform: translateX(-50%);
     width: auto;
+    max-width: 90%;
     display: flex;
+    align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 8px;
     z-index: 10;
 
@@ -207,24 +188,34 @@
     border: 1px solid rgba($color-white, 0.18);
 }
 
-.pe-slider .swiper-pagination-bullet {
+.pe-slider .tp-slider-bullet {
     width: 12px;
     height: 12px;
+    min-width: 12px;
+    min-height: 12px;
     border-radius: 50%;
     background-color: $color-white;
     opacity: 0.4;
     margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    appearance: none;
     transition: all 0.3s ease;
     cursor: pointer;
     flex-shrink: 0;
+    flex-grow: 0;
+    flex-basis: 12px;
+    aspect-ratio: 1 / 1;
 }
 
-.pe-slider .swiper-pagination-bullet:hover {
+.pe-slider .tp-slider-bullet:hover {
     opacity: 0.7;
     transform: scale(1.2);
 }
 
-.pe-slider .swiper-pagination-bullet-active {
+.pe-slider .tp-slider-bullet--active {
     background-color: $color-white;
     opacity: 1;
     transform: scale(1.15);
@@ -232,15 +223,17 @@
 }
 
 @media (max-width: 768px) {
-    .pe-slider .swiper-pagination {
+    .pe-slider .tp-slider-pagination {
         bottom: 12px;
         gap: 6px;
         padding: 6px 10px;
     }
 
-    .pe-slider .swiper-pagination-bullet {
+    .pe-slider .tp-slider-bullet {
         width: 10px;
         height: 10px;
+        min-width: 10px;
+        min-height: 10px;
     }
 }
 
@@ -249,17 +242,17 @@
    ============================================ */
 
 /* Keyboard Focus */
-.pe-slider .swiper-button-prev:focus-visible,
-.pe-slider .swiper-button-next:focus-visible {
+.pe-slider .tp-slider-prev:focus-visible,
+.pe-slider .tp-slider-next:focus-visible {
     outline: 2px solid $color-primary;
     outline-offset: 2px;
 }
 
 /* Reduce Motion Support */
 @media (prefers-reduced-motion: reduce) {
-    .pe-slider .swiper-button-prev,
-    .pe-slider .swiper-button-next,
-    .pe-slider .swiper-pagination-bullet {
+    .pe-slider .tp-slider-prev,
+    .pe-slider .tp-slider-next,
+    .pe-slider .tp-slider-bullet {
         transition: opacity 0.2s ease;
     }
 }
