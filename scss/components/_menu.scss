@@ -21,8 +21,7 @@
     max-width: 100%;
     overflow-x: hidden;
     right: 0;
-      
-    }
+  }
   // Versteckt durch Transform + Opacity (animierbar!)
   transform: translateX(100%);
   opacity: 0;
@@ -56,21 +55,29 @@
   }
 
   .nav-wrapper {
+    max-width: 100%;
+    width: 100%;
+    padding: 30px 15px 30px 5px;
     min-width: 0;
-    width: 90%;
-    max-width: 320px;
     min-height: 100vh;
     height: max-content;
-    padding: 30px;
 
     background-color: $color-white;
     box-shadow: -20px 20px 50px 0 rgba(#000, 0.1);
+
+    @media (min-width: $bp-mobile-380px) {
+      width: 95%;
+      max-width: 400px;
+      padding: 30px;
+    }
     @media (min-width: $bp-tablet) {
       width: 55%;
+      max-width: 55%;
     }
     @media (min-width: $bp-large) {
       min-width: auto;
-      width: auto;
+      width: 100%;
+      max-width: 100%;
       min-height: auto;
       height: auto;
       padding: 0;
@@ -345,15 +352,29 @@
         display: none;
       }
 
-      i {
-        font-size: 1.125rem; // 18px ÷ 16 = 1.125rem
-        width: 35px;
-        height: 35px;
-        ::before {
+      a {
+        text-decoration: none;
+        &::before {
+          content: "E-Mail:";
+          display: block;
+          font-weight: 700;
+        }
+
+        &.phone::before {
+          content: "Telefon:";
+        }
+
+        i {
+          visibility: hidden;
           font-size: 1.125rem; // 18px ÷ 16 = 1.125rem
-          margin: 0;
           width: 35px;
           height: 35px;
+          ::before {
+            font-size: 1.125rem; // 18px ÷ 16 = 1.125rem
+            margin: 0;
+            width: 35px;
+            height: 35px;
+          }
         }
       }
     }

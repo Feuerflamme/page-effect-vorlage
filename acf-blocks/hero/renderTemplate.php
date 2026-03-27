@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Block template file: renderTemplate.php
  *
@@ -13,20 +14,20 @@
 // Create id attribute allowing for custom "anchor" value.
 $id = 'hero-' . $block['id'];
 if (!empty($block['anchor'])) {
-    $id = $block['anchor'];
+  $id = $block['anchor'];
 }
 
 // Create class attribute allowing for custom "className" and "align" values.
 $classes = 'hero';
 if (!empty($block['className'])) {
-    $classes .= ' ' . $block['className'];
+  $classes .= ' ' . $block['className'];
 }
 if (!empty($block['align'])) {
-    $classes .= ' align' . $block['align'];
+  $classes .= ' align' . $block['align'];
 }
 
 if (get_field('itb::gradient') == 1) {
-    $classes .= ' has-gradient';
+  $classes .= ' has-gradient';
 }
 
 // Get ACF fields
@@ -35,45 +36,45 @@ $headline = get_field('itb::headline');
 $buttons = get_field('itb::buttons');
 
 if (empty($buttons)) {
-    $classes .= ' no-buttons';
+  $classes .= ' no-buttons';
 }
 
 ?>
 <section id="<?php echo esc_attr($id); ?>" class="module <?php echo esc_attr($classes); ?>">
-    <?php if ($image): ?>
+  <?php if ($image): ?>
     <div class="background-image" aria-hidden="true">
-        <img src="<?= esc_url(wp_get_attachment_image_url($image['ID'], 'full')) ?>"
-            srcset="<?= esc_attr(wp_get_attachment_image_srcset($image['ID'])) ?>" sizes="400px" alt="" loading="lazy"
-            decoding="async" />
-        <?php if ( !empty( $image['caption'] ) ) : ?>
-            <div class="image-caption"><?php echo wp_kses_post( $image['caption'] ); ?></div>
-        <?php endif; ?>
+      <img src="<?= esc_url(wp_get_attachment_image_url($image['ID'], 'full')) ?>"
+        srcset="<?= esc_attr(wp_get_attachment_image_srcset($image['ID'])) ?>" sizes="400px" alt="" loading="lazy"
+        decoding="async" />
+      <?php if (!empty($image['caption'])) : ?>
+        <div class="image-caption"><?php echo wp_kses_post($image['caption']); ?></div>
+      <?php endif; ?>
     </div>
-    <?php endif; ?>
+  <?php endif; ?>
 
-    <div class="container">
-        <div class="text-wrapper">
-            <?php if ($headline): ?>
-            <h1 class="headline headline-1">
-                <?= esc_html($headline) ?>
-            </h1>
-            <?php endif; ?>
-            <div class="buttons">
+  <div class="container">
+    <div class="text-wrapper">
+      <?php if ($headline): ?>
+        <h1 class="headline headline-1">
+          <?= wp_kses_post($headline) ?>
+        </h1>
+      <?php endif; ?>
+      <div class="buttons">
 
-                <?php if (have_rows('itb::buttons')): ?>
-                <?php while (have_rows('itb::buttons')):
-                        the_row(); ?>
-                <div class="btn <?php the_sub_field('itb::color'); ?>">
-                    <?php $itb_button = get_sub_field('itb::button'); ?>
-                    <?php if ($itb_button): ?>
-                    <a class="headline-5" href=" <?php echo esc_url($itb_button['url']); ?>"
-                        target="<?php echo esc_attr($itb_button['target']); ?>">
-                        <?php echo esc_html($itb_button['title']); ?></a>
-                    <?php endif; ?>
-                </div>
-                <?php endwhile; ?>
-                <?php endif; ?>
+        <?php if (have_rows('itb::buttons')): ?>
+          <?php while (have_rows('itb::buttons')):
+            the_row(); ?>
+            <div class="btn <?php the_sub_field('itb::color'); ?>">
+              <?php $itb_button = get_sub_field('itb::button'); ?>
+              <?php if ($itb_button): ?>
+                <a href=" <?php echo esc_url($itb_button['url']); ?>"
+                  target="<?php echo esc_attr($itb_button['target']); ?>">
+                  <?php echo esc_html($itb_button['title']); ?></a>
+              <?php endif; ?>
             </div>
-        </div>
+          <?php endwhile; ?>
+        <?php endif; ?>
+      </div>
     </div>
+  </div>
 </section>

@@ -11,9 +11,12 @@ $font-lato:
 $border-radius: 8px;
 
 // Breakpoints (Mobile First)
+$bp-340px: 340px; // Small phones
 $bp-mobile-380px: 380px; // Small phones
 $bp-mobile: 480px; // Large phones
 $bp-tablet: 768px; // Tablets & small laptops
+$bp-admin-nav: 782px; // WP Admin Navigation breakpoint
+$bp-938px: 938px; // Spezifischer Breakpoint für Footer-Layout
 $bp-desktop: 1024px; // Desktop
 $bp-large: 1450px; // Large screens
 $bp-xlarge: 1920px; // Extra large screens

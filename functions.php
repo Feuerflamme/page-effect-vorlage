@@ -3,7 +3,8 @@ $allowedBlocks = [
   'erecht24/impressum',
   'erecht24/datenschutz',
   'erecht24/legal-text',
-  'erecht24/cookie-banner'
+  'erecht24/cookie-banner',
+  'tp/slider'
 ];
 
 

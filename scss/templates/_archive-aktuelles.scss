@@ -49,6 +49,10 @@
       // border-top: 1px solid rgba(34, 139, 34, 1);
     }
 
+    .entry-meta {
+      display: none;
+    }
+
     .entry-title.headline-2 {
       color: $color-vorstellung-text-dark;
       font-weight: 500;
@@ -65,12 +69,12 @@
       .container {
         width: 100%;
         max-width: 100%;
+        padding: 0;
         margin-left: 0;
-        padding-left: 0;
-        padding-bottom: 0;
+        margin-right: 0;
         background-color: $transparent;
-        padding-top: 0;
         align-items: flex-start;
+        justify-content: flex-start;
 
         .headline-2 {
           font-size: 1.5rem;
@@ -92,6 +96,11 @@
 
         .subheadline {
           font-size: 1.15rem;
+        }
+
+        .textblock p {
+          font-size: 1.25rem;
+          line-height: 2.25rem;
         }
       }
     }
