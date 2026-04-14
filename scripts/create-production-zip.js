@@ -9,7 +9,8 @@ const { execSync } = require("child_process");
  */
 function createProductionZip() {
   const themeDir = path.join(__dirname, "..");
-  const themeName = "page-effect-vorlage-theme";
+  // WordPress Theme Update: ZIP muss exakt dem Theme-Ordnername entsprechen
+  const themeName = "page-effect-vorlage";
 
   // Get current version
   const packageJson = JSON.parse(
@@ -17,7 +18,7 @@ function createProductionZip() {
   );
   const version = packageJson.version;
 
-  // WordPress Standard: ZIP filename should be theme-name.zip (ohne Version!)
+  // WordPress Standard: ZIP filename sollte theme-ordnername.zip sein
   const zipFileName = `${themeName}.zip`;
   // ZIP soll eine Ebene höher gespeichert werden (in wp-content/themes/)
   const themesDir = path.join(themeDir, "..");

@@ -63,7 +63,8 @@ function createProductionZip(version) {
   log("📦", "Creating production-ready ZIP package...");
 
   const timestamp = new Date().toISOString().split("T")[0];
-  const packageName = `page-effect-theme-v${version}-production.zip`;
+  // WordPress Theme Update: ZIP muss immer den gleichen Namen haben
+  const packageName = `page-effect-vorlage.zip`;
   const packagePath = path.join(distDir, packageName);
 
   // Ensure dist directory exists
@@ -130,9 +131,14 @@ function createProductionZip(version) {
   ];
 
   const excludeArgs = excludePatterns
-    .map((pattern) => `-x "${pattern}"`)
+    .map((pattern) => `-x "page-effect-vorlage/${pattern}"`)
     .join(" ");
-  const zipCommand = `cd "${rootDir}" && zip -r "${packagePath}" . ${excludeArgs}`;
+
+  // WordPress erwartet: themename.zip/themename/[theme-files]
+  // Zip muss von einer Ebene höher erstellt werden
+  const themesDir = path.dirname(rootDir);
+  const themeFolderName = path.basename(rootDir);
+  const zipCommand = `cd "${themesDir}" && zip -r "${packagePath}" ${themeFolderName} ${excludeArgs}`;
 
   try {
     execSync(zipCommand, { stdio: "pipe" });
