@@ -5,7 +5,7 @@
    Anforderungen:
     - 4:3 Seitenverhaeltnis (960x720px)
     - Max Width: 960px
-   - Keine Auto-Slides
+    - Keine Auto-Slides
     - Pfeile & Bullets: feste Theme-Farben
     - Pfeile mit Box-Shadow fuer Sichtbarkeit auf jedem Hintergrund
    ============================================ */
@@ -15,14 +15,15 @@
    ============================================ */
 
 .pe-slider {
-  width: 100%;
-  max-width: 960px;
-  margin: 0 auto;
-  aspect-ratio: 4 / 3;
-  position: relative;
-  overflow: hidden;
-  background-color: $color-background;
-  box-sizing: border-box;
+    width: 100%;
+    max-width: 820px;
+    margin: 0 auto;
+    aspect-ratio: 4 / 3;
+    position: relative;
+    overflow: visible;
+    clip-path: inset(-10px -55px);  /* Bild clippen, aber Platz fuer Pfeile lassen */
+    background-color: $color-background;
+    box-sizing: border-box;
 }
 
 /* Fallback fuer Browser ohne aspect-ratio */
@@ -32,33 +33,29 @@
     height: 0;
   }
 
-  .pe-slider .swiper-wrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
+    .pe-slider .tp-slider-track {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
 }
 
 /* ============================================
    WRAPPER & SLIDES
    ============================================ */
 
-.pe-slider .swiper-wrapper {
-  display: flex;
-  width: 100%;
-  height: 100%;
+.pe-slider .tp-slider-track {
+    height: 100%;
+    gap: 120px;   /* Nachbar-Slides ausserhalb des clip-path schieben */
 }
 
-.pe-slider .swiper-slide {
-  width: 100%;
-  height: 100%;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+.pe-slider .tp-slider-slide {
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    overflow: hidden;
 }
 
 .pe-slider .tp-slide-item {
@@ -76,10 +73,11 @@
    ============================================ */
 
 .pe-slider .tp-slider-img {
-  width: 100%;
-  height: 100%;
-  object-position: center;
-  display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
 }
 
 /* ============================================
@@ -91,60 +89,42 @@
    - Funktioniert auf jedem Bildhintergrund
    ============================================ */
 
-.pe-slider .swiper-button-prev,
-.pe-slider .swiper-button-next {
-  /* Feste Theme-Farbe */
-  --swiper-navigation-color: #{$color-primary};
-  --swiper-navigation-size: 40px;
-
-  width: 40px;
-  height: 40px;
-
-  /* Dual-Halo: Hell + Dunkel fuer Kontrast auf jedem Bild */
-  box-shadow:
-        /* Aeusserer dunkler Schatten */
-    0 0 0 2px rgba($color-primary, 0.25),
-    0 0 8px 3px rgba($color-primary, 0.18),
-    /* Innerer heller Schatten */ 0 0 0 2px rgba($color-white, 0.4),
-    inset 0 0 6px rgba($color-white, 0.3);
-
-  background-color: rgba($color-white, 0.95);
-  border-radius: 50%;
-  border: none;
-
-  /* Im Bild platziert, damit die Pfeile auch auf Desktop sichtbar bleiben */
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
-
-  transition: all 0.3s ease;
+.pe-slider .tp-slider-prev,
+.pe-slider .tp-slider-next {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    line-height: 40px;
+    text-align: center;
+    padding: 0;
+    color: $color-primary;
+    background: none;
+    border-radius: 50%;
+    border: none;
+    box-shadow: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
-.pe-slider .swiper-button-prev {
-  left: 16px;
+.pe-slider .tp-slider-prev {
+    left: 0;
+    transform: translateY(-50%) translateX(calc(-100% - 8px));
 }
 
-.pe-slider .swiper-button-next {
-  right: 16px;
+.pe-slider .tp-slider-next {
+    right: 0;
+    transform: translateY(-50%) translateX(calc(100% + 8px));
 }
 
 /* Hover-State */
-.pe-slider .swiper-button-prev:hover,
-.pe-slider .swiper-button-next:hover {
-  background-color: $color-white;
-  box-shadow:
-    0 0 0 2px rgba($color-primary, 0.35),
-    0 0 12px 4px rgba($color-primary, 0.25),
-    0 0 0 2px rgba($color-white, 0.5),
-    inset 0 0 8px rgba($color-white, 0.4);
-  transform: translateY(-50%) scale(1.1);
+.pe-slider .tp-slider-prev:hover {
+    color: darken($color-primary, 15%);
+    transform: translateY(-50%) translateX(calc(-100% - 8px)) scale(1.15);
 }
 
-/* Pfeile-Icons Styling */
-.pe-slider .swiper-button-prev::after,
-.pe-slider .swiper-button-next::after {
-  font-size: 20px;
-  color: $color-primary;
+.pe-slider .tp-slider-next:hover {
+    color: darken($color-primary, 15%);
+    transform: translateY(-50%) translateX(calc(100% + 8px)) scale(1.15);
 }
 
 /* ============================================
@@ -152,34 +132,29 @@
    ============================================ */
 
 @media (max-width: 768px) {
-  .pe-slider .swiper-button-prev,
-  .pe-slider .swiper-button-next {
-    /* Pfeile zurueck ins Bild auf Mobile */
-    left: auto;
-    right: auto;
-    width: 36px;
-    height: 36px;
-    z-index: 15;
+    .pe-slider {
+        clip-path: inset(-10px -42px);
+    }
 
-    box-shadow:
-      0 0 0 1px rgba($color-primary, 0.2),
-      0 0 6px 2px rgba($color-primary, 0.12),
-      0 0 0 1px rgba($color-white, 0.35),
-      inset 0 0 4px rgba($color-white, 0.25);
-  }
+    .pe-slider .tp-slider-prev,
+    .pe-slider .tp-slider-next {
+        width: 28px;
+        height: 28px;
+        font-size: 14px;
+        line-height: 28px;
+        z-index: 15;
+        box-shadow: none;
+    }
 
-  .pe-slider .swiper-button-prev {
-    left: 12px;
-  }
+    .pe-slider .tp-slider-prev {
+        left: 0;
+        transform: translateY(-50%) translateX(calc(-100% - 4px));
+    }
 
-  .pe-slider .swiper-button-next {
-    right: 12px;
-  }
-
-  .pe-slider .swiper-button-prev::after,
-  .pe-slider .swiper-button-next::after {
-    font-size: 18px;
-  }
+    .pe-slider .tp-slider-next {
+        right: 0;
+        transform: translateY(-50%) translateX(calc(100% + 4px));
+    }
 }
 
 /* ============================================
@@ -187,16 +162,19 @@
    (Nur sichtbar wenn "Bullet-Navigation" aktiviert)
    ============================================ */
 
-.pe-slider .swiper-pagination {
-  position: absolute;
-  bottom: 16px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: auto;
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  z-index: 10;
+.pe-slider .tp-slider-pagination {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    max-width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    z-index: 10;
 
   padding: 8px 12px;
   background-color: rgba($color-primary, 0.55);
@@ -205,41 +183,53 @@
   border: 1px solid rgba($color-white, 0.18);
 }
 
-.pe-slider .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: $color-white;
-  opacity: 0.4;
-  margin: 0;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  flex-shrink: 0;
+.pe-slider .tp-slider-bullet {
+    width: 12px;
+    height: 12px;
+    min-width: 12px;
+    min-height: 12px;
+    border-radius: 50%;
+    background-color: $color-white;
+    opacity: 0.4;
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    appearance: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    flex-shrink: 0;
+    flex-grow: 0;
+    flex-basis: 12px;
+    aspect-ratio: 1 / 1;
 }
 
-.pe-slider .swiper-pagination-bullet:hover {
-  opacity: 0.7;
-  transform: scale(1.2);
+.pe-slider .tp-slider-bullet:hover {
+    opacity: 0.7;
+    transform: scale(1.2);
 }
 
-.pe-slider .swiper-pagination-bullet-active {
-  background-color: $color-white;
-  opacity: 1;
-  transform: scale(1.15);
-  box-shadow: 0 0 8px rgba($color-white, 0.5);
+.pe-slider .tp-slider-bullet--active {
+    background-color: $color-white;
+    opacity: 1;
+    transform: scale(1.15);
+    box-shadow: 0 0 8px rgba($color-white, 0.5);
 }
 
 @media (max-width: 768px) {
-  .pe-slider .swiper-pagination {
-    bottom: 12px;
-    gap: 6px;
-    padding: 6px 10px;
-  }
+    .pe-slider .tp-slider-pagination {
+        bottom: 12px;
+        gap: 6px;
+        padding: 6px 10px;
+    }
 
-  .pe-slider .swiper-pagination-bullet {
-    width: 10px;
-    height: 10px;
-  }
+    .pe-slider .tp-slider-bullet {
+        width: 10px;
+        height: 10px;
+        min-width: 10px;
+        min-height: 10px;
+    }
 }
 
 /* ============================================
@@ -247,17 +237,17 @@
    ============================================ */
 
 /* Keyboard Focus */
-.pe-slider .swiper-button-prev:focus-visible,
-.pe-slider .swiper-button-next:focus-visible {
-  outline: 2px solid $color-primary;
-  outline-offset: 2px;
+.pe-slider .tp-slider-prev:focus-visible,
+.pe-slider .tp-slider-next:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
 }
 
 /* Reduce Motion Support */
 @media (prefers-reduced-motion: reduce) {
-  .pe-slider .swiper-button-prev,
-  .pe-slider .swiper-button-next,
-  .pe-slider .swiper-pagination-bullet {
-    transition: opacity 0.2s ease;
-  }
+    .pe-slider .tp-slider-prev,
+    .pe-slider .tp-slider-next,
+    .pe-slider .tp-slider-bullet {
+        transition: opacity 0.2s ease;
+    }
 }
