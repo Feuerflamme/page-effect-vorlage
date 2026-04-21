@@ -27,16 +27,16 @@ if (!empty($block['align'])) {
 }
 
 // Use direct field access for seamless clone fields
-$hintergrundfarbe_bg = get_field('hintergrundfarbe_bg');
+// $hintergrundfarbe_bg = get_field('hintergrundfarbe_bg');
 $abstand_halb = get_field('abstand_halb');
 
-if ($hintergrundfarbe_bg):
-  $classes .= ' hintergrundfarbe-' . $hintergrundfarbe_bg;
-endif;
+// if ($hintergrundfarbe_bg):
+//   $classes .= ' hintergrundfarbe-' . $hintergrundfarbe_bg;
+// endif;
 
-if ($hintergrundfarbe_bg != 'none'):
-  $classes .= ' has-background';
-endif;
+// if ($hintergrundfarbe_bg != 'none'):
+//   $classes .= ' has-background';
+// endif;
 
 if ($abstand_halb):
   $classes .= ' abstand-halb';
@@ -53,33 +53,33 @@ endif;
 <section id="<?php echo esc_attr($id); ?>"
   class="module <?php echo esc_attr($classes); ?>">
   <div class="container">
-       <?php $is_quote = get_field('quote'); ?>
+    <?php $is_quote = get_field('quote'); ?>
 
-      <?php if ($is_quote == 'no_quote'): ?>
-    <div class="text-wrapper">
-   
-        <?php 
-        $headline = get_field('sektionsuberschrift_h2'); 
-        
+    <?php if ($is_quote == 'no_quote'): ?>
+      <div class="text-wrapper">
+
+        <?php
+        $headline = get_field('sektionsuberschrift_h2');
+
         // Sichere Einbindung der Funktionen
         if (function_exists('convert_stars_to_strong')):
-          // Funktion bereits verfügbar
+        // Funktion bereits verfügbar
         else:
           $converter_file = get_theme_file_path('/functions/bold-converter.php');
           if (file_exists($converter_file)):
             require_once $converter_file;
           endif;
         endif;
-        
+
         if (function_exists('convert_hash_to_linebreak')):
-          // Funktion bereits verfügbar
+        // Funktion bereits verfügbar
         else:
           $linebreak_file = get_theme_file_path('/functions/line-break-converter.php');
           if (file_exists($linebreak_file)):
             require_once $linebreak_file;
           endif;
         endif;
-        
+
         // Headline verarbeiten falls vorhanden und Funktionen verfügbar
         if ($headline && function_exists('convert_stars_to_strong')):
           $headline = convert_stars_to_strong($headline);
@@ -89,7 +89,7 @@ endif;
         endif;
         ?>
 
-        <?php 
+        <?php
         // Use direct field access (these are not clone fields)
         $subheadline = get_field('sub-headline');
         $textblock = get_field('textblock');
@@ -101,13 +101,13 @@ endif;
             <?= $headline ?>
           </h2>
         <?php endif; ?>
-        
+
         <?php if ($subheadline): ?>
           <div class="subheadline">
             <?= wp_kses_post($subheadline) ?>
           </div>
         <?php endif; ?>
-        
+
         <?php if ($textblock): ?>
           <div class="textblock">
             <?= wp_kses_post($textblock) ?>
@@ -130,26 +130,27 @@ endif;
           </div>
         <?php endif; ?>
 
-      <?php else: // $is_quote == 'is_quote' ?>
+      <?php else: // $is_quote == 'is_quote' 
+      ?>
         <?php $author = get_field('autor'); ?>
         <?php $quote_content = get_field('quote_content'); ?>
 
-    <div class="text-wrapper is-quote">
+        <div class="text-wrapper is-quote">
 
-        <figure class="quote-wrapper">
-          <figcaption>
-            <?php if ($author): ?>
-              <cite class="author"><?php echo esc_html($author); ?></cite>
+          <figure class="quote-wrapper">
+            <figcaption>
+              <?php if ($author): ?>
+                <cite class="author"><?php echo esc_html($author); ?></cite>
+              <?php endif; ?>
+            </figcaption>
+            <?php if ($quote_content): ?>
+              <blockquote class="textblock quote-content">
+                <?php echo wp_kses_post($quote_content); ?>
+              </blockquote>
             <?php endif; ?>
-          </figcaption>
-          <?php if ($quote_content): ?>
-            <blockquote class="textblock quote-content">
-              <?php echo wp_kses_post($quote_content); ?>
-            </blockquote>
-          <?php endif; ?>
-        </figure>
-      <?php endif; ?>
+          </figure>
+        <?php endif; ?>
 
-    </div>
-  </div>
+        </div>
+      </div>
 </section>
