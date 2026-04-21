@@ -1,188 +1,71 @@
 @use "../abstracts/" as *;
 
-/* ============================================
-   TP SLIDER - Theme CSS
-   Anforderungen:
-    - 4:3 Seitenverhaeltnis (960x720px)
-    - Max Width: 960px
-    - Keine Auto-Slides
-    - Pfeile & Bullets: feste Theme-Farben
-    - Pfeile mit Box-Shadow fuer Sichtbarkeit auf jedem Hintergrund
-   ============================================ */
+//
+// PE SLIDER COMPONENT
+// Requirements: 4:3 aspect ratio, max 960px width, no auto-slides
+//
 
-/* ============================================
-   CONTAINER - Basis Layout
-   ============================================ */
+// Variables
+$slider-aspect-ratio: 4 / 3;
+$slider-fallback-padding: 75%; // 3/4 = 0.75 for 4:3 aspect ratio
+$slider-gap: 120px;
+$slider-button-size: 50px;
+$slider-button-size-mobile: 28px;
+$slider-button-z-index: 1;
+$slider-button-z-index-mobile: 15;
 
-.pe-slider {
-  width: 100%;
-  max-width: 820px;
-  margin: 0 auto;
-  aspect-ratio: 4 / 3;
-  position: relative;
-  overflow: hidden;
-  clip-path: inset(
-    -10px -55px
-  ); /* Bild clippen, aber Platz fuer Pfeile lassen */
-  background-color: $color-background;
-  box-sizing: border-box;
-}
+$slider-arrow-stroke: 3px;
+$slider-arrow-stroke-mobile: 1.5px;
+$slider-pagination-z-index: 10;
+$slider-bullet-size: 12px;
+$slider-bullet-size-mobile: 10px;
 
-/* Fallback fuer Browser ohne aspect-ratio */
-@supports not (aspect-ratio: 4 / 3) {
-  .pe-slider {
-    padding-bottom: 75%;
-    height: 0;
-  }
+// Breakpoints
+$mobile-breakpoint: 768px;
 
-  .pe-slider .tp-slider-track {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-
-    gap: 120px; /* Nachbar-Slides ausserhalb des clip-path schieben */
-  }
-}
-
-.pe-slider .tp-slider-slide {
-  width: 100%;
-  height: 100%;
-  flex-shrink: 0;
-  overflow: hidden;
-}
-
-.pe-slider .tp-slide-item {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: $color-white;
-  overflow: hidden;
-}
-
-/* ============================================
-   IMAGES - Konsistente Groessen
-   ============================================ */
-
-.pe-slider .tp-slider-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-}
-
-/* ============================================
-   NAVIGATION PFEILE
-
-   BOX-SHADOW Strategie fuer Sichtbarkeit:
-   - Aeusserer dunkler Halo (Hellbild-Kontrast)
-   - Innerer heller Halo (Dunkelbilder-Kontrast)
-   - Funktioniert auf jedem Bildhintergrund
-   ============================================ */
-
-.pe-slider .tp-slider-prev,
-.pe-slider .tp-slider-next {
-  width: 40px;
-  height: 40px;
-  font-size: 20px;
-  line-height: 40px;
-  text-align: center;
-  padding: 0;
-  color: $color-primary;
-  background: none;
-  border-radius: 50%;
-  border: none;
-  box-shadow: none;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.pe-slider .tp-slider-prev {
-  left: 0;
-  transform: translateY(-50%) translateX(calc(-100% - 8px));
-}
-
-.pe-slider .tp-slider-next {
-  right: 0;
-  transform: translateY(-50%) translateX(calc(100% + 8px));
-}
-
-/* Hover-State */
-.pe-slider .tp-slider-prev:hover {
-  color: darken($color-primary, 15%);
-  transform: translateY(-50%) translateX(calc(-100% - 8px)) scale(1.15);
-}
-
-.pe-slider .tp-slider-next:hover {
-  color: darken($color-primary, 15%);
-  transform: translateY(-50%) translateX(calc(100% + 8px)) scale(1.15);
-}
-
-/* ============================================
-   RESPONSIVE: Mobile Anpassungen
-   ============================================ */
-
-@media (max-width: 768px) {
-  .pe-slider {
-    clip-path: inset(-10px -42px);
-  }
-
-  .pe-slider .tp-slider-prev,
-  .pe-slider .tp-slider-next {
-    width: 28px;
-    height: 28px;
-    font-size: 14px;
-    line-height: 28px;
-    z-index: 15;
-    box-shadow: none;
-  }
-
-  .pe-slider .tp-slider-prev {
-    left: 0;
-    transform: translateY(-50%) translateX(calc(-100% - 4px));
-  }
-
-  .pe-slider .tp-slider-next {
-    right: 0;
-    transform: translateY(-50%) translateX(calc(100% + 4px));
-  }
-}
-
-/* ============================================
-   PAGINATION BULLETS
-   (Nur sichtbar wenn "Bullet-Navigation" aktiviert)
-   ============================================ */
-
-.pe-slider .tp-slider-pagination {
+// Mixins
+@mixin slider-button-base {
   position: absolute;
-  bottom: 16px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: auto;
-  max-width: 90%;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0;
+  border: none;
+  border-radius: 8px;
+  background-color: $color-vorstellung-primary;
+  font-size: 0; // Hide unicode text
+  text-indent: -9999px; // Hide unicode text completely
+  color: transparent; // Make unicode characters invisible
+  cursor: pointer;
+  transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 8px;
-  z-index: 10;
 
-  padding: 8px 12px;
-  background-color: rgba($color-primary, 0.55);
-  backdrop-filter: blur(8px);
-  border-radius: 20px;
-  border: 1px solid rgba($color-white, 0.18);
+  &:hover {
+    background-color: darken($color-vorstellung-primary, 15%);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
+  }
 }
 
-.pe-slider .tp-slider-bullet {
-  width: 12px;
-  height: 12px;
-  min-width: 12px;
-  min-height: 12px;
+@mixin slider-arrow-base {
+  content: "";
+  width: 40%;
+  height: 40%;
+  border-left: $slider-arrow-stroke solid $color-white;
+  border-top: $slider-arrow-stroke solid $color-white;
+  // Move the box so the visual center of the V-shape aligns with the flex center
+  transform-origin: center center;
+}
+
+@mixin slider-bullet-base {
+  width: $slider-bullet-size;
+  height: $slider-bullet-size;
+  min-width: $slider-bullet-size;
+  min-height: $slider-bullet-size;
   border-radius: 50%;
   background-color: $color-white;
   opacity: 0.4;
@@ -190,59 +73,167 @@
   padding: 0;
   border: none;
   box-sizing: border-box;
-  -webkit-appearance: none;
   appearance: none;
   transition: all 0.3s ease;
   cursor: pointer;
-  flex-shrink: 0;
-  flex-grow: 0;
-  flex-basis: 12px;
+  flex: 0 0 $slider-bullet-size;
   aspect-ratio: 1 / 1;
-}
 
-.pe-slider .tp-slider-bullet:hover {
-  opacity: 0.7;
-  transform: scale(1.2);
-}
-
-.pe-slider .tp-slider-bullet--active {
-  background-color: $color-white;
-  opacity: 1;
-  transform: scale(1.15);
-  box-shadow: 0 0 8px rgba($color-white, 0.5);
-}
-
-@media (max-width: 768px) {
-  .pe-slider .tp-slider-pagination {
-    bottom: 12px;
-    gap: 6px;
-    padding: 6px 10px;
+  &:hover {
+    opacity: 0.7;
+    transform: scale(1.2);
   }
 
-  .pe-slider .tp-slider-bullet {
-    width: 10px;
-    height: 10px;
-    min-width: 10px;
-    min-height: 10px;
+  &--active {
+    opacity: 1;
+    transform: scale(1.15);
+    box-shadow: 0 0 8px rgba($color-white, 0.5);
   }
 }
 
-/* ============================================
-   ACCESSIBILITY
-   ============================================ */
+// Main Component
+.pe-slider {
+  position: relative;
+  aspect-ratio: $slider-aspect-ratio;
+  overflow: hidden;
+  box-sizing: border-box;
 
-/* Keyboard Focus */
-.pe-slider .tp-slider-prev:focus-visible,
-.pe-slider .tp-slider-next:focus-visible {
-  outline: 2px solid $color-primary;
-  outline-offset: 2px;
-}
+  // Fallback for browsers without aspect-ratio support
+  @supports not (aspect-ratio: #{$slider-aspect-ratio}) {
+    padding-bottom: $slider-fallback-padding;
+    height: 0;
 
-/* Reduce Motion Support */
-@media (prefers-reduced-motion: reduce) {
-  .pe-slider .tp-slider-prev,
-  .pe-slider .tp-slider-next,
-  .pe-slider .tp-slider-bullet {
-    transition: opacity 0.2s ease;
+    .tp-slider-track {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      gap: $slider-gap;
+    }
+  }
+
+  // Slider Elements
+  .tp-slider-slide {
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .tp-slide-item {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $color-white;
+    overflow: hidden;
+  }
+
+  .tp-slider-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  // Navigation Arrows
+  .tp-slider-prev,
+  .tp-slider-next {
+    @include slider-button-base;
+    width: $slider-button-size;
+    height: $slider-button-size;
+    z-index: $slider-button-z-index;
+
+    &::before {
+      @include slider-arrow-base;
+    }
+  }
+
+  .tp-slider-prev {
+    left: 10px;
+
+    &::before {
+      // Fine-tuned positioning for optical center alignment
+      transform: rotate(-45deg) translate(4px, 3px);
+    }
+  }
+
+  .tp-slider-next {
+    right: 10px;
+
+    &::before {
+      // Fine-tuned positioning for optical center alignment
+      transform: rotate(135deg) translate(4px, 3px);
+    }
+  }
+
+  // Pagination Bullets
+  .tp-slider-pagination {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    max-width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    z-index: $slider-pagination-z-index;
+    padding: 8px 12px;
+    background-color: rgba($color-primary, 0.55);
+    backdrop-filter: blur(8px);
+    border-radius: 20px;
+    border: 1px solid rgba($color-white, 0.18);
+  }
+
+  .tp-slider-bullet {
+    @include slider-bullet-base;
+  }
+
+  // Mobile Optimizations
+  @media (max-width: $mobile-breakpoint) {
+    clip-path: inset(-10px -42px);
+
+    .tp-slider-prev,
+    .tp-slider-next {
+      width: $slider-button-size-mobile;
+      height: $slider-button-size-mobile;
+      z-index: $slider-button-z-index-mobile;
+
+      &::before {
+        width: 40%;
+        height: 40%;
+        border-left-width: $slider-arrow-stroke-mobile;
+        border-top-width: $slider-arrow-stroke-mobile;
+      }
+    }
+
+    .tp-slider-pagination {
+      bottom: 12px;
+      gap: 6px;
+      padding: 6px 10px;
+    }
+
+    .tp-slider-bullet {
+      width: $slider-bullet-size-mobile;
+      height: $slider-bullet-size-mobile;
+      min-width: $slider-bullet-size-mobile;
+      min-height: $slider-bullet-size-mobile;
+      flex-basis: $slider-bullet-size-mobile;
+    }
+  }
+
+  // Accessibility & Motion Preferences
+  @media (prefers-reduced-motion: reduce) {
+    .tp-slider-prev,
+    .tp-slider-next,
+    .tp-slider-bullet {
+      transition: opacity 0.2s ease;
+    }
   }
 }
