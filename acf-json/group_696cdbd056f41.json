@@ -1,33 +1,7 @@
 {
     "key": "group_696cdbd056f41",
-    "title": "Image & Data",
+    "title": "Slider & Data",
     "fields": [
-        {
-            "key": "field_696cdbd12c017",
-            "label": "Image",
-            "name": "id::image",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "",
-            "allow_in_bindings": 0,
-            "preview_size": "medium"
-        },
         {
             "key": "field_696cdbfbc7e37",
             "label": "First Section",
@@ -118,6 +92,29 @@
                     "save_options": 0
                 }
             ]
+        },
+        {
+            "key": "field_696cdbd12c017",
+            "label": "Slider",
+            "name": "id::slider",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 559,
+            "min": "",
+            "max": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": ""
         },
         {
             "key": "field_696cdc5ec7e3b",
@@ -216,7 +213,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/image-data"
+                "value": "acf\/slider-data"
             }
         ]
     ],
@@ -230,5 +227,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1768744500
+    "modified": 1776769983
 }

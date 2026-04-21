@@ -1,6 +1,6 @@
 {
   "name": "Forstgemeinschaft-theme",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Modern WordPress theme with advanced build tools",
   "main": "build/index.js",
   "engines": {

@@ -22,6 +22,7 @@
 }
 
 body {
+  overflow-x: hidden;
   box-sizing: border-box;
   font-display: swap; /* Zeigt Fallback sofort, tauscht dann */
   max-width: $bp-4k; /* Verhindert zu breite Zeilen auf sehr großen Bildschirmen */

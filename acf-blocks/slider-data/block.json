@@ -1,8 +1,8 @@
 {
   "apiVersion": 3,
-  "name": "acf/image",
-  "title": "Bild Block",
-  "description": "Großes Bild mit optionalem Slider bei mehreren Bildern",
+  "name": "acf/slider-data",
+  "title": "Slider & Data",
+  "description": "Slider & Data",
   "category": "",
   "icon": "align-left",
   "keywords": ["text"],

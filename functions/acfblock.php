@@ -24,39 +24,41 @@ class ACFBlock
 new ACFblock("image-text");
 new ACFblock("text");
 new ACFblock("hero");
-new ACFblock("image");
-new ACFblock("image-data");
+new ACFblock("slider-data");
 new acfblock(name: "ansprechpartner");
 new acfblock("kacheln-leistungen");
 
 /**
  * Add custom styles to WYSIWYG editor for better visual editing
  */
-function add_wysiwyg_editor_styles() {
-    add_editor_style('editor-style.css');
+function add_wysiwyg_editor_styles()
+{
+  add_editor_style('editor-style.css');
 }
 add_action('after_setup_theme', 'add_wysiwyg_editor_styles');
 
 /**
  * Enqueue styles for Gutenberg editor (Block Editor)
  */
-function add_gutenberg_editor_styles() {
-    wp_enqueue_style(
-        'theme-editor-styles',
-        get_theme_file_uri('editor-style.css'),
-        array(),
-        wp_get_theme()->get('Version')
-    );
+function add_gutenberg_editor_styles()
+{
+  wp_enqueue_style(
+    'theme-editor-styles',
+    get_theme_file_uri('editor-style.css'),
+    array(),
+    wp_get_theme()->get('Version')
+  );
 }
 add_action('enqueue_block_editor_assets', 'add_gutenberg_editor_styles');
 
 /**
  * Add custom styles specifically for ACF WYSIWYG fields
  */
-function acf_wysiwyg_editor_styles($toolbars) {
-    // Add custom CSS for ACF WYSIWYG fields
-    add_action('admin_head', function() {
-        echo '<style>
+function acf_wysiwyg_editor_styles($toolbars)
+{
+  // Add custom CSS for ACF WYSIWYG fields
+  add_action('admin_head', function () {
+    echo '<style>
         /* ACF WYSIWYG Field List Styles */
         .acf-editor-wrap .mce-content-body ul {
             list-style-type: disc !important;
@@ -94,8 +96,8 @@ function acf_wysiwyg_editor_styles($toolbars) {
             margin: 0.5em 0 !important;
         }
         </style>';
-    });
-    
-    return $toolbars;
+  });
+
+  return $toolbars;
 }
 add_filter('acf/fields/wysiwyg/toolbars', 'acf_wysiwyg_editor_styles');

@@ -15,15 +15,17 @@
    ============================================ */
 
 .pe-slider {
-    width: 100%;
-    max-width: 820px;
-    margin: 0 auto;
-    aspect-ratio: 4 / 3;
-    position: relative;
-    overflow: visible;
-    clip-path: inset(-10px -55px);  /* Bild clippen, aber Platz fuer Pfeile lassen */
-    background-color: $color-background;
-    box-sizing: border-box;
+  width: 100%;
+  max-width: 820px;
+  margin: 0 auto;
+  aspect-ratio: 4 / 3;
+  position: relative;
+  overflow: hidden;
+  clip-path: inset(
+    -10px -55px
+  ); /* Bild clippen, aber Platz fuer Pfeile lassen */
+  background-color: $color-background;
+  box-sizing: border-box;
 }
 
 /* Fallback fuer Browser ohne aspect-ratio */
@@ -33,29 +35,22 @@
     height: 0;
   }
 
-    .pe-slider .tp-slider-track {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
-}
-
-/* ============================================
-   WRAPPER & SLIDES
-   ============================================ */
-
-.pe-slider .tp-slider-track {
+  .pe-slider .tp-slider-track {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
-    gap: 120px;   /* Nachbar-Slides ausserhalb des clip-path schieben */
+
+    gap: 120px; /* Nachbar-Slides ausserhalb des clip-path schieben */
+  }
 }
 
 .pe-slider .tp-slider-slide {
-    width: 100%;
-    height: 100%;
-    flex-shrink: 0;
-    overflow: hidden;
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  overflow: hidden;
 }
 
 .pe-slider .tp-slide-item {
@@ -73,11 +68,11 @@
    ============================================ */
 
 .pe-slider .tp-slider-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 
 /* ============================================
@@ -91,40 +86,40 @@
 
 .pe-slider .tp-slider-prev,
 .pe-slider .tp-slider-next {
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-    line-height: 40px;
-    text-align: center;
-    padding: 0;
-    color: $color-primary;
-    background: none;
-    border-radius: 50%;
-    border: none;
-    box-shadow: none;
-    transition: all 0.3s ease;
-    cursor: pointer;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  line-height: 40px;
+  text-align: center;
+  padding: 0;
+  color: $color-primary;
+  background: none;
+  border-radius: 50%;
+  border: none;
+  box-shadow: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .pe-slider .tp-slider-prev {
-    left: 0;
-    transform: translateY(-50%) translateX(calc(-100% - 8px));
+  left: 0;
+  transform: translateY(-50%) translateX(calc(-100% - 8px));
 }
 
 .pe-slider .tp-slider-next {
-    right: 0;
-    transform: translateY(-50%) translateX(calc(100% + 8px));
+  right: 0;
+  transform: translateY(-50%) translateX(calc(100% + 8px));
 }
 
 /* Hover-State */
 .pe-slider .tp-slider-prev:hover {
-    color: darken($color-primary, 15%);
-    transform: translateY(-50%) translateX(calc(-100% - 8px)) scale(1.15);
+  color: darken($color-primary, 15%);
+  transform: translateY(-50%) translateX(calc(-100% - 8px)) scale(1.15);
 }
 
 .pe-slider .tp-slider-next:hover {
-    color: darken($color-primary, 15%);
-    transform: translateY(-50%) translateX(calc(100% + 8px)) scale(1.15);
+  color: darken($color-primary, 15%);
+  transform: translateY(-50%) translateX(calc(100% + 8px)) scale(1.15);
 }
 
 /* ============================================
@@ -132,29 +127,29 @@
    ============================================ */
 
 @media (max-width: 768px) {
-    .pe-slider {
-        clip-path: inset(-10px -42px);
-    }
+  .pe-slider {
+    clip-path: inset(-10px -42px);
+  }
 
-    .pe-slider .tp-slider-prev,
-    .pe-slider .tp-slider-next {
-        width: 28px;
-        height: 28px;
-        font-size: 14px;
-        line-height: 28px;
-        z-index: 15;
-        box-shadow: none;
-    }
+  .pe-slider .tp-slider-prev,
+  .pe-slider .tp-slider-next {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+    line-height: 28px;
+    z-index: 15;
+    box-shadow: none;
+  }
 
-    .pe-slider .tp-slider-prev {
-        left: 0;
-        transform: translateY(-50%) translateX(calc(-100% - 4px));
-    }
+  .pe-slider .tp-slider-prev {
+    left: 0;
+    transform: translateY(-50%) translateX(calc(-100% - 4px));
+  }
 
-    .pe-slider .tp-slider-next {
-        right: 0;
-        transform: translateY(-50%) translateX(calc(100% + 4px));
-    }
+  .pe-slider .tp-slider-next {
+    right: 0;
+    transform: translateY(-50%) translateX(calc(100% + 4px));
+  }
 }
 
 /* ============================================
@@ -163,18 +158,18 @@
    ============================================ */
 
 .pe-slider .tp-slider-pagination {
-    position: absolute;
-    bottom: 16px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: auto;
-    max-width: 90%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 8px;
-    z-index: 10;
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  max-width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  z-index: 10;
 
   padding: 8px 12px;
   background-color: rgba($color-primary, 0.55);
@@ -184,52 +179,52 @@
 }
 
 .pe-slider .tp-slider-bullet {
-    width: 12px;
-    height: 12px;
-    min-width: 12px;
-    min-height: 12px;
-    border-radius: 50%;
-    background-color: $color-white;
-    opacity: 0.4;
-    margin: 0;
-    padding: 0;
-    border: none;
-    box-sizing: border-box;
-    -webkit-appearance: none;
-    appearance: none;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    flex-shrink: 0;
-    flex-grow: 0;
-    flex-basis: 12px;
-    aspect-ratio: 1 / 1;
+  width: 12px;
+  height: 12px;
+  min-width: 12px;
+  min-height: 12px;
+  border-radius: 50%;
+  background-color: $color-white;
+  opacity: 0.4;
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  appearance: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  flex-shrink: 0;
+  flex-grow: 0;
+  flex-basis: 12px;
+  aspect-ratio: 1 / 1;
 }
 
 .pe-slider .tp-slider-bullet:hover {
-    opacity: 0.7;
-    transform: scale(1.2);
+  opacity: 0.7;
+  transform: scale(1.2);
 }
 
 .pe-slider .tp-slider-bullet--active {
-    background-color: $color-white;
-    opacity: 1;
-    transform: scale(1.15);
-    box-shadow: 0 0 8px rgba($color-white, 0.5);
+  background-color: $color-white;
+  opacity: 1;
+  transform: scale(1.15);
+  box-shadow: 0 0 8px rgba($color-white, 0.5);
 }
 
 @media (max-width: 768px) {
-    .pe-slider .tp-slider-pagination {
-        bottom: 12px;
-        gap: 6px;
-        padding: 6px 10px;
-    }
+  .pe-slider .tp-slider-pagination {
+    bottom: 12px;
+    gap: 6px;
+    padding: 6px 10px;
+  }
 
-    .pe-slider .tp-slider-bullet {
-        width: 10px;
-        height: 10px;
-        min-width: 10px;
-        min-height: 10px;
-    }
+  .pe-slider .tp-slider-bullet {
+    width: 10px;
+    height: 10px;
+    min-width: 10px;
+    min-height: 10px;
+  }
 }
 
 /* ============================================
@@ -239,15 +234,15 @@
 /* Keyboard Focus */
 .pe-slider .tp-slider-prev:focus-visible,
 .pe-slider .tp-slider-next:focus-visible {
-    outline: 2px solid $color-primary;
-    outline-offset: 2px;
+  outline: 2px solid $color-primary;
+  outline-offset: 2px;
 }
 
 /* Reduce Motion Support */
 @media (prefers-reduced-motion: reduce) {
-    .pe-slider .tp-slider-prev,
-    .pe-slider .tp-slider-next,
-    .pe-slider .tp-slider-bullet {
-        transition: opacity 0.2s ease;
-    }
+  .pe-slider .tp-slider-prev,
+  .pe-slider .tp-slider-next,
+  .pe-slider .tp-slider-bullet {
+    transition: opacity 0.2s ease;
+  }
 }
