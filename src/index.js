@@ -13,7 +13,6 @@ import MobileNavigation from "./js/navigation.js";
 import ScrollHandler from "./js/scroll-handler.js";
 import "./js/fbg-stats-counter.js";
 import "./js/image-data-counter.js";
-import ParallaxImageText from "./js/parallax.js";
 
 /**
  * Main application initialization
@@ -43,7 +42,6 @@ class App {
   setup() {
     this.initializeNavigation();
     this.initializeScrollHandler();
-    this.initializeParallax();
 
     console.log("Theme initialized");
   }
@@ -63,16 +61,6 @@ class App {
    */
   initializeScrollHandler() {
     this.scrollHandler = new ScrollHandler();
-  }
-
-  /**
-   * Initialize parallax for image-text blocks
-   */
-  initializeParallax() {
-    this.parallaxImageText = new ParallaxImageText({
-      speed: 1.2,
-      maxOffset: 100,
-    });
   }
 
   /**

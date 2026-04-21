@@ -39,6 +39,24 @@ body {
   // }
 }
 
+// Scroll offset für Skiplinks/Anchor-Links bei fixer Navigation
+html {
+  scroll-padding-top: 76px; // Mobile Header Höhe
+
+  @media (min-width: $bp-tablet) {
+    scroll-padding-top: 130px; // Desktop Header Höhe
+  }
+
+  // WordPress Admin Bar berücksichtigen
+  .logged-in & {
+    scroll-padding-top: calc(76px + 46px); // Mobile Header + Admin Bar
+
+    @media (min-width: $bp-tablet) {
+      scroll-padding-top: calc(130px + 32px); // Desktop Header + Admin Bar
+    }
+  }
+}
+
 a {
   color: inherit;
   cursor: pointer;

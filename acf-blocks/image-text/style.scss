@@ -62,22 +62,7 @@
       }
     }
   }
-  &.has-parallax {
-    .col-image {
-      position: relative;
-      overflow: hidden;
-    }
 
-    .col-image picture {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-
-    .col-image img {
-      position: relative; // war: absolute
-      top: auto; // war: -100px
-      left: auto;
       width: 100%;
       height: auto; // war: calc(100% + 200px)
       object-fit: cover;

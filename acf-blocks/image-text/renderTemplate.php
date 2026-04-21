@@ -29,9 +29,6 @@ if (!empty($block['align'])) {
 $has_background = get_field('hintergrund');
 $bild_position = get_field('bild_position');
 $abstand_halb = get_field('abstand_halb');
-$image_top = get_field('bild_oben');
-$abstand_off = get_field('kein_modul_abstand');
-$bild_big = get_field( 'bild_vergrosern' );
 
 if ($has_background):
   $classes .= ' has-background';
@@ -46,57 +43,35 @@ endif;
 if ($abstand_halb && !$abstand_off):
   $classes .= ' abstand-halb';
 endif;
-
-if ($abstand_off):
-  $classes .= ' abstand-off';
-endif;
-
-if ($image_top) {
-  $classes .= ' image-top';
-}
-if ($bild_big) {
-  $classes .= ' image-big';
-}
-
-if ($image_top && get_field('parallax')) {
-  $classes .= ' has-parallax';
-}
-
-
-
-
 ?>
 
-
-
-
 <section id="<?php echo esc_attr($id); ?>" class="module <?php echo esc_attr($classes); ?>">
-    <div class="container has-columns">
-        <div class="column col-image">
-            <?php
-        # Run Single Image Code
-        $image = get_field('einzelnes_bild');
-        if ($image): ?>
-            <figure>
-              <!-- Responsive image -->
-              <img src="<?= wp_get_attachment_image_url($image['ID'], 'medium') ?>"
-                  srcset="<?= wp_get_attachment_image_srcset($image['ID']) ?>" sizes="(min-width: 768px) 50vw, 100vw"
-                  alt="<?= esc_attr($image['alt'] ?: 'Image') ?>" loading="lazy" decoding="async"
-                  width="<?= $image['width'] ?>" height="<?= $image['height'] ?>"
-                  onload="console.log('Image-Text Single loaded:', this.currentSrc || this.src)">
-              <?php if ( !empty( $image['caption'] ) ) : ?>
-                <figcaption class="image-caption"><?php echo wp_kses_post( $image['caption'] ); ?></figcaption>
-              <?php endif; ?>
-            </figure>
-            <?php endif; ?>
-
-        
+  <div class="container has-columns">
+    <div class="column col-image">
+      <?php
+      # Run Single Image Code
+      $image = get_field('einzelnes_bild');
+      if ($image): ?>
+        <figure>
+          <!-- Responsive image -->
+          <img src="<?= wp_get_attachment_image_url($image['ID'], 'medium') ?>"
+            srcset="<?= wp_get_attachment_image_srcset($image['ID']) ?>" sizes="(min-width: 768px) 50vw, 100vw"
+            alt="<?= esc_attr($image['alt'] ?: 'Image') ?>" loading="lazy" decoding="async"
+            width="<?= $image['width'] ?>" height="<?= $image['height'] ?>"
+            onload="console.log('Image-Text Single loaded:', this.currentSrc || this.src)">
+          <?php if (!empty($image['caption'])) : ?>
+            <figcaption class="image-caption"><?php echo wp_kses_post($image['caption']); ?></figcaption>
+          <?php endif; ?>
+        </figure>
+      <?php endif; ?>
 
 
-        </div>
 
-        <div class="column col-text">
-            <?php
+
+    </div>
+
+    <div class="column col-text">
+      <?php
       $headline = get_field('sektionsuberschrift_h2');
 
       // Sichere Einbindung der Funktionen
@@ -127,47 +102,47 @@ if ($image_top && get_field('parallax')) {
       }
       ?>
 
-            <?php $subheadline = get_field('sub-headline'); ?>
-            <?php $textblock = get_field('textblock'); ?>
-            <?php $button = get_field('button'); ?>
-            <div class="text-wrapper">
-                <?php if ($headline): ?>
-                <h2 class="headline-2 headline">
-                    <?= $headline ?>
-                </h2>
-                <?php endif; ?>
-                <?php if ($subheadline): ?>
+      <?php $subheadline = get_field('sub-headline'); ?>
+      <?php $textblock = get_field('textblock'); ?>
+      <?php $button = get_field('button'); ?>
+      <div class="text-wrapper">
+        <?php if ($headline): ?>
+          <h2 class="headline-2 headline">
+            <?= $headline ?>
+          </h2>
+        <?php endif; ?>
+        <?php if ($subheadline): ?>
 
-                <div class="subheadline">
-                    <?= wp_kses_post($subheadline) ?>
-                </div>
-                <?php endif; ?>
-                <?php if ($textblock): ?>
-                <div class="textblock">
-                    <?= wp_kses_post($textblock) ?>
-                </div>
-                <?php endif; ?>
-                <?php if (have_rows('buttons')): ?>
-                <?php while (have_rows('buttons')):
+          <div class="subheadline">
+            <?= wp_kses_post($subheadline) ?>
+          </div>
+        <?php endif; ?>
+        <?php if ($textblock): ?>
+          <div class="textblock">
+            <?= wp_kses_post($textblock) ?>
+          </div>
+        <?php endif; ?>
+        <?php if (have_rows('buttons')): ?>
+          <?php while (have_rows('buttons')):
             the_row(); ?>
-                <?php $button = get_sub_field('button'); ?>
-                <?php if ($button): ?>
-                <div class="button-wrapper" role="group" aria-label="Actions">
-                    <!--Class SR-Only describes the action Element for Screen Readers only
+            <?php $button = get_sub_field('button'); ?>
+            <?php if ($button): ?>
+              <div class="button-wrapper" role="group" aria-label="Actions">
+                <!--Class SR-Only describes the action Element for Screen Readers only
             aria label described by is connecting action element and screen 
             reader description with class "sr-only" -->
-                    <a class="btn btn--primary" href="<?php echo esc_url($button['url']); ?>"
-                        aria-describedby="<?php echo esc_html($button['title']); ?>"
-                        target="<?php echo esc_attr($button['target']); ?>">
-                        <span class="btn__text"><?php echo esc_html($button['title']); ?></span>
-                    </a>
-                    <span id="<?php echo esc_html($button['title']); ?>" class="sr-only">(Description for screen
-                        readers)</span>
-                </div>
-                <?php endif; ?>
-                <?php endwhile; ?>
-                <?php endif; ?>
-            </div>
-        </div>
+                <a class="btn btn--primary" href="<?php echo esc_url($button['url']); ?>"
+                  aria-describedby="<?php echo esc_html($button['title']); ?>"
+                  target="<?php echo esc_attr($button['target']); ?>">
+                  <span class="btn__text"><?php echo esc_html($button['title']); ?></span>
+                </a>
+                <span id="<?php echo esc_html($button['title']); ?>" class="sr-only">(Description for screen
+                  readers)</span>
+              </div>
+            <?php endif; ?>
+          <?php endwhile; ?>
+        <?php endif; ?>
+      </div>
     </div>
+  </div>
 </section>
