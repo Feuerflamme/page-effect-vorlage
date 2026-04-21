@@ -151,7 +151,8 @@ class MobileNavigation {
 
         const isOpen = submenu.classList.contains("active");
         const href = link.getAttribute("href");
-        const hasRealTarget = href && href !== "#" && href !== "javascript:void(0)";
+        const hasRealTarget =
+          href && href !== "#" && href !== "javascript:void(0)";
 
         if (!isOpen) {
           e.preventDefault();
@@ -195,16 +196,30 @@ class MobileNavigation {
           return;
         }
 
-        // Don't close if it's just a hash link (no actual navigation)
         const href = link.getAttribute("href");
 
-        // Close menu for all links except empty href or just hash
-        if (href && href !== "#" && href !== "javascript:void(0)") {
-          // Small delay to allow the link to be processed
+        // Check if it's a hash link to the same page (skiplink)
+        const isSkipLink = href && href.startsWith("#") && href.length > 1;
+
+        // Check if it's an external link or different page
+        const isExternalOrNewPage =
+          href &&
+          href !== "#" &&
+          href !== "javascript:void(0)" &&
+          !href.startsWith("#");
+
+        if (isSkipLink) {
+          // For skiplinks: Close menu after scroll animation completes
+          setTimeout(() => {
+            this.closeNavigation();
+          }, 800); // Longer delay for scroll animation
+        } else if (isExternalOrNewPage) {
+          // For external/new page links: Close immediately
           setTimeout(() => {
             this.closeNavigation();
           }, 100);
         }
+        // Don't close menu for empty href or just hash
       });
     });
   }

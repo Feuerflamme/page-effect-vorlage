@@ -62,14 +62,6 @@
       }
     }
   }
-
-      width: 100%;
-      height: auto; // war: calc(100% + 200px)
-      object-fit: cover;
-      will-change: transform;
-      transition: transform 0.1s linear;
-    }
-  }
   &.image-big {
     .col-image img {
       max-height: unset;
