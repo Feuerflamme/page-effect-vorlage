@@ -8,6 +8,11 @@
     padding-left: 10px;
     padding-right: 10px;
 
+    @media (min-width: $bp-tablet) {
+      padding-left: 100px;
+      padding-right: 100px;
+    }
+
     .headline-2 {
       display: block;
       width: 100%;
