@@ -184,6 +184,11 @@
           padding: 0 $grid-plus-gap;
         }
 
+        @media (max-width: ($bp-tablet - 1px)) {
+          gap: 20px;
+          padding-bottom: 40px;
+        }
+
         .legal {
           width: unset;
         }

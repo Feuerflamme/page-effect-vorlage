@@ -30,131 +30,69 @@
     .group.wrapper {
       display: flex;
       flex-direction: row;
+
+      flex-wrap: wrap;
+      justify-content: flex-start;
       gap: 64px;
       padding-bottom: 64px;
-
-      .text-wrapper {
-        width: 100%;
-      }
-    }
-    .ansprechpartner {
       @media (max-width: ($bp-tablet - 1px)) {
-        .ansprechpartner__overlay {
-          flex-direction: column;
-          align-items: center;
-          gap: 16px;
-        }
-
-        .image {
-          order: 1;
-          width: 100%;
-
-          img {
-            width: 100%;
-            max-width: 100%;
-            height: auto;
-          }
-        }
-
-        .text-wrapper {
-          order: 2;
-          width: 100%;
-          text-align: left;
-
-          .headline-3::after {
-            margin-left: 0;
-            margin-right: auto;
-          }
-        }
+        flex-direction: row;
       }
 
-      .image {
-        img {
-          object-fit: cover;
-          max-width: 250px;
-          width: 250px;
-          height: 375px;
-          max-height: 375px;
-        }
-      }
-
-      .text-wrapper {
-        align-items: flex-start;
-        justify-content: flex-start;
-        box-shadow: none;
-        padding: 0;
-
-        .headline-3 {
-          // text-decoration: underline;
-          // text-decoration-color: var(--acf-primary, #{$color-accent});
-          // text-decoration-thickness: 3px;
-          // text-underline-offset: 6px;
-          text-transform: uppercase;
-          font-size: 1.2rem;
-          // color: var(--acf-primary, #{$color-accent});
-          font-weight: 900;
-          letter-spacing: 0.05em;
-          line-height: 1.1;
-          // text-decoration: underline;
-          // text-decoration-color: $color-vorstellung-secondary;
-          // text-decoration-thickness: 4px;
-          // text-underline-offset: 6px;
-          margin-bottom: 18px;
-
-          // &::after {
-          //   content: "";
-          //   display: block;
-          //   width: 80px;
-          //   height: 4px;
-          //   background-color: $color-vorstellung-secondary;
-          //   margin: 4px auto 18px 0;
-          // }
-        }
-
-        .headline-4 {
-          font-size: 1.1rem;
-          line-height: 1.1;
-        }
-        .beschreibung {
-          font-size: 0.95rem;
-          line-height: 1.4;
-        }
-      }
-    }
-
-    @media (min-width: $bp-tablet) {
       .ansprechpartner__overlay {
         display: flex;
         align-items: flex-end;
         gap: 32px;
-      }
-    }
-
-    @media (max-width: ($bp-tablet - 1px)) {
-      .ansprechpartner__overlay {
-        flex-direction: column;
-        align-items: center;
-        gap: 16px;
-      }
-
-      .image {
-        order: 1;
-        width: 100%;
-
-        img {
+        @media (max-width: ($bp-tablet - 1px)) {
+          flex-direction: row;
+          align-items: flex-end;
           width: 100%;
-          max-width: 100%;
-          height: auto;
+          gap: 16px;
         }
-      }
 
-      .text-wrapper {
-        text-align: left;
-        align-items: flex-start;
-        justify-content: flex-start;
+        @media (max-width: ($bp-mobile - 1px)) {
+          flex-direction: column;
+          align-items: flex-start;
+        }
 
-        .headline-3::after {
-          margin: 4px auto 18px 0;
+        .image {
+          img {
+            object-fit: cover;
+            max-width: 200px;
+            width: 200px;
+            height: 325px;
+            max-height: 325px;
+          }
+        }
+
+        .text-wrapper {
+          width: 280px;
+          align-items: flex-start;
+          justify-content: flex-start;
+          box-shadow: none;
+          padding: 0;
+
+          @media (max-width: ($bp-tablet - 1px)) {
+            width: 100%;
+          }
+
+          .headline-3 {
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            font-weight: 900;
+            letter-spacing: 0.05em;
+            line-height: 1.1;
+            margin-bottom: 18px;
+          }
+
+          .headline-4 {
+            font-size: 1.1rem;
+            line-height: 1.1;
+          }
+          .beschreibung {
+            font-size: 0.95rem;
+            line-height: 1.4;
+          }
         }
       }
     }
